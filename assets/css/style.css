@@ -708,6 +708,25 @@ body {
     color: #fff;
     cursor: pointer;
 }
+.sidebar_widget .widget_color ul li:first-child a::before {
+    background: black;
+}
+.sidebar_widget .widget_color ul li:nth-last-child(1) a::before {
+    background:green;
+}
+.sidebar_widget .widget_color ul li:nth-last-child(2) a::before{
+    background: pink;
+}
+.sidebar_widget .widget_color ul li:nth-last-child(3) a::before{
+    background: yellow;
+}
+.sidebar_widget .widget_color ul li:nth-last-child(4) a::before{
+    background: blue;
+}
+.sidebar_widget .widget_color ul li:nth-last-child(5) a::before{
+    background: orange;
+}
+
 
 /*categorie menu css end*/
 
