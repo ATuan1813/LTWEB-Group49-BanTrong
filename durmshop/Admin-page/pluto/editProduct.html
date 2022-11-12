@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- site icon -->
+    <link rel="icon" href="images/fevicon.png" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="css/colors.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <!-- calendar file css -->
+    <link rel="stylesheet" href="js/semantic.min.css" />
+    <!-- fancy box js -->
+    <link rel="stylesheet" href="css/jquery.fancybox.css" />
+    <!-- my css -->
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel="stylesheet" href="css/ProductStyle/styleProduct.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+</head>
+
+<body class="inner_page tables_page">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                   <div class="sidebar-header">
+                      <div class="logo_section">
+                         <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                      </div>
+                   </div>
+                   <div class="sidebar_user_info">
+                      <div class="icon_setting"></div>
+                      <div class="user_profle_side">
+                         <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                         <div class="user_info">
+                            <h6>Anh Tuấn</h6>
+                            <p><span class="online_animation"></span> Online</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="sidebar_blog_2">
+                   <h4>Admin</h4>
+                   <ul class="list-unstyled components">
+                      <li>
+                         <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond orange_color"></i> <span>Hóa đơn</span></a>
+                         <ul class="collapse list-unstyled" id="element">
+                            <li><a href="invoice.html">> <span>Hóa Đơn Gần Đây</span></a></li>
+                            <li><a href="invoice.html">> <span>Hóa Đơn Tháng Trước</span></a></li>
+                         </ul>
+                      </li>
+                      <li>
+                         <div class="a-dropdown">
+                            <a href="tables.html" id="a-link"><i class="fa fa-object-group purple_color2"></i> <span>Quản Lý Sản Phẩm</span></a>
+                            <a href="#manage1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle "></a>
+                         </div>
+                         
+                         <ul class="collapse list-unstyled" id="manage1">
+                            <li><a href="product_manage_trongbo.html">> <span>Trống Bộ</span></a></li>
+                            <li><a href="tables.html">> <span>Trống Lẻ</span></a></li>
+                            <li><a href="tables.html">> <span>Phụ Kiện</span></a></li>
+                         </ul>
+                      </li>
+                      <li>
+                         <div class="a-dropdown">
+                            <a href="listUser.html" id="a-link"><i class="fa fa-user red_color"></i> <span>Quản Lý Khách Hàng</span></a>
+                         </div>
+                      </li>
+                      <li>
+                         <div class="a-dropdown">
+                            <a href="tables.html" id="a-link"><i class="fa fa-user yellow_color"></i> <span>Tài Khoản Admin</span></a>
+                         </div>
+                      </li>   
+                      <li>
+                         <a href="charts.html">
+                         <i class="fa fa-bar-chart-o red_color"></i> <span>Thống Kê</span></a>
+                      </li>                 
+                      <li>
+                         <a href="contact.html">
+                         <i class="fa fa-paper-plane red_color"></i> <span>Liên Lạc</span></a>
+                      </li>
+                      <!-- <li class="active">
+                         <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
+                         <ul class="collapse list-unstyled" id="additional_page">
+                            <li>
+                               <a href="profile.html">> <span>Profile</span></a>
+                            </li>
+                            <li>
+                               <a href="project.html">> <span>Projects</span></a>
+                            </li>
+                            <li>
+                               <a href="login.html">> <span>Login</span></a>
+                            </li>
+                            <li>
+                               <a href="404_error.html">> <span>404 Error</span></a>
+                            </li>
+                         </ul>
+                      </li> -->
+                      
+                   </ul>
+                </div>
+             </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
+                                    class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                <a href="index.html"><img class="img-responsive" src="images/logo/logo.png"
+                                        alt="#" /></a>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a>
+                                        </li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                           <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Anh Tuấn</span></a>
+                                           <div class="dropdown-menu">
+                                              <!-- <a class="dropdown-item" href="profile.html">Profile Của Tôi</a> -->
+                                              <a class="dropdown-item" href="#">Cài Đặt</a>
+                                              <a class="dropdown-item" href="#">Trợ Giúp</a>
+                                              <a class="dropdown-item" href="login.html"><span>Đăng Xuất</span> <i class="fa fa-sign-out"></i></a>
+                                           </div>
+                                        </li>
+                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="container tm-mt-big tm-mb-big">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h2 class="tm-block-title d-inline-block">Chỉnh Sửa Sản Phẩm</h2>
+                                    </div>
+                                </div>
+                                <div class="row tm-edit-product-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12">
+                                        <form action="" class="tm-edit-product-form">
+                                            <div class="form-group mb-3">
+                                                <label for="name">Tên Sản Phẩm
+                                                </label>
+                                                <input id="name" name="name" value="Pearl Session Studio Select 22″ 4 Piece Shell Pack – Gloss Barnwood" type="text" class="form-control validate"
+                                                    required />
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label for="description">Mô Tả</label>
+                                                <textarea class="form-control validate" rows="9" required>Chín muồi với cảm giác cổ điển, Session Studio Select tạo nên sự cân bằng âm nhạc mạnh mẽ giữa sự ấm áp và đột phá. Âm thanh cao cấp của Pearl được chế tạo đặc biệt cho thu âm phòng thu. Những chiếc trống này cung cấp nhiều tính năng đột phá thường chỉ có trên bộ dụng cụ cấp độ Pearl’s Masters với mức giá cạnh tranh nghiêm túc.</textarea>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label for="description">Thông Số Kỹ Thuật</label>
+                                                <textarea class="form-control validate" rows="4" required>10″ x 7″ Tom, 12″ x 8″ Tom, 16″ x 16″ Floor tom, 22″ x 16″ Bass drum</textarea>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="category">Loại Sản Phẩm</label>
+                                                    <select class="custom-select tm-select-accounts" id="category">
+                                                        <!-- <option selected>Chọn Loại Trống</option> -->
+                                                        <option value="1" selected>Shell pack</option>
+                                                        <option value="2">Bộ Trống Travel</option>
+                                                        <option value="3">Bộ Trống Starter</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="category">Màu Sắc</label>
+                                                    <select class="custom-select tm-select-accounts" id="category">
+                                                        <!-- <option selected>Chọn Màu Sắc</option> -->
+                                                        <option value="1" selected>Đỏ</option>
+                                                        <option value="2">Trắng</option>
+                                                        <option value="3">Đen</option>
+                                                        <option value="3">Xanh Dương</option>
+                                                        <option value="3">Vàng</option>
+                                                        <option value="3">Cam</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="category">Hãng</label>
+                                                    <select class="custom-select tm-select-accounts" id="category">
+                                                        <!-- <option selected>Chọn Hãng</option> -->
+                                                        <option value="1" >Pearl</option>
+                                                        <option value="2">Mapex</option>
+                                                        <option value="3" selected>Roland</option>
+                                                        <option value="3">Yamaha</option>
+                                                        <option value="3">Drum Workshop</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="category">Tình Trạng</label>
+                                                <select class="custom-select tm-select-accounts" id="category">
+                                                    <!-- <option selected>Chọn Tình Trạng</option> -->
+                                                    <option value="1">Còn Hàng</option>
+                                                    <option value="2">Hết Hàng</option>
+                                                    <option value="3" selected>Sản Phẩm Mới </option>
+                                                    <option value="3">Hàng Hot</option>
+                                                    <option value="3">Ẩn Món Hàng </option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="expire_date">Số Lượng
+                                                    </label>
+                                                    <input id="expire_date" value="39" name="expire_date" type="text"
+                                                        class="form-control validate" data-large-mode="true" />
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="stock">Sale
+                                                    </label>
+                                                    <input id="stock" value="39%" name="stock" type="text"
+                                                        class="form-control validate" required />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="expire_date">Giá
+                                                    </label>
+                                                    <input id="expire_date" value="39.000.000 vnd" name="expire_date" type="text"
+                                                        class="form-control validate" data-large-mode="true" />
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label for="stock">Vật Liệu
+                                                    </label>
+                                                    <input id="stock" value="Nhôm" name="stock" type="text"
+                                                        class="form-control validate" required />
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                            <!-- img upload -->
+                                            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                                                <div class="tm-product-img-dummy mx-auto" id="img-pre">
+                                                    <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
+                                                        onclick="document.getElementById('inputFile').click();"></i> -->
+                                                        <img id="nameImg" src="/durmshop/assets/img/product2/template1/template3.png" alt="" class="img-pre__img">
+                                                        <!-- <span class="img-pre-text">Khung Hình</span> -->
+                                                </div>
+                                                <div class="custom-file mt-3 mb-3">
+                                                    <input id="inputFile" type="file" style="display:none;" />
+                                                    <input type="button" class="btn btn-primary btn-block mx-auto"
+                                                        value="Tải Hình Ảnh"
+                                                        onclick="document.getElementById('inputFile').click();" />
+                                                </div>
+                                                
+                                            </div>
+                                            <!-- button submit -->
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary btn-block text-uppercase">
+                                                    Chỉnh sửa Sản Phẩm
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- model popup -->
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Modal body..
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end model popup -->
+    </div>
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow animation -->
+    <script src="js/animate.js"></script>
+    <!-- select country -->
+    <script src="js/bootstrap-select.js"></script>
+    <!-- owl carousel -->
+    <script src="js/owl.carousel.js"></script>
+    <!-- chart js -->
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/analyser.js"></script>
+    <!-- nice scrollbar -->
+    <script src="js/perfect-scrollbar.min.js"></script>
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- fancy box js -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+    <!-- calendar file css -->
+    <script src="js/semantic.min.js"></script>
+
+    <!-- style addProduct -->
+    <script>
+        var nameImg1 = "";
+        const inputFile = document.getElementById("inputFile");
+        const previewContainer = document.getElementById("img-pre");
+        const previewImage = document.querySelector(".img-pre__img");
+        const previewText = document.querySelector(".img-pre-text");
+
+        inputFile.addEventListener("change", function () {
+            const file = this.files[0];
+            nameImg1 = file.name;
+            console.log(nameImg1);
+            console.log(file);
+            if (file) {
+                const reader = new FileReader();
+                previewText.style.display = "none";
+                previewImage.style.display = "block";
+
+                reader.addEventListener("load", function () {
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            }
+        })
+    </script>
+</body>
+
+</html>
