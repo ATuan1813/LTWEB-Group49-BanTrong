@@ -10,7 +10,7 @@ public class adminHome extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getServletContext().
-                getRequestDispatcher("/Admin-page/index.jsp");
+                getRequestDispatcher("/admin/index.jsp");
         dispatcher.forward(request,response);
 
     }
