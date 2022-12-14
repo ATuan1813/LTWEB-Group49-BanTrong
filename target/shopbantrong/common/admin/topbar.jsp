@@ -13,23 +13,23 @@
         <div class="full">
             <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
             <div class="logo_section">
-                <a href="index.jsp"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                <a href="admin/index.jsp"><img class="img-responsive" src="admin/images/logo/logo.png" alt="#" /></a>
             </div>
             <div class="right_topbar">
                 <div class="icon_info">
                     <ul>
-                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
-                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                        <li><a href="admin/admin/#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                        <li><a href="admin/#"><i class="fa fa-question-circle"></i></a></li>
+                        <li><a href="admin/#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
                     </ul>
                     <ul class="user_profile_dd">
                         <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Anh Tuấn</span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="admin/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Anh Tuấn</span></a>
                             <div class="dropdown-menu">
-                                <!-- <a class="dropdown-item" href="profile.jsp">Profile Của Tôi</a> -->
-                                <a class="dropdown-item" href="#">Cài Đặt</a>
-                                <a class="dropdown-item" href="#">Trợ Giúp</a>
-                                <a class="dropdown-item" href="login.jsp"><span>Đăng Xuất</span> <i class="fa fa-sign-out"></i></a>
+                                <!-- <a class="dropdown-item" href="admin/profile.jsp">Profile Của Tôi</a> -->
+                                <a class="dropdown-item" href="admin/#">Cài Đặt</a>
+                                <a class="dropdown-item" href="admin/#">Trợ Giúp</a>
+                                <a class="dropdown-item" href="admin/login.jsp"><span>Đăng Xuất</span> <i class="fa fa-sign-out"></i></a>
                             </div>
                         </li>
                     </ul>
