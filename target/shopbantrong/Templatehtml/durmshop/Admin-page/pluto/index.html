@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Pluto - Responsive Bootstrap Admin Panel Templates</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- site icon -->
+      <link rel="icon" href="images/fevicon.png" type="image/png" />
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <!-- site css -->
+      <link rel="stylesheet" href="style.css" />
+      <!-- responsive css -->
+      <link rel="stylesheet" href="css/responsive.css" />
+      <!-- color css -->
+      <link rel="stylesheet" href="css/colors.css" />
+      <!-- select bootstrap -->
+      <link rel="stylesheet" href="css/bootstrap-select.css" />
+      <!-- scrollbar css -->
+      <link rel="stylesheet" href="css/perfect-scrollbar.css" />
+      <!-- custom css -->
+      <link rel="stylesheet" href="css/custom.css" />
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <link rel="stylesheet" href="css/myStyle.css">
+      
+   </head>
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>Anh Tuấn</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>Admin</h4>
+                  <ul class="list-unstyled components">
+                     <!-- <li>
+                        <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond orange_color"></i> <span>Đơn Hàng</span></a>
+                        <ul class="collapse list-unstyled" id="element">
+                           <li><a href="invoice.jsp">> <span>Đơn Hàng Hôm Nay</span></a></li>
+                           <li><a href="invoice.jsp">> <span>Hóa Đơn Tuần Này</span></a></li>
+                           <li><a href="invoice.jsp">> <span>Hóa Đơn Tháng Này</span></a></li>
+                           <li><a href="invoice.jsp">> <span>Tất Cả</span></a></li>
+
+                        </ul>
+                     </li> -->
+                     <li>
+                        <div class="a-dropdown">
+                           <a href="ViewAllinvoices.html" id="a-link"><i class="fa fa-diamond orange_color"></i> <span>Đơn Hàng</span></a>
+                           <a href="#manage2" data-toggle="collapse" aria-expanded="false" style="padding:15px 10px" class="dropdown-toggle "></a>
+                        </div>
+                        
+                        <ul class="collapse list-unstyled" id="manage2">
+                           <li><a href="invoiceTable.html">> <span>Đơn Hàng Hôm Nay</span></a></li>
+                           <li><a href="invoiceTable.html">> <span>Đơn Hàng Tuần Này</span></a></li>
+                           <li><a href="invoiceTable.html">> <span>Đơn Hàng Tháng Này</span></a></li>
+                           <li><a href="invoiceTable.html">> <span>Tất Cả</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <div class="a-dropdown">
+                           <a href="tables.html" id="a-link"><i class="fa fa-object-group purple_color2"></i> <span>Quản Lý Sản Phẩm</span></a>
+                           <a href="#manage1" data-toggle="collapse" aria-expanded="false" style="padding:15px 10px" class="dropdown-toggle "></a>
+                        </div>
+                        
+                        <ul class="collapse list-unstyled" id="manage1">
+                           <li><a href="product_manage_trongbo.html">> <span>Trống Bộ</span></a></li>
+                           <li><a href="tables.html">> <span>Trống Lẻ</span></a></li>
+                           <li><a href="tables.html">> <span>Phụ Kiện</span></a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <div class="a-dropdown">
+                           <a href="listUser.html" id="a-link"><i class="fa fa-user red_color"></i> <span>Quản Lý Khách Hàng</span></a>
+                        </div>
+                     </li>
+                     <li>
+                        <div class="a-dropdown">
+                           <a href="tables.html" id="a-link"><i class="fa fa-user yellow_color"></i> <span>Tài Khoản Admin</span></a>
+                        </div>
+                     </li>   
+                     <li>
+                        <a href="charts.html">
+                        <i class="fa fa-bar-chart-o red_color"></i> <span>Thống Kê</span></a>
+                     </li>                 
+                     <li>
+                        <a href="contact.html">
+                        <i class="fa fa-paper-plane red_color"></i> <span>Liên Lạc</span></a>
+                     </li>
+                     <!-- <li class="active">
+                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Additional Pages</span></a>
+                        <ul class="collapse list-unstyled" id="additional_page">
+                           <li>
+                              <a href="profile.jsp">> <span>Profile</span></a>
+                           </li>
+                           <li>
+                              <a href="project.html">> <span>Projects</span></a>
+                           </li>
+                           <li>
+                              <a href="login.jsp">> <span>Login</span></a>
+                           </li>
+                           <li>
+                              <a href="404_error.jsp">> <span>404 Error</span></a>
+                           </li>
+                        </ul>
+                     </li> -->
+                     
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                              <ul>
+                                 <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                 <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                              </ul>
+                              <ul class="user_profile_dd">
+                                 <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Anh Tuấn</span></a>
+                                    <div class="dropdown-menu">
+                                       <!-- <a class="dropdown-item" href="profile.jsp">Profile Của Tôi</a> -->
+                                       <a class="dropdown-item" href="#">Cài Đặt</a>
+                                       <a class="dropdown-item" href="#">Trợ Giúp</a>
+                                       <a class="dropdown-item" href="login.html"><span>Đăng Xuất</span> <i class="fa fa-sign-out"></i></a>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+               <!-- end topbar -->
+               <!-- dashboard inner -->
+               <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Bảng Điều Khiển</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-user yellow_color"></i>
+                                   
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">251</p>
+                                    <p class="head_couter">Khách Hàng</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <!-- <i class="fa fa-product-hunt blue1_color" aria-hidden="true"></i> -->
+                                    <!-- <i class="fa fa-clock-o blue1_color"></i> -->
+                                    <a class="icon-products" href="#"><img class="icon-product" src="images/myImg/product.png" alt=""></a>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">235</p>
+                                    <p class="head_couter">Tổng Sản Phẩm</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <!-- <i class="fa fa-cloud-download green_color"></i> -->
+                                    <a class="icon-products" href="#"><img class="icon-product" src="images/myImg/package.png" alt=""></a>
+
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">59</p>
+                                    <p class="head_couter">Sản Phẩm Đã Bán</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full counter_section margin_bottom_30">
+                              <div class="couter_icon">
+                                 <div> 
+                                    <i class="fa fa-comments-o red_color"></i>
+                                 </div>
+                              </div>
+                              <div class="counter_no">
+                                 <div>
+                                    <p class="total_no">54</p>
+                                    <p class="head_couter">Bình Luận</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row column1 social_media_section">
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons fb margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-facebook"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>35k</strong></span>
+                                       <span>Friends</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>128</strong></span>
+                                       <span>Feeds</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons tw margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-twitter"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>584k</strong></span>
+                                       <span>Followers</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>978</strong></span>
+                                       <span>Tweets</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons linked margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-linkedin"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>758+</strong></span>
+                                       <span>Contacts</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>365</strong></span>
+                                       <span>Feeds</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                           <div class="full socile_icons google_p margin_bottom_30">
+                              <div class="social_icon">
+                                 <i class="fa fa-google-plus"></i>
+                              </div>
+                              <div class="social_cont">
+                                 <ul>
+                                    <li>
+                                       <span><strong>450</strong></span>
+                                       <span>Followers</span>
+                                    </li>
+                                    <li>
+                                       <span><strong>57</strong></span>
+                                       <span>Circles</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- graph -->
+                    
+                     <!-- end graph -->
+                  </div>
+                  <!-- footer -->
+                  <div class="container-fluid">
+                     <div class="footer">
+                        <p>Copyright © 2022 Designed by A.Tuan All rights reserved.</p>
+                     </div>
+                  </div>
+               </div>
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <!-- jQuery -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="js/animate.js"></script>
+      <!-- select country -->
+      <script src="js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="js/owl.carousel.js"></script> 
+      <!-- chart js -->
+      <script src="js/Chart.min.js"></script>
+      <script src="js/Chart.bundle.min.js"></script>
+      <script src="js/utils.js"></script>
+      <script src="js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="js/custom.js"></script>
+      <script src="js/chart_custom_style1.js"></script>
+   </body>
+</html>

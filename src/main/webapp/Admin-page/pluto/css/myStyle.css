@@ -1,0 +1,83 @@
+.icon-products{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.icon-product{
+    width: 50px;
+    position: relative; 
+}
+.a-dropdown{
+    display: flex;
+    justify-content: flex-start;
+}
+.a-dropdown #a-link{
+    padding-right: 0 !important;
+}
+.img-list-products{
+    width: 50px;
+    height: 40px;
+}
+.heading-table{
+    display: flex;
+    width: 100% !important;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading-table h4{
+    margin-bottom: 0 !important;
+    margin-right: 20px;
+    color: rgb(42, 46, 165);   
+}
+.heading-table h4:hover{
+    font-size: 20px;
+    color: rgb(81, 98, 224);
+}
+.table-description{
+    width: 200px !important;
+}
+.table-responsive-sm table{
+   
+}
+.scrollbar{
+    overflow-x: scroll;
+}
+.w-table{
+    width: 1500px !important;
+}
+.table-td{
+    /*width: 200px !important; */
+}
+.button-td{
+    display: flex;   
+}
+.btn-primary{
+    margin-right: 15px;
+}
+.img-list-products-large{
+    width: 100px;
+}
+.s-table{
+    width: 1100px;
+}
+.btn-primary a{
+    color: white;
+}
+textarea{
+    min-height: 150px;
+}
+.contact_blog{
+    min-height: 300px;
+}
+.contact_inner .left h3{
+    min-height: 60px;
+}
+.gr-form{
+    display:flex;
+    justify-content: flex-start;
+}
+.heading-table h5{
+    color: #1dd1a1;
+    font-weight: 500;
+    margin-right: 5%;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/decorators">
+    <!--excludes se khong bao gio dung decorator -->
+    <excludes>
+
+        <pattern>/api*</pattern>
+
+    </excludes>
+
+
+    <!-- ap dung dc decorator -->
+    <decorator name="admin" page="admin.jsp">
+        <pattern>/admin*</pattern><!-- url from admincontroller will directed here-->
+    </decorator>
+    <decorator name="home" page="home.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+
+</decorators>
