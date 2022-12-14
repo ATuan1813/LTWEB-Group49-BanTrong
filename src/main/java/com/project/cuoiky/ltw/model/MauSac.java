@@ -1,23 +1,18 @@
 package com.project.cuoiky.ltw.model;
 
 public class MauSac {
-    private String IdMauSac;
+    private int IdMauSac;
     private String TenMauSac;
 
-    public MauSac(String idMauSac, String tenMauSac) {
-        IdMauSac = idMauSac;
+    public MauSac(String tenMauSac) {
         TenMauSac = tenMauSac;
     }
 
-    public MauSac() {
-    }
-
-    public String getIdMauSac() {
+    public int getIdMauSac() {
         return IdMauSac;
     }
 
     public String getTenMauSac() {
         return TenMauSac;
     }
-
 }

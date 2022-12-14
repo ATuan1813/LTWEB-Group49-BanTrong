@@ -7,8 +7,7 @@ public class MauSacLKSanPham {
     private int SoLuongTrongKhoMS;
     private int SoLuongDaBanMS;
 
-    public MauSacLKSanPham(int idSP, int idMS, int soLuongTrongKhoMS, int soLuongDaBanMS) {
-        IdSP = idSP;
+    public MauSacLKSanPham(int idMS, int soLuongTrongKhoMS, int soLuongDaBanMS) {
         IdMS = idMS;
         SoLuongTrongKhoMS = soLuongTrongKhoMS;
         SoLuongDaBanMS = soLuongDaBanMS;
