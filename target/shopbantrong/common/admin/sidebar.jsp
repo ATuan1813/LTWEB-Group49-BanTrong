@@ -12,7 +12,7 @@
     <div class="sidebar_blog_1">
         <div class="sidebar-header">
             <div class="logo_section">
-                <a href="index.jsp"><img class="logo_icon img-responsive" src="admin/images/logo/logo_icon.png" alt="#" /></a>
+                <a href="admin/index.jsp"><img class="logo_icon img-responsive" src="admin/images/logo/logo_icon.png" alt="#" /></a>
             </div>
         </div>
         <div class="sidebar_user_info">
