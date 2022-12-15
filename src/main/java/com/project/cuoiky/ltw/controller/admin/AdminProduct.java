@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AdminProduct", urlPatterns = {"/admin/product"})
+@WebServlet(name = "AdminProduct", urlPatterns = {"/product"})
 public class AdminProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
