@@ -54,12 +54,12 @@
             </li>
             <li>
                 <div class="a-dropdown">
-                    <a href="admin/tables.jsp" id="a-link"><i class="fa fa-object-group purple_color2"></i> <span>Quản Lý Sản Phẩm</span></a>
+                    <a href="/shopbantrong_war/admin-product-tables" id="a-link"><i class="fa fa-object-group purple_color2"></i> <span>Quản Lý Sản Phẩm</span></a>
                     <a href="#manage1" data-toggle="collapse" aria-expanded="false" style="padding:15px 10px" class="dropdown-toggle "></a>
                 </div>
 
                 <ul class="collapse list-unstyled" id="manage1">
-                    <li><a href="/shopbantrong_war/product">> <span>Trống Bộ</span></a></li>
+                    <li><a href="/shopbantrong_war/admin-product-tables">> <span>Trống Bộ</span></a></li>
                     <li><a href="admin/tables.jsp">> <span>Trống Lẻ</span></a></li>
                     <li><a href="admin/tables.jsp">> <span>Phụ Kiện</span></a></li>
                 </ul>

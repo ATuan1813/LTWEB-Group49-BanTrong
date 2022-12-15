@@ -34,7 +34,8 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trống Bộ</h2>
-                                    <a href="product_manage_trongbo.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-product-table-view"><h4>Xem Thêm</h4></a>
+
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -104,7 +105,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trống Lẻ</h2>
-                                    <a href="product_manage_trongbo.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="productTableView.jsp"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
