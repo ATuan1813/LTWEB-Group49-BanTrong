@@ -5,7 +5,6 @@ public class SanPham {
     private String TenSP;
     private String MotaSP;
     private int IdPLC2;
-    private String LinkHinhAnh;
     private String Hang;
     private String ThongSoKyThuat;
     private Double KickThuoc;
@@ -16,11 +15,10 @@ public class SanPham {
     private Double GiaBan;
     private String TinhTrang;
 
-    public SanPham(String tenSP, String motaSP, int idPLC2, String linkHinhAnh, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, String tinhTrang) {
+    public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, String tinhTrang) {
         TenSP = tenSP;
         MotaSP = motaSP;
         IdPLC2 = idPLC2;
-        LinkHinhAnh = linkHinhAnh;
         Hang = hang;
         ThongSoKyThuat = thongSoKyThuat;
         KickThuoc = kickThuoc;
@@ -50,10 +48,6 @@ public class SanPham {
 
     public int getIdPLC2() {
         return IdPLC2;
-    }
-
-    public String getLinkHinhAnh() {
-        return LinkHinhAnh;
     }
 
     public String getHang() {

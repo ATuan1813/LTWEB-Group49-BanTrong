@@ -83,6 +83,29 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                <label for="category">Loại Sản Phẩm</label>
+                                                <select class="custom-select tm-select-accounts" id="category">
+                                                    <option selected>Chọn Loại Trống</option>
+                                                    <option value="1">Shell pack</option>
+                                                    <option value="2">Bộ Trống Travel</option>
+                                                    <option value="3">Bộ Trống Starter</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                <label for="category">Màu Sắc</label>
+                                                <select class="custom-select tm-select-accounts" id="category">
+                                                    <option selected>Chọn Màu Sắc</option>
+                                                    <option value="1">Đỏ</option>
+                                                    <option value="2">Trắng</option>
+                                                    <option value="3">Đen</option>
+                                                    <option value="3">Xanh Dương</option>
+                                                    <option value="3">Vàng</option>
+                                                    <option value="3">Cam</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                 <label for="category">Hãng</label>
                                                 <select class="custom-select tm-select-accounts" id="category">
                                                     <option selected>Chọn Hãng</option>
@@ -133,7 +156,7 @@
                                                        class="form-control validate" required/>
                                             </div>
                                         </div>
-                                    
+
                                 </div>
                                 <!-- img upload -->
                                 <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">

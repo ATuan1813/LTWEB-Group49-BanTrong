@@ -23,4 +23,44 @@ public class NguoiDung {
         this.avartar = avartar;
         this.tinhtrang = tinhtrang;
     }
+
+    public int getIdNguoiDung() {
+        return IdNguoiDung;
+    }
+
+    public String getTaiKhoan() {
+        return TaiKhoan;
+    }
+
+    public String getMatKhau() {
+        return MatKhau;
+    }
+
+    public String getTenNguoiDung() {
+        return TenNguoiDung;
+    }
+
+    public int getQuyen() {
+        return quyen;
+    }
+
+    public int getSdt() {
+        return sdt;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getDiaChi() {
+        return DiaChi;
+    }
+
+    public String getAvartar() {
+        return avartar;
+    }
+
+    public int getTinhtrang() {
+        return tinhtrang;
+    }
 }
