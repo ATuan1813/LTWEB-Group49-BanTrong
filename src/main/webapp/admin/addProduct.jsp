@@ -8,6 +8,32 @@
     <%@ include file="/common/admin/head.jsp" %>
     <%-- css just for product --%>
     <link rel="stylesheet" href="admin/css/ProductStyle/styleProduct.css">
+    <style>
+        .btn-ms{
+            margin-left: 15px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            width: 40%;
+            height: 30px;
+            background-color: #f5a623;
+            border: none;
+            color: white;
+            font-weight: 600;
+        }
+        .btn-ms:hover{
+            background-color: #ebb256;
+        }
+        .btn-ms-remove, .btn-img-add{
+            margin-left: 0;
+        }
+        .btn-img-add{
+            width: 100%;
+            margin: 20px 0px;
+        }
+        #soLuong{
+            background-color: #50657b;
+        }
+    </style>
 </head>
 
 <body class="inner_page tables_page">
@@ -161,12 +187,12 @@
                                     </div>
                                     <!-- img upload -->
                                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                                        <div class="upload-img">
+                                        <div class="upload-img" id="imgColor1">
                                             <div class="tm-product-img-dummy mx-auto" id="img-pre">
                                                 <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                                             onclick="document.getElementById('inputFile').click();"></i> -->
                                                 <img id="nameImg" src="" alt="" class="img-pre__img">
-                                                <span class="img-pre-text">Khung Hình</span>
+                                                <span class="img-pre-text">Khung Hình Chính</span>
                                             </div>
                                             <div class="custom-file mt-3 mb-3">
                                                 <input id="inputFile" type="file" style="display:none;" />
@@ -230,9 +256,11 @@
     // các biến hữu dụng
     var a = "hỏi";
     var idColorP = 1;
+    var idColorImg = 1;
     var arrayIdColor = [1];
     var arrayIdColorImg = [1];
     var soLuong = 0;
+    var idImg = 1000;
 
 
     $('#category').change(function () {
@@ -285,7 +313,7 @@
 
     function addImgColor(idCategoryColor) {
         var textCategoryColor = $(`#categoryMS${idCategoryColor} option:selected`).text();
-        console.log(textCategoryColor);
+        // idColorImg++;
         arrayIdColorImg.push(idCategoryColor);
         console.log(arrayIdColorImg + "  " + arrayIdColor)
 
@@ -313,14 +341,18 @@
     }
 
     function addImgs() {
-        document.querySelector('.upload-img').insertAdjacentHTML(
+        idImg++;
+        console.log(idImg)
+        const last = Array.from(document.querySelectorAll('.upload-img')).pop();
+
+        last.insertAdjacentHTML(
             'afterend',
-            ` <div  class="upload-img">
+            ` <div  class="upload-img" id="imgColor${idImg}">
                     <div class="tm-product-img-dummy mx-auto" id="img-pre">
                         <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                     onclick="document.getElementById('inputFile').click();"></i> -->
                         <img id="nameImg" src="" alt="" class="img-pre__img">
-                        <span class="img-pre-text">Khung Hình</span>
+                        <span class="img-pre-text">Khung Hình Phụ ${idImg-1000}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
                         <input id="inputFile" type="file" style="display:none;" />
@@ -339,24 +371,30 @@
     }
 
     function removeColorAndImg(a, id) {
-        a.parentNode.parentNode.remove();
-        console.log("hiae")
+
         arrayIdColor.forEach(function (item, index) {
             if (id == item) {
-                console.log("hiae2")
+
+                console.log("cũ : " + id + " và " + arrayIdColorImg + " và " + arrayIdColor)
                 $('#imgColor' + id).remove();
                 // xóa phần tử đi
                 // còn lỗi
                 const index = arrayIdColorImg.indexOf(id);
-                arrayIdColorImg.splice(index, 1)
-
+                if(index > -1){
+                    arrayIdColorImg.splice(index, 1)
+                }
                 const index2 = arrayIdColor.indexOf(id);
-                arrayIdColor.splice(index2, 1);
+                if(index2 > -1){
+                    arrayIdColor.splice(index2, 1);
+                }
 
+
+                console.log("mới : " +id + " và " + arrayIdColorImg + " và " + arrayIdColor)
                 // soLuong = soLuong - parseInt($(`#soLuongMS${id}`).val());
 
                 // $(`#soLuong`).val(soLuong);
                 // console.log(id)
+                a.parentNode.parentNode.remove();
                 sumSoLuong();
 
                 // console.log(arrayIdColorImg)

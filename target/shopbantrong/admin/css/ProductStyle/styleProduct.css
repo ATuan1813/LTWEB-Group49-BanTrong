@@ -491,6 +491,8 @@ body {
 	max-width: 360px;
 	max-height: 200px;
   }
+
+
   
   /* input[type=file]::before{
 	content: "Chọn Ảnh";
@@ -644,28 +646,3 @@ body {
 	  max-height: 350px;
 	}
   }
-/* thêm sản phẩm có màu sắc */
-.btn-ms{
-	margin-left: 15px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	width: 40%;
-	height: 30px;
-	background-color: #f5a623;
-	border: none;
-	color: white;
-	font-weight: 600;
-}
-.btn-ms:hover{
-	background-color: #ebb256;
-}
-.btn-ms-remove, .btn-img-add{
-	margin-left: 0;
-}
-.btn-img-add{
-	width: 100%;
-	margin: 20px 0px;
-}
-#soLuong{
-	background-color: #50657b;
-}
