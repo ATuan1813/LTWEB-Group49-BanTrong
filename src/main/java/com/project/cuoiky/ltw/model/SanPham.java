@@ -13,9 +13,10 @@ public class SanPham {
     private int SoLuongTrongKho;
     private int SoLuongDaBan;
     private Double GiaBan;
+    private Double GiaVon;
     private String TinhTrang;
 
-    public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, String tinhTrang) {
+    public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, Double giaVon, String tinhTrang) {
         TenSP = tenSP;
         MotaSP = motaSP;
         IdPLC2 = idPLC2;
@@ -27,6 +28,7 @@ public class SanPham {
         SoLuongTrongKho = soLuongTrongKho;
         SoLuongDaBan = soLuongDaBan;
         GiaBan = giaBan;
+        GiaVon = giaVon;
         TinhTrang = tinhTrang;
     }
 
@@ -80,6 +82,10 @@ public class SanPham {
 
     public Double getGiaBan() {
         return GiaBan;
+    }
+
+    public Double getGiaVon() {
+        return GiaVon;
     }
 
     public String getTinhTrang() {
