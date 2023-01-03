@@ -11,8 +11,12 @@ import java.util.List;
 
 public class ProductDao extends AbsDao{
 
+    MauSacDao mauSacDao = new MauSacDao();
+    HinhAnhDao hinhAnhDao = new HinhAnhDao();
+
+
     //Save Product
-    public int save(SanPham sanPham, ArrayList<HinhAnh> listHA, ArrayList<MauSacLKSanPham> listMS) {
+    public int saveSP(SanPham sanPham, ArrayList<HinhAnh> listHA, ArrayList<MauSacLKSanPham> listMS) {
         int results = 0;
         // should use StringBuilder vì tránh lãng phí bộ nhớ
         String sqlAddSp = "INSERT INTO SANPHAM (TenSP, MoTaSP, IdPLC2,Hang, ThongSoKyThuat, KichThuoc, VatLieu, KhuyenMai, SoLuongTrongKho," +
@@ -22,8 +26,26 @@ public class ProductDao extends AbsDao{
                 , sanPham.getSoLuongDaBan(),sanPham.getGiaBan(), sanPham.getGiaVon(), sanPham.getTinhTrang());
         results++;
 
-
-
+        ArrayList<Integer> idhas = new ArrayList<Integer>();
+        ArrayList<Integer> idms = new ArrayList<Integer>();
+        for (HinhAnh hinhAnh: listHA) {
+            for (MauSacLKSanPham mauSacLKSanPham: listMS) {
+                if(hinhAnh.getMaViTriHA() == mauSacLKSanPham.getMaVitriMS()){
+                    idhas.add(hinhAnhDao.SaveHA(sanPham,hinhAnh));
+                    idms.add(mauSacDao.SaveMSandSP(mauSacLKSanPham,sanPham,hinhAnh));
+                    results++;
+                }else{
+                    idhas.add(hinhAnhDao.SaveHA(sanPham,hinhAnh));
+                    results++;
+                }
+            }
+        }
+        for (int idm : idms) {
+            System.out.println("đã thêm thành công màu sắc có id " + idm);
+        }
+        for (int idha : idhas) {
+            System.out.println("đã thêm thành công hình ảnh có id " + idha);
+        }
 
         return  results;
     }

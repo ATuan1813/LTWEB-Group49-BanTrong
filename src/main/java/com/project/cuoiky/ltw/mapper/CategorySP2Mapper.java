@@ -17,4 +17,9 @@ public class CategorySP2Mapper implements RowMapper<PhanLoaiCap2>{
 
         return phanLoaiCap2;
     }
+
+    @Override
+    public PhanLoaiCap2 mapRowID(ResultSet resultSet) throws SQLException {
+        return null;
+    }
 }

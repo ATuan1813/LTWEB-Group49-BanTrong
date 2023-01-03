@@ -21,7 +21,7 @@ public class CategoryDao extends AbsDao{
     //get category level 2
     public ArrayList<PhanLoaiCap2> getListPLC2(){
         ArrayList<PhanLoaiCap2> phanLoaiCap2s = new ArrayList<PhanLoaiCap2>();
-        String sql= "SELECT * FROM PhanLoaiCap1";
+        String sql= "SELECT * FROM PhanLoaiCap2";
 
         phanLoaiCap2s = query(sql, new CategorySP2Mapper());
 

@@ -31,4 +31,10 @@ public class ProductMapper implements RowMapper{
         return sp;
 
     }
+
+    @Override
+    public Object mapRowID(ResultSet resultSet) throws SQLException {
+        return null;
+    }
+
 }

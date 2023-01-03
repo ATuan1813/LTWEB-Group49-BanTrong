@@ -5,5 +5,6 @@ import java.sql.SQLException;
 
 public interface RowMapper<T> {
     T mapRow(ResultSet resultSet) throws SQLException;
+    T mapRowID(ResultSet resultSet) throws SQLException;
 
 }

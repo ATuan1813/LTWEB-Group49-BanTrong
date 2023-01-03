@@ -22,4 +22,9 @@ public class MauSacLKSanPhamMapper implements RowMapper<MauSacLKSanPham>{
         MauSacLKSanPham mauSacLKSanPham = new MauSacLKSanPham(MaViTriMS,IdSP,IdMS,IdHA,SoLuongTrongKhoMS,SoLuongDaBanMS);
         return mauSacLKSanPham;
     }
+
+    @Override
+    public MauSacLKSanPham mapRowID(ResultSet resultSet) throws SQLException {
+        return null;
+    }
 }

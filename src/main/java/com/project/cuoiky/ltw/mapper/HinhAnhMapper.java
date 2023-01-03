@@ -18,4 +18,9 @@ public class HinhAnhMapper implements RowMapper<HinhAnh>{
 
         return hinhAnh;
     }
+
+    @Override
+    public HinhAnh mapRowID(ResultSet resultSet) throws SQLException {
+        return null;
+    }
 }

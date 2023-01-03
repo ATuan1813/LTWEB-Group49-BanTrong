@@ -1,3 +1,7 @@
+<%@ page import="com.project.cuoiky.ltw.model.PhanLoaiCap1" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.project.cuoiky.ltw.model.PhanLoaiCap2" %>
+<%@ page import="com.project.cuoiky.ltw.model.MauSac" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -61,64 +65,85 @@
                                             <div class="form-group mb-3">
                                                 <label for="name">Tên Sản Phẩm
                                                 </label>
-                                                <input id="name" name="name" type="text" class="form-control validate"
+                                                <input id="TenSP" name="TenSP" type="text" class="form-control validate"
                                                        required />
                                             </div>
                                             <div class="form-group mb-3">
-                                                <label for="description">Mô Tả</label>
-                                                <textarea class="form-control validate" rows="4" required></textarea>
+                                                <label >Mô Tả</label>
+                                                <textarea name="MoTaSP" class="form-control validate" rows="4" required></textarea>
                                             </div>
                                             <div class="form-group mb-3">
-                                                <label for="description">Thông Số Kỹ Thuật</label>
-                                                <textarea class="form-control validate" rows="4" required></textarea>
+                                                <label >Thông Số Kỹ Thuật</label>
+                                                <textarea name="ThongSoKyThuat" class="form-control validate" rows="4" required></textarea>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="categoryLable1">Bộ Sản Phẩm</label>
+                                                    <label>Bộ Sản Phẩm</label>
                                                     <select class="custom-select tm-select-accounts" id="category">
-                                                        <option selected value="0">Trống Bộ</option>
-                                                        <option value="2">Trống Lẻ</option>
-                                                        <option value="3">Phụ Kiện</option>
+
+                                                        <%ArrayList<PhanLoaiCap1> phanLoaiCap1s =  (ArrayList<PhanLoaiCap1>)request.getAttribute("listCa1");
+                                                            int ids = 1;
+                                                            for (PhanLoaiCap1 plc1 : phanLoaiCap1s) {%>
+
+                                                        <option value="<%out.print(ids);ids++;%>"><%out.print(plc1.getTenPLC1());%></option>
+
+                                                        <%}%>
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="categoryLable2">Loại Sản Phẩm</label>
+                                                    <label for="">Loại Sản Phẩm</label>
                                                     <select class="custom-select tm-select-accounts" id="category1">
-                                                        <option selected value="0">Trống Bộ Starter</option>
-                                                        <option value="2">Trống Bộ Shell Pack</option>
-                                                        <option value="3">Trống Bộ Travel</option>
-                                                        <option value="4">Bộ Trống Điện</option>
+                                                        <%ArrayList<PhanLoaiCap2> phanLoaiCap2s =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
+                                                            int ids2 = 1;
+                                                            for (PhanLoaiCap2 plc2 : phanLoaiCap2s) {
+                                                            if(plc2.getIdPLC1()==100){
+                                                        %>
+
+                                                        <option value="<%out.print(ids2);ids++;%>"><%out.print(plc2.getTenPLC2());%></option>
+
+                                                        <%}}%>
+
                                                     </select>
                                                     <select style="display: none;"
                                                             class="custom-select tm-select-accounts" id="category2">
-                                                        <option selected value="0">Tom</option>
-                                                        <option value="2">Bass Drumm</option>
-                                                        <option value="3">Snare Drum</option>
+                                                        <%ArrayList<PhanLoaiCap2> phanLoaiCap2s2 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
+                                                            int ids22 = 1;
+                                                            for (PhanLoaiCap2 plc2 : phanLoaiCap2s2) {
+                                                                if(plc2.getIdPLC1()==200){
+                                                        %>
+
+                                                        <option value="<%out.print(ids22);ids22++;%>"><%out.print(plc2.getTenPLC2());%></option>
+
+                                                        <%}}%>
                                                     </select>
                                                     <select style="display: none;"
                                                             class="custom-select tm-select-accounts" id="category3">
-                                                        <option selected value="0">Ghế</option>
-                                                        <option value="2">Gậy Gõ Trống</option>
-                                                        <option value="3">Bàn Đạp Trống</option>
+                                                        <%ArrayList<PhanLoaiCap2> phanLoaiCap2s3 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
+                                                            int ids23 = 1;
+                                                            for (PhanLoaiCap2 plc2 : phanLoaiCap2s3) {
+                                                                if(plc2.getIdPLC1()==300){
+                                                        %>
+
+                                                        <option value="<%out.print(ids23);ids23++;%>"><%out.print(plc2.getTenPLC2());%></option>
+
+                                                        <%}}%>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row productColor">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="categoryLable1">Màu Sắc</label>
-                                                    <select class="custom-select tm-select-accounts" id="categoryMS1">
-                                                        <option selected>Chọn Màu Sắc</option>
-                                                        <option value="0">Đỏ</option>
-                                                        <option value="2">Trắng</option>
-                                                        <option value="3">Đen</option>
-                                                        <option value="3">Xanh Dương</option>
-                                                        <option value="3">Vàng</option>
-                                                        <option value="3">Cam</option>
+                                                    <label>Màu Sắc</label>
+                                                    <select class="custom-select tm-select-accounts" name="categoryMS1" id="categoryMS1">
+                                                        <%ArrayList<MauSac> mauSacs = (ArrayList<MauSac>) request.getAttribute("listMS");
+                                                            for (MauSac mauSac: mauSacs) {%>
+
+                                                        <option style="background-color: <%mauSac.getMaMau();%>" value="<%out.print(mauSac.getIdMauSac());%>"><%out.print(mauSac.getTenMauSac());%></option>
+                                                        <%}%>
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6" id="color">
-                                                    <label for="categoryLable1">Số Lượng MS</label>
-                                                    <input oninput="sumSoLuong()" id="soLuongMS1" name="stock"
+                                                    <label >Số Lượng MS</label>
+                                                    <input oninput="sumSoLuong()" id="soLuongMS1" name="soLuongMS1"
                                                            class="form-control" min="0" max="10000" value="0" type="number"
                                                            required />
                                                 </div>
@@ -129,57 +154,58 @@
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="categoryLable1">Hãng</label>
+                                                    <label>Hãng</label>
                                                     <select class="custom-select tm-select-accounts"
-                                                            id="categoryBranch">
-                                                        <option selected>Chọn Hãng</option>
-                                                        <option value="0">Pearl</option>
-                                                        <option value="2">Mapex</option>
-                                                        <option value="3">Roland</option>
-                                                        <option value="3">Yamaha</option>
-                                                        <option value="3">Drum Workshop</option>
+                                                            id="categoryBranch" name="categoryBranch">
+                                                        <option value="pearl">Pearl</option>
+                                                        <option value="mapex">Mapex</option>
+                                                        <option value="roland">Roland</option>
+                                                        <option value="yamaha">Yamaha</option>
+                                                        <option value="dw">Drum Workshop</option>
+                                                        <option value="pdp">PDP</option>
+                                                        <option value="odery">Odery</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="categoryLable1">Tình Trạng</label>
+                                                    <label >Tình Trạng</label>
                                                     <select class="custom-select tm-select-accounts"
                                                             id="categoryStatus">
-                                                        <option selected>Chọn Tình Trạng</option>
-                                                        <option value="0">Còn Hàng</option>
-                                                        <option value="2">Hết Hàng</option>
-                                                        <option value="3">Sản Phẩm Mới </option>
-                                                        <option value="3">Hàng Hot</option>
-                                                        <option value="3">Ẩn Món Hàng </option>
+                                                        <option value="conhang">Còn Hàng</option>
+                                                        <option value="hethang">Hết Hàng</option>
+                                                        <option value="sanphammoi">Sản Phẩm Mới </option>
+                                                        <option value="hanghot">Hàng Hot</option>
+                                                        <option value="anmonhang">Ẩn Món Hàng </option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="expire_date">Số Lượng
+                                                    <label>Số Lượng Sản Phẩm
                                                     </label>
-                                                    <input id="soLuong" name="stock" readonly="readonly"
+                                                    <input id="soLuong" name="soLuong" readonly="readonly"
                                                            class="form-control" min="0" max="10000" value="0" type="number" required />
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label for="stock">Sale
                                                     </label>
-                                                    <input id="stock" name="stock" type="text"
+                                                    <input name="stock" type="text"
                                                            class="form-control validate" required />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="expire_date">Giá
+                                                    <label>Giá
                                                     </label>
                                                     <input id="currency-field" name="currency-field"
                                                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
                                                            data-type="currency" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
+                                                    <input id="giaban" name="giaban" style="display: none">
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label for="stock">Vật Liệu
                                                     </label>
-                                                    <input id="stock" name="stock" type="text"
+                                                    <input id="vatlieu" name="vatlieu" type="text"
                                                            class="form-control validate" required />
                                                 </div>
                                             </div>
@@ -289,18 +315,16 @@
                     <div class="form-group mb-3 col-xs-12 col-sm-6">
                         <label for="categoryLable1">Màu Sắc</label>
                         <select class="custom-select tm-select-accounts" id="categoryMS${idColorP}">
-                            <option value="0">Đỏ</option>
-                            <option value="2">Trắng</option>
-                            <option value="3">Đen</option>
-                            <option value="3">Xanh Dương</option>
-                            <option value="3">Vàng</option>
-                            <option value="3">Cam</option>
+
+                               <%for (MauSac mauSac: mauSacs) {%>
+                                <option style="background-color: <%mauSac.getMaMau();%>" value="<%out.print(mauSac.getIdMauSac());%>"><%out.print(mauSac.getTenMauSac());%></option>
+                                <%}%>
 
                         </select>
                     </div>
                     <div class="form-group mb-3 col-xs-12 col-sm-6" id="color">
                         <label for="categoryLable1">Số Lượng MS</label>
-                        <input id="soLuongMS${idColorP}" oninput = "sumSoLuong()" name="stock"
+                        <input id="soLuongMS${idColorP}" oninput = "sumSoLuong()" name="soLuongMS${idColorP}"
                         class="form-control" min="0" max="10000" value="0" type="number" required />
 
                         <input type="button" onclick="removeColorAndImg(this,'${idColorP}')" class="btn-ms btn-ms-remove" value="Xóa">
@@ -410,6 +434,7 @@
     $("input[data-type='currency']").on({
         keyup: function () {
             formatCurrency($(this));
+            GiaBan(this);
         },
         blur: function () {
             formatCurrency($(this), "blur");
@@ -451,8 +476,15 @@
         var updated_len = input_val.length;
         caret_pos = updated_len - original_len + caret_pos;
         input[0].setSelectionRange(caret_pos, caret_pos);
-    }
 
+    }
+    function GiaBan(input){
+        var str = document.getElementById("currency-field").value;
+        var num = str.match(/\d/g);
+        num = num.join("");
+        $("#giaban").val(num)
+        console.log(parseInt(num)+2)
+    }
     // chỉnh lại số lượng sản phẩm theo số lượng màu sắc
 
 

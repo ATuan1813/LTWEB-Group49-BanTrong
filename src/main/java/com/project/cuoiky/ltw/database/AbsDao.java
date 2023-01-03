@@ -109,6 +109,53 @@ public class AbsDao {
 
     }
 
+    //has id to show for do value is id
+    public <T> ArrayList<T> queryHasId(String sql, RowMapper<T> rowMapper, Object... parameters) {
+
+        ArrayList<T> results = new ArrayList<T>();
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null; // lấy các rows thông qua thực hiện câu query
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql);
+
+            setParameter(statement, parameters);	// set tham chieu cho câu lệnh sql
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+//				System.out.println("results have values: " + results);
+                results.add(rowMapper.mapRowID(resultSet)); // used to add value each column of row
+
+            }
+
+            connection.commit();
+
+            return results;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+
+            return results;
+        }finally {
+            try {
+                if(connection != null) {
+                    connection.close();
+                }if(statement != null) {
+                    statement.close();
+                }if(resultSet != null) {
+                    resultSet.close();
+                }
+
+            } catch (SQLException e2) {
+                return null;
+            }
+        }
+
+    }
+
     // chức năng 4 : cập nhật
     public int update(String sql, Object... parameter) {
         Connection connection = null;

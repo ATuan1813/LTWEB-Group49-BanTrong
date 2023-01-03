@@ -16,4 +16,15 @@ public class CategoryMSMapper implements RowMapper<MauSac>{
 
         return mauSac;
     }
+
+    @Override
+    public MauSac mapRowID(ResultSet resultSet) throws SQLException {
+        int IdMauSac = resultSet.getInt("IdMauSac");
+        String TenMauSac = resultSet.getString("TenMauSac");
+        String MaMau = resultSet.getString("MaMau");
+
+        MauSac mauSac = new MauSac(IdMauSac,TenMauSac,MaMau);
+
+        return mauSac;
+    }
 }

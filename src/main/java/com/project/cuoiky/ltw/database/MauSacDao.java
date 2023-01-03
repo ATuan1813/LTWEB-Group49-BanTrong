@@ -12,12 +12,12 @@ public class MauSacDao extends AbsDao{
        ArrayList<MauSac> MauSacs = new ArrayList<MauSac>();
        String sql= "SELECT * FROM MauSac";
 
-       MauSacs = query(sql, new CategoryMSMapper());
+       MauSacs = queryHasId(sql, new CategoryMSMapper());
        return MauSacs;
    }
 
     // get list MauSacLKSanPham for update
-    public ArrayList<MauSacLKSanPham> getListMS(SanPham sanPham){
+    public ArrayList<MauSacLKSanPham> getListMSToUpdate(SanPham sanPham){
 
         ArrayList<MauSacLKSanPham> mauSacLKSanPhams = new ArrayList<MauSacLKSanPham>();
         String sql= "SELECT * FROM mauSacLKSanPham ms ha Where ms.IdSP = ?";
