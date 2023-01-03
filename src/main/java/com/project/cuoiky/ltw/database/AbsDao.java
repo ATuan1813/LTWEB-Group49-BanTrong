@@ -2,6 +2,7 @@ package com.project.cuoiky.ltw.database;
 
 import com.project.cuoiky.ltw.mapper.ProductMapper;
 import com.project.cuoiky.ltw.mapper.RowMapper;
+import com.project.cuoiky.ltw.model.SanPham;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -62,9 +63,9 @@ public class AbsDao {
     }
 
     // query để lấy 1 hoặc nhiều element
-    public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
+    public <T> ArrayList<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
 
-        List<T> results = new ArrayList<T>();
+        ArrayList<T> results = new ArrayList<T>();
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -73,6 +74,7 @@ public class AbsDao {
             connection = getConnection();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(sql);
+
             setParameter(statement, parameters);	// set tham chieu cho câu lệnh sql
             resultSet = statement.executeQuery();
 
@@ -107,13 +109,142 @@ public class AbsDao {
 
     }
 
-    // find one by id
-//    public Object<T> findbyID(int id, String ele, Object T){
-//        String sql = "SELECT * FROM "+ele+" WHERE ID = ?";
-//        List news2 = query(sql, new ProductMapper(), id);
-//        System.out.println("find id of findOneNew :" + news2.get(0));
-//        return news2.isEmpty() ? null : news2.get(0);
-//    }
+    // chức năng 4 : cập nhật
+    public int update(String sql, Object... parameter) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            setParameter(statement, parameter);
+            statement.executeUpdate();
+            ResultSet rs = statement.getGeneratedKeys();
+            int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+            connection.commit();
+            System.out.println("id of function insert: " + generatedKey);
+            return generatedKey;
+
+        }catch (Exception e) {
+            if(connection !=null) {
+                try {
+                    connection.rollback(); // just any one error is rollback
+                } catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        }finally {
+            try {
+                if(connection != null) {
+                    connection.close();
+                }if(statement != null) {
+                    statement.close();
+                }
+
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    // chức năng 5: thêm
+    public int insert(String sql, Object... parameter) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            setParameter(statement, parameter);
+            statement.executeUpdate();
+
+            ResultSet rs = statement.getGeneratedKeys();
+            int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+            connection.commit();
+            System.out.println("id of function insert: " + generatedKey);
+            return generatedKey;
+
+        }catch (Exception e) {
+            if(connection !=null) {
+                try {
+                    connection.rollback(); // just any one error is rollback
+                } catch (SQLException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+        }finally {
+            try {
+                if(connection != null) {
+                    connection.close();
+                }if(statement != null) {
+                    statement.close();
+                }if(resultSet != null) {
+                    resultSet.close();
+                }
+
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    // count all element
+    public int count(String sql, Object... parameter) {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null; // lấy các rows thông qua thực hiện câu query
+        try {
+
+            int count = 0;
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql);
+            setParameter(statement, parameter);	// set tham cho câu lệnh sql
+            resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+
+                count = resultSet.getInt(1);
+
+            }
+
+            connection.commit();
+
+            return count;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+
+            return 0;
+        }finally {
+            try {
+                if(connection != null) {
+                    connection.close();
+                }if(statement != null) {
+                    statement.close();
+                }if(resultSet != null) {
+                    resultSet.close();
+                }
+
+            } catch (SQLException e2) {
+                return 0;
+            }
+        }
+    }
 
 
 
