@@ -51,14 +51,14 @@
                     <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
                         <div class="account_form">
                             <h2>Đăng nhập</h2>
-                            <form action="#">
+                            <form action="/register" method="post">
                                 <p>
                                     <label>Số điện thoại hoặt email <span>*</span></label>
-                                    <input type="text">
+                                    <input type="text" name="username" >
                                 </p>
                                 <p>
                                     <label>Mật khẩu <span>*</span></label>
-                                    <input type="password">
+                                    <input type="password" name="password" >
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng nhập</button>

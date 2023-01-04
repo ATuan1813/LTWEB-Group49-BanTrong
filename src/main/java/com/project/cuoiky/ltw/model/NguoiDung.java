@@ -12,6 +12,9 @@ public class NguoiDung {
     private String avartar;
     private int tinhtrang;
 
+    public NguoiDung() {
+    }
+
     public NguoiDung(String taiKhoan, String matKhau, String tenNguoiDung, int quyen, int sdt, String email, String diaChi, String avartar, int tinhtrang) {
         TaiKhoan = taiKhoan;
         MatKhau = matKhau;
@@ -28,39 +31,79 @@ public class NguoiDung {
         return IdNguoiDung;
     }
 
+    public void setIdNguoiDung(int idNguoiDung) {
+        IdNguoiDung = idNguoiDung;
+    }
+
     public String getTaiKhoan() {
         return TaiKhoan;
+    }
+
+    public void setTaiKhoan(String taiKhoan) {
+        TaiKhoan = taiKhoan;
     }
 
     public String getMatKhau() {
         return MatKhau;
     }
 
+    public void setMatKhau(String matKhau) {
+        MatKhau = matKhau;
+    }
+
     public String getTenNguoiDung() {
         return TenNguoiDung;
+    }
+
+    public void setTenNguoiDung(String tenNguoiDung) {
+        TenNguoiDung = tenNguoiDung;
     }
 
     public int getQuyen() {
         return quyen;
     }
 
+    public void setQuyen(int quyen) {
+        this.quyen = quyen;
+    }
+
     public int getSdt() {
         return sdt;
+    }
+
+    public void setSdt(int sdt) {
+        this.sdt = sdt;
     }
 
     public String getEmail() {
         return Email;
     }
 
+    public void setEmail(String email) {
+        Email = email;
+    }
+
     public String getDiaChi() {
         return DiaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        DiaChi = diaChi;
     }
 
     public String getAvartar() {
         return avartar;
     }
 
+    public void setAvartar(String avartar) {
+        this.avartar = avartar;
+    }
+
     public int getTinhtrang() {
         return tinhtrang;
+    }
+
+    public void setTinhtrang(int tinhtrang) {
+        this.tinhtrang = tinhtrang;
     }
 }
