@@ -13,7 +13,7 @@ public class CategoryDao extends AbsDao{
         ArrayList<PhanLoaiCap1> phanLoaiCap1s = new ArrayList<PhanLoaiCap1>();
         String sql= "SELECT * FROM PhanLoaiCap1";
 
-        phanLoaiCap1s = query(sql, new CategorySP1Mapper());
+        phanLoaiCap1s = queryHasId(sql, new CategorySP1Mapper());
 
         return phanLoaiCap1s;
     }
@@ -23,7 +23,7 @@ public class CategoryDao extends AbsDao{
         ArrayList<PhanLoaiCap2> phanLoaiCap2s = new ArrayList<PhanLoaiCap2>();
         String sql= "SELECT * FROM PhanLoaiCap2";
 
-        phanLoaiCap2s = query(sql, new CategorySP2Mapper());
+        phanLoaiCap2s = queryHasId(sql, new CategorySP2Mapper());
 
         return phanLoaiCap2s;
     }

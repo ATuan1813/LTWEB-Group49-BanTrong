@@ -10,6 +10,12 @@ public class PhanLoaiCap1 {
         MoTa = moTa;
     }
 
+    public PhanLoaiCap1(int idPLC1, String tenPLC1, String moTa) {
+        IdPLC1 = idPLC1;
+        TenPLC1 = tenPLC1;
+        MoTa = moTa;
+    }
+
     public int getIdPLC1() {
         return IdPLC1;
     }
@@ -20,5 +26,17 @@ public class PhanLoaiCap1 {
 
     public String getMoTa() {
         return MoTa;
+    }
+
+    public void setIdPLC1(int idPLC1) {
+        IdPLC1 = idPLC1;
+    }
+
+    public void setTenPLC1(String tenPLC1) {
+        TenPLC1 = tenPLC1;
+    }
+
+    public void setMoTa(String moTa) {
+        MoTa = moTa;
     }
 }

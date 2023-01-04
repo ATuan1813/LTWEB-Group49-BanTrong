@@ -61,9 +61,9 @@
                                 </div>
                                 <div class="row tm-edit-product-row">
                                     <div class="col-xl-6 col-lg-6 col-md-12">
-                                        <form action="" class="tm-edit-product-form">
+                                        <form action="" class="tm-edit-product-form" enctype="multipart/form-data">
                                             <div class="form-group mb-3">
-                                                <label for="name">Tên Sản Phẩm
+                                                <label>Tên Sản Phẩm
                                                 </label>
                                                 <input id="TenSP" name="TenSP" type="text" class="form-control validate"
                                                        required />
@@ -82,49 +82,49 @@
                                                     <select class="custom-select tm-select-accounts" id="category">
 
                                                         <%ArrayList<PhanLoaiCap1> phanLoaiCap1s =  (ArrayList<PhanLoaiCap1>)request.getAttribute("listCa1");
-                                                            int ids = 1;
+
                                                             for (PhanLoaiCap1 plc1 : phanLoaiCap1s) {%>
 
-                                                        <option value="<%out.print(ids);ids++;%>"><%out.print(plc1.getTenPLC1());%></option>
+                                                        <option value="<%out.print(plc1.getIdPLC1());%>"><%out.print(plc1.getTenPLC1());%></option>
 
                                                         <%}%>
                                                     </select>
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="">Loại Sản Phẩm</label>
-                                                    <select class="custom-select tm-select-accounts" id="category1">
+                                                    <label >Loại Sản Phẩm</label>
+                                                    <select class="custom-select tm-select-accounts" id="category100">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
-                                                            int ids2 = 1;
+
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s) {
                                                             if(plc2.getIdPLC1()==100){
                                                         %>
 
-                                                        <option value="<%out.print(ids2);ids++;%>"><%out.print(plc2.getTenPLC2());%></option>
+                                                        <option value="<%out.print(plc2.getIdPLC2());%>"><%out.print(plc2.getTenPLC2());%></option>
 
                                                         <%}}%>
 
                                                     </select>
                                                     <select style="display: none;"
-                                                            class="custom-select tm-select-accounts" id="category2">
+                                                            class="custom-select tm-select-accounts" id="category200">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s2 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
-                                                            int ids22 = 1;
+
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s2) {
                                                                 if(plc2.getIdPLC1()==200){
                                                         %>
 
-                                                        <option value="<%out.print(ids22);ids22++;%>"><%out.print(plc2.getTenPLC2());%></option>
+                                                        <option value="<%out.print(plc2.getIdPLC2());%>"><%out.print(plc2.getTenPLC2());%></option>
 
                                                         <%}}%>
                                                     </select>
                                                     <select style="display: none;"
-                                                            class="custom-select tm-select-accounts" id="category3">
+                                                            class="custom-select tm-select-accounts" id="category300">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s3 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
-                                                            int ids23 = 1;
+
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s3) {
                                                                 if(plc2.getIdPLC1()==300){
                                                         %>
 
-                                                        <option value="<%out.print(ids23);ids23++;%>"><%out.print(plc2.getTenPLC2());%></option>
+                                                        <option value="<%out.print(plc2.getIdPLC2());%>"><%out.print(plc2.getTenPLC2());%></option>
 
                                                         <%}}%>
                                                     </select>
@@ -169,7 +169,7 @@
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label >Tình Trạng</label>
                                                     <select class="custom-select tm-select-accounts"
-                                                            id="categoryStatus">
+                                                            id="categoryStatus" name="categoryStatus">
                                                         <option value="conhang">Còn Hàng</option>
                                                         <option value="hethang">Hết Hàng</option>
                                                         <option value="sanphammoi">Sản Phẩm Mới </option>
@@ -186,24 +186,33 @@
                                                            class="form-control" min="0" max="10000" value="0" type="number" required />
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="stock">Sale
+                                                    <label>Sale
                                                     </label>
-                                                    <input name="stock" type="text"
+                                                    <input name="sale" type="text"
                                                            class="form-control validate" required />
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label>Giá
+                                                    <label>Giá Vốn
                                                     </label>
-                                                    <input id="currency-field" name="currency-field"
+                                                    <input id="inputGiaVon" name="inputGiaVon"
                                                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
                                                            data-type="currency" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
-                                                    <input id="giaban" name="giaban" style="display: none">
+                                                    <input id="giavon" name="giavon" style="display: block">
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
-                                                    <label for="stock">Vật Liệu
+                                                    <label>Giá Bán
+                                                    </label>
+                                                    <input id="inputGiaBan" name="inputGiaBan"
+                                                           pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
+                                                           data-type="currency" placeholder="1.000.000 vnd"
+                                                           class="form-control validate" data-large-mode="true" />
+                                                    <input id="giaban" name="giaban" style="display: block">
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label>Vật Liệu
                                                     </label>
                                                     <input id="vatlieu" name="vatlieu" type="text"
                                                            class="form-control validate" required />
@@ -213,7 +222,7 @@
                                     </div>
                                     <!-- img upload -->
                                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                                        <div class="upload-img" id="imgColor1">
+                                        <div class="upload-img" id="imgColor1000">
                                             <div class="tm-product-img-dummy mx-auto" id="img-pre">
                                                 <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                                             onclick="document.getElementById('inputFile').click();"></i> -->
@@ -221,7 +230,7 @@
                                                 <span class="img-pre-text">Khung Hình Chính</span>
                                             </div>
                                             <div class="custom-file mt-3 mb-3">
-                                                <input id="inputFile" type="file" style="display:none;" />
+                                                <input id="imgFile1000" name="imgFile1000" type="file" style="display:none;" />
                                                 <input type="button" class="btn btn-primary btn-block mx-auto"
                                                        value="Tải Hình Ảnh"
                                                        onclick="document.getElementById('inputFile').click();" />
@@ -291,7 +300,7 @@
 
     $('#category').change(function () {
         var lengthOption = $('#category > option').length;
-        for (let index = 1; index <= lengthOption; index++) {
+        for (let index = 100; index <= 300; index += 100) {
             if ($('#category').val() == index) {
                 $('#category' + index).css('display', 'block')
                 console.log(index)
@@ -354,7 +363,7 @@
                         <span class="img-pre-text">Hình Ảnh CHo Màu ${textCategoryColor}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
-                        <input id="inputFile" type="file" style="display:none;" />
+                        <input id="imgFile${idCategoryColor}" name="imgFile${idCategoryColor}" type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
                             onclick="document.getElementById('inputFile').click();" />
@@ -375,11 +384,11 @@
                     <div class="tm-product-img-dummy mx-auto" id="img-pre">
                         <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                     onclick="document.getElementById('inputFile').click();"></i> -->
-                        <img id="nameImg" src="" alt="" class="img-pre__img">
+                        <img id="nameImg"  src="" alt="" class="img-pre__img">
                         <span class="img-pre-text">Khung Hình Phụ ${idImg-1000}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
-                        <input id="inputFile" type="file" style="display:none;" />
+                        <input id="imgFile${idImg}" name="imgFile${idImg}" type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
                             onclick="document.getElementById('inputFile').click();" />
@@ -435,11 +444,14 @@
         keyup: function () {
             formatCurrency($(this));
             GiaBan(this);
+            GiaVon(this);
         },
         blur: function () {
             formatCurrency($(this), "blur");
         }
     });
+
+
 
 
     function formatNumber(n) {
@@ -479,11 +491,18 @@
 
     }
     function GiaBan(input){
-        var str = document.getElementById("currency-field").value;
+        var str = document.getElementById("inputGiaBan").value;
         var num = str.match(/\d/g);
         num = num.join("");
         $("#giaban").val(num)
-        console.log(parseInt(num)+2)
+        console.log("giá bán " + parseInt(num)+2)
+    }
+    function GiaVon(input){
+        var str = document.getElementById("inputGiaVon").value;
+        var num = str.match(/\d/g);
+        num = num.join("");
+        $("#giavon").val(num)
+        console.log("giá vốn " + parseInt(num)+2)
     }
     // chỉnh lại số lượng sản phẩm theo số lượng màu sắc
 

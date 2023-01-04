@@ -36,5 +36,24 @@ public class MauSacDao extends AbsDao{
 
         return  idms;
     }
+    public int  SaveMSandSP2(MauSacLKSanPham mauSacLKSanPham, int idSP, int idHA){
+        String sql = "INSERT INTO mausaclkphamsan(MaViTriMS,IdSP,IdMS,IdHA, SoLuongTrongKhoMS,SoLuongDaBanMS)" +
+                " VALUES(?,?,?,?,?,?)";
+
+        int idms =  insert(sql,mauSacLKSanPham.getMaVitriMS(),idSP,idHA,mauSacLKSanPham.getSoLuongTrongKhoMS(),
+                mauSacLKSanPham.getSoLuongDaBanMS());
+
+        return  idms;
+    }
+    public int  SaveMSandSP3(MauSacLKSanPham mauSacLKSanPham){
+        String sql = "INSERT INTO mausaclkphamsan(MaViTriMS,IdSP,IdMS,IdHA, SoLuongTrongKhoMS,SoLuongDaBanMS)" +
+                " VALUES(?,?,?,?,?,?)";
+
+        int idms =  insert(sql,mauSacLKSanPham.getMaVitriMS(),mauSacLKSanPham.getIdSP(),mauSacLKSanPham.getIdMS(),mauSacLKSanPham.getIdHA()
+                ,mauSacLKSanPham.getSoLuongTrongKhoMS(),
+                mauSacLKSanPham.getSoLuongDaBanMS());
+
+        return  idms;
+    }
 
 }

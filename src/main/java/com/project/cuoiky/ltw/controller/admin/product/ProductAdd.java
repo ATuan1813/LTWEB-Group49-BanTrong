@@ -2,6 +2,7 @@ package com.project.cuoiky.ltw.controller.admin.product;
 
 import com.project.cuoiky.ltw.database.CategoryDao;
 import com.project.cuoiky.ltw.database.MauSacDao;
+import com.project.cuoiky.ltw.model.PhanLoaiCap1;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,9 @@ public class ProductAdd extends HttpServlet {
         request.setAttribute("listCa2", categoryDao.getListPLC2());
         request.setAttribute("listMS", mauSacDao.getListMS());
 
+        for (PhanLoaiCap1 phanLoaiCap1 : categoryDao.getListPLC1()) {
+            System.out.println(phanLoaiCap1.getIdPLC1());
+        }
 
         request.getRequestDispatcher("/admin/addProduct.jsp").forward(request,response);
     }

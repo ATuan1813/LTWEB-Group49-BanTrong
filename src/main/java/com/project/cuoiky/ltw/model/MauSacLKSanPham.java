@@ -18,6 +18,16 @@ public class MauSacLKSanPham {
         SoLuongDaBanMS = soLuongDaBanMS;
     }
 
+    public MauSacLKSanPham(int idMSSP, int maVitriMS, int idSP, int idMS, int idHA, int soLuongTrongKhoMS, int soLuongDaBanMS) {
+        IdMSSP = idMSSP;
+        MaVitriMS = maVitriMS;
+        IdSP = idSP;
+        IdMS = idMS;
+        IdHA = idHA;
+        SoLuongTrongKhoMS = soLuongTrongKhoMS;
+        SoLuongDaBanMS = soLuongDaBanMS;
+    }
+
     public MauSacLKSanPham() {
     }
 
@@ -47,5 +57,33 @@ public class MauSacLKSanPham {
 
     public int getSoLuongDaBanMS() {
         return SoLuongDaBanMS;
+    }
+
+    public void setIdMSSP(int idMSSP) {
+        IdMSSP = idMSSP;
+    }
+
+    public void setMaVitriMS(int maVitriMS) {
+        MaVitriMS = maVitriMS;
+    }
+
+    public void setIdSP(int idSP) {
+        IdSP = idSP;
+    }
+
+    public void setIdMS(int idMS) {
+        IdMS = idMS;
+    }
+
+    public void setIdHA(int idHA) {
+        IdHA = idHA;
+    }
+
+    public void setSoLuongTrongKhoMS(int soLuongTrongKhoMS) {
+        SoLuongTrongKhoMS = soLuongTrongKhoMS;
+    }
+
+    public void setSoLuongDaBanMS(int soLuongDaBanMS) {
+        SoLuongDaBanMS = soLuongDaBanMS;
     }
 }

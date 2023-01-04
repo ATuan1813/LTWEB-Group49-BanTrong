@@ -20,6 +20,10 @@ public class CategorySP1Mapper implements RowMapper<PhanLoaiCap1>{
 
     @Override
     public PhanLoaiCap1 mapRowID(ResultSet resultSet) throws SQLException {
-        return null;
+        int idPLC1 = resultSet.getInt("IdPLC1");
+        String TenPLC1 = resultSet.getString("TenPLC1");
+        String MoTa = resultSet.getString("MoTa");
+        PhanLoaiCap1 phanLoaiCap1 = new PhanLoaiCap1(idPLC1,TenPLC1,MoTa);
+        return phanLoaiCap1;
     }
 }

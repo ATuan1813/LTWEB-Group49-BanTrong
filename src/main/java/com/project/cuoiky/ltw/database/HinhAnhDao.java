@@ -28,4 +28,10 @@ public class HinhAnhDao extends AbsDao{
 
         return  idha;
     }
+    public int  SaveHA2(HinhAnh hinhAnh,int idSP){
+        String sql = "INSERT INTO mausaclkphamsan(MaViTriHA,IdSP,UrlHA)+VALUES(?,?,?)";
+        int idha =  insert(sql,hinhAnh.getMaViTriHA(),idSP,hinhAnh.getUrlHA());
+
+        return  idha;
+    }
 }
