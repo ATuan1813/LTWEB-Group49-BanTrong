@@ -14,7 +14,19 @@
 </head>
 <body>
 <!-- Add your site or application content here -->
+<%
 
+    String taiKhoan_err = "";
+    String matKhau_err = "";
+
+    if (request.getAttribute("taiKhoan_err") != null) {
+        taiKhoan_err = request.getAttribute("taiKhoan_err").toString();
+    }
+
+    if (request.getAttribute("matKhau_err") != null) {
+        matKhau_err = request.getAttribute("matKhau_err").toString();
+    }
+%>
 <!--pos page start-->
 <div class="pos_page">
     <div class="container">
@@ -46,19 +58,35 @@
 
             <!-- customer login start -->
             <div class="customer_login">
-                <div class="row" >
+                <div class="row">
                     <!--login area start-->
                     <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
                         <div class="account_form">
                             <h2>Đăng nhập</h2>
-                            <form action="#">
+                            <form action="login" method="post">
                                 <p>
-                                    <label>Số điện thoại hoặt email <span>*</span></label>
-                                    <input type="text">
+                                    <label>Địa chỉ email <span>*</span></label>
+                                    <input type="text" name="taiKhoan">
+                                        <%
+                                        if (taiKhoan_err != "") {
+                                    %>
+                                <p class="text-danger"><%=taiKhoan_err%>
+                                </p>
+                                <%
+                                    }
+                                %>
                                 </p>
                                 <p>
                                     <label>Mật khẩu <span>*</span></label>
-                                    <input type="password">
+                                    <input type="password" name="matKhau">
+                                        <%
+                                        if (matKhau_err != "") {
+                                    %>
+                                <p class="text-danger"><%=matKhau_err%>
+                                </p>
+                                <%
+                                    }
+                                %>
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng nhập</button>

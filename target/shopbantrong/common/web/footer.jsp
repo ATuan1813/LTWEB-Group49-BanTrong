@@ -29,8 +29,8 @@
                         <h3>Tài Khoản của tôi</h3>
                         <ul>
                             <li><a href="my-account.html">Tài khoản của tôi</a></li>
-                            <li><a href="login.html">Đăng nhập</a></li>
-                            <li><a href="register.html">Đăng ký</a></li>
+                            <li><a href="login">Đăng nhập</a></li>
+                            <li><a href="register">Đăng ký</a></li>
                         </ul>
                     </div>
                 </div>

@@ -37,7 +37,13 @@
                         <li><a href="contact.jsp" title="">Liên Lạc</a></li>
                         <li><a href="my-account.jsp" title="">Tài khoản của tôi</a></li>
                         <li><a href="cart.jsp" title="">Giỏ hàng</a></li>
+                        <%
+                            if(session.getAttribute("nguoiDung") == null) {
+                        %>
                         <li><a href="login.jsp" title="">Đăng nhập</a></li>
+                        <%
+                            }
+                        %>
                     </ul>
                 </div>
             </div>

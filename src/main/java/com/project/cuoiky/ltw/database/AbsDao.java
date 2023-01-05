@@ -10,9 +10,9 @@ import java.util.List;
 
 public class AbsDao {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
-        String strcnn = "jdbc:mysql://localhost:3306/shopbantrong";
-        String user = "root";
-        String passwrod = "1234";
+        String strcnn = "jdbc:mysql://103.221.221.52:3306/nrtkxjka_bantrong";
+        String user = "nrtkxjka_dev";
+        String passwrod = "P@sslag1";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         return DriverManager.getConnection(strcnn,user,passwrod);
