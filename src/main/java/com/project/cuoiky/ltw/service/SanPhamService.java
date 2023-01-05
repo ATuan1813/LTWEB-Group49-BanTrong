@@ -12,6 +12,8 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -31,13 +33,16 @@ public class SanPhamService {
 
     }
 
-    public void themSanPham2(HttpServletRequest request) {
+    public void themSanPham2(HttpServletRequest request) throws UnsupportedEncodingException {
+
+
         boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
         if (!isMultipartContent) {
             return;
         }
         FileItemFactory factory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("iso-8859-2");
         try {
             List<FileItem> fields = upload.parseRequest(request);
             Iterator<FileItem> it = fields.iterator(); // lấy tất cả ảnh
@@ -63,6 +68,7 @@ public class SanPhamService {
             int plc1 = 0;
             while (it.hasNext()) {
                 FileItem fileItem = it.next();
+
                 boolean isFormField = fileItem.isFormField();
                 String filename = fileItem.getFieldName();
                 String fileValue = fileItem.getString();
@@ -71,9 +77,13 @@ public class SanPhamService {
                     if(filename.equalsIgnoreCase("TenSP")){
                         TenSP = fileValue;
                     } else if (filename.equalsIgnoreCase("MoTaSP")) {
-                        MotaSP = fileValue;
+                        MotaSP = "Một bộ trống cổ điển như bản gốc của Pearl “series President” Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín. Dự án vật liệu rắn nhiều lớp, mỏng độc đáo này với âm vang lớn, xuyên thấu, rất được các nhà sưu tập và người chơi thèm muốn.";
+                        System.out.println("Mô tả : " + MotaSP);
                     } else if (filename.equalsIgnoreCase("ThongSoKyThuat")) {
-                        ThongSoKyThuat = fileValue;
+                        ThongSoKyThuat = "22″x14″ Bass Drum," +
+                                "13″x9″ Tom," +
+                                "16″x16″ Floor Tom," +
+                                "Giá đỡ";
                     } else if (filename.equalsIgnoreCase("category")) {
                         plc1 = Integer.parseInt(fileValue);
 
@@ -81,13 +91,13 @@ public class SanPhamService {
                         IdPLC2 = Integer.parseInt(fileValue);
 
                     } else if (filename.equalsIgnoreCase("kichthuoc")) {
-                        if(fileValue != null){
+                        if(!fileValue.isEmpty()){
                             KickThuoc = Double.parseDouble(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("vatlieu")) {
                         VatLieu = fileValue;
                     } else if (filename.equalsIgnoreCase("sale")) {
-                        if (fileValue != null){
+                        if (!fileValue.isEmpty()){
                             KhuyenMai = Double.parseDouble(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("soLuong")) {
@@ -112,9 +122,9 @@ public class SanPhamService {
             System.out.println("idSP : " + IdSP);
 
             Map<Integer,Integer> imgColors = uploadFileService.uploadImg(fields,IdSP);
-            colorLKSanPhamService.saveColorLKSanPham(imgColors,IdSP,request);
+            colorLKSanPhamService.saveColorLKSanPham(imgColors,IdSP,fields);
 
-            System.out.println("==========================");
+            System.out.println("====================================");
 
         } catch (Exception e) {
             e.printStackTrace();

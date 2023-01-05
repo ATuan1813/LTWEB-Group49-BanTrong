@@ -137,17 +137,18 @@
                                             <div class="row productColor">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Màu Sắc</label>
-                                                    <select class="custom-select tm-select-accounts" name="categoryMS1" id="categoryMS1">
+                                                    <select class="custom-select tm-select-accounts" name="categoryMS1000" id="categoryMS1000">
                                                         <%ArrayList<MauSac> mauSacs = (ArrayList<MauSac>) request.getAttribute("listMS");
                                                             for (MauSac mauSac: mauSacs) {%>
 
                                                         <option style="background-color: <%mauSac.getMaMau();%>" value="<%out.print(mauSac.getIdMauSac());%>"><%out.print(mauSac.getTenMauSac());%></option>
                                                         <%}%>
                                                     </select>
+
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6" id="color">
                                                     <label >Số Lượng MS</label>
-                                                    <input oninput="sumSoLuong()" id="soLuongMS1" name="soLuongMS1"
+                                                    <input oninput="sumSoLuong()" id="soLuongMS1000" name="soLuongMS1000"
                                                            class="form-control" min="0" max="10000" value="0" type="number"
                                                            required />
                                                 </div>
@@ -309,7 +310,7 @@
     var a = "hỏi";
     var idColorP = 1;
     var idColorImg = 1;
-    var arrayIdColor = [1];
+    var arrayIdColor = [1000];
     var arrayIdColorImg = [1];
     var soLuong = 0;
     var idImg = 1000;
@@ -340,7 +341,7 @@
             `<div class="row productColor">
                     <div class="form-group mb-3 col-xs-12 col-sm-6">
                         <label for="categoryLable1">Màu Sắc</label>
-                        <select class="custom-select tm-select-accounts" id="categoryMS${idColorP}">
+                        <select class="custom-select tm-select-accounts" name="categoryMS${idColorP}" id="categoryMS${idColorP}">
 
                                <%for (MauSac mauSac: mauSacs) {%>
                                 <option style="background-color: <%mauSac.getMaMau();%>" value="<%out.print(mauSac.getIdMauSac());%>"><%out.print(mauSac.getTenMauSac());%></option>
@@ -380,7 +381,7 @@
                         <span id="text-pre${idCategoryColor}" class="img-pre-text">Hình Ảnh CHo Màu ${textCategoryColor}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
-                        <input id="imgFile${idCategoryColor}" name="imgFile${idCategoryColor}" type="file" style="display:none;" />
+                        <input  name="imgFile${idCategoryColor}" id="imgFile${idCategoryColor}" type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
                             onclick="loadImg('${idCategoryColor}')" />
@@ -405,7 +406,7 @@
                         <span id="text-pre${idImg}" class="img-pre-text">Khung Hình Phụ ${idImg-1000}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
-                        <input id="imgFile${idImg}" name="imgFile${idImg}" type="file" style="display:none;" />
+                        <input name="imgFile${idImg}" id="imgFile${idImg}"  type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
                             onclick="loadImg('${idImg}')" />

@@ -23,13 +23,13 @@ public class HinhAnhDao extends AbsDao{
 
     // Save MauSacLKSanPham From Save SanPham
     public int  SaveHA(SanPham sanPham, HinhAnh hinhAnh){
-        String sql = "INSERT INTO mausaclkphamsan(MaViTriHA,IdSP,UrlHA)+VALUES(?,?,?)";
+        String sql = "INSERT INTO mausaclkphamsan(MaViTriHA,IdSP,UrlHA) VALUES(?,?,?)";
         int idha =  insert(sql,hinhAnh.getMaViTriHA(),sanPham.getIdSP(),hinhAnh.getUrlHA());
 
         return  idha;
     }
     public int  SaveHA2(HinhAnh hinhAnh,int idSP){
-        String sql = "INSERT INTO mausaclkphamsan(MaViTriHA,IdSP,UrlHA)+VALUES(?,?,?)";
+        String sql = "INSERT INTO HinhAnh(MaViTriHA,IdSP,UrlHA) VALUES(?,?,?)";
         int idha =  insert(sql,hinhAnh.getMaViTriHA(),idSP,hinhAnh.getUrlHA());
 
         return  idha;

@@ -29,11 +29,14 @@ public class ProductAdd extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
+
         System.out.println("Process add SanPham Start");
         sanPhamService.themSanPham2(request);
 
 
-        request.setAttribute("notify","Thêm Sản Phẩm Thành Công");
+//        request.setAttribute("notify","Thêm Sản Phẩm Thành Công");
         request.getRequestDispatcher("/admin/addProduct.jsp").forward(request,response);
     }
 }

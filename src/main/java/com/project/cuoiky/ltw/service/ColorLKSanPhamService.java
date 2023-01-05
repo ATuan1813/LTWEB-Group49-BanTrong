@@ -21,16 +21,10 @@ public class ColorLKSanPhamService {
     MauSacDao mauSacDao = new MauSacDao();
     HandleInput handleInput = new HandleInput();
 
-    public void saveColorLKSanPham(Map<Integer, Integer> imgColors, int IdSP, HttpServletRequest request) throws FileUploadException {
+    public void saveColorLKSanPham(Map<Integer, Integer> imgColors, int IdSP, List< FileItem > fields) throws FileUploadException {
 
-        boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
-        if (!isMultipartContent) {
-            return;
-        }
-        FileItemFactory factory = new DiskFileItemFactory();
-        ServletFileUpload upload = new ServletFileUpload(factory);
         try {
-            List<FileItem> fields = upload.parseRequest(request);
+
             Iterator<FileItem> it = fields.iterator(); // lấy tất cả ảnh
             if (!it.hasNext()) {
                 return;
@@ -41,6 +35,8 @@ public class ColorLKSanPhamService {
                 int idha = 0;
                 int soluongMS = 0;
                 int idms = 0;
+
+                System.out.println("Entry : " + entry.getKey());
 
                 while (it.hasNext()) {
                     FileItem fileItem = it.next();

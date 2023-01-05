@@ -22,43 +22,42 @@ public class UploadFileService {
 
     public Map<Integer,Integer> uploadImg(List< FileItem > fields , int IdSP) throws IOException {
 
-//        boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
-//        if (!isMultipartContent) {
-//            return null;
-//        }
-
         Map<Integer,Integer> idimgs =  new HashMap<Integer,Integer>();
 
-//        FileItemFactory factory = new DiskFileItemFactory();
-//        ServletFileUpload upload = new ServletFileUpload(factory);
         try {
-//            List< FileItem > fields = upload.parseRequest(request);
             System.out.println("size fields : " + fields.size());
-
             Iterator<FileItem> it = fields.iterator(); // lấy tất cả ảnh
             if (!it.hasNext()) {
                 return null;
             }
+
             ArrayList<Integer> MavitriHas = new ArrayList<>();
             ArrayList<String> urlHSa = new ArrayList<>();
             System.out.println("co it : " + it.hasNext());
             int index = 1;
+
             while (it.hasNext()) {
                 FileItem fileItem = it.next();
                 boolean isFormField = fileItem.isFormField();
                 if (isFormField) {
-                    System.out.println(index + " - From field img : " + fileItem.getFieldName());
+//                    System.out.println(index + " - From field img : " + fileItem.getFieldName());
                     index++;
                 } else {
                     if (fileItem.getSize() > 0) {
                         System.out.println("Ma vi tri image > 0: " + handleInput.getnumberInString(fileItem.getFieldName()));
                         MavitriHas.add(handleInput.getnumberInString(fileItem.getFieldName()));
+                        String path = "F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" +fileItem.getName();
 
-                        urlHSa.add("F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" + fileItem.getName());
-//                        fileItem.write(new File("F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" + fileItem.getName()));
+                        File file = new File(path);
+                        if(file.exists()){
+                            urlHSa.add(path);
+                        }else {
+                            urlHSa.add(path);
+                            fileItem.write(new File(path));
+                        }
                     }
-                    System.out.println("Ma vi tri image : " + handleInput.getnumberInString(fileItem.getFieldName()));
-
+                    System.out.println(index + " - File field image : " + handleInput.getnumberInString(fileItem.getFieldName()));
+                    index++;
                 }
             }
 
@@ -69,9 +68,9 @@ public class UploadFileService {
 
             // save imgs and return idimgs
             for (int i = 0; i < MavitriHas.size(); i++){
-                if(MavitriHas.get(i)%1000 >= 0){
+                if(MavitriHas.get(i)%1000 > 0){
                     HinhAnh hinhAnh = new HinhAnh(MavitriHas.get(i), IdSP, urlHSa.get(i));
-                    System.out.println("Ma vi tri just img " + MavitriHas.get(i));
+                    System.out.println("Ma vi tri just img : " + MavitriHas.get(i) + " idSP " + IdSP);
                     int idimg = hinhAnhDao.SaveHA2(hinhAnh,IdSP);
                     System.out.println("Save img có id là " + idimg);
 
