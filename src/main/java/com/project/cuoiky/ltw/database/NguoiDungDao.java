@@ -17,4 +17,9 @@ public class NguoiDungDao extends AbsDao {
         String query = "INSERT INTO nguoidung(TAIKHOAN, MatKhau, Quyen, tinhTrang) VALUES (?, ?, ?, ?)";
         return insert(query, nguoiDung.getTaiKhoan(), nguoiDung.getMatKhau(), nguoiDung.getQuyen(), nguoiDung.getTinhtrang());
     }
+
+    public int update(NguoiDung nguoiDung) {
+        String query = "UPDATE nguoidung SET MatKhau = ? WHERE IDNGUOIDUNG = ?";
+        return insert(query, nguoiDung.getMatKhau(), nguoiDung.getIdNguoiDung());
+    }
 }

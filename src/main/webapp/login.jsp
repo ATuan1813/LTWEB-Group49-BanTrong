@@ -18,6 +18,7 @@
 
     String taiKhoan_err = "";
     String matKhau_err = "";
+    String taiKhoan = "";
 
     if (request.getAttribute("taiKhoan_err") != null) {
         taiKhoan_err = request.getAttribute("taiKhoan_err").toString();
@@ -25,6 +26,10 @@
 
     if (request.getAttribute("matKhau_err") != null) {
         matKhau_err = request.getAttribute("matKhau_err").toString();
+    }
+
+    if (request.getAttribute("taiKhoan") != null) {
+        taiKhoan = request.getAttribute("taiKhoan").toString();
     }
 %>
 <!--pos page start-->
@@ -66,7 +71,7 @@
                             <form action="login" method="post">
                                 <p>
                                     <label>Địa chỉ email <span>*</span></label>
-                                    <input type="text" name="taiKhoan">
+                                    <input type="text" name="taiKhoan" value="<%=taiKhoan%>">
                                         <%
                                         if (taiKhoan_err != "") {
                                     %>
@@ -94,7 +99,7 @@
                                         <input id="remember" type="checkbox">
                                         Nhớ mật khẩu của tôi
                                     </label>
-
+                                    <a style="margin-left: 20px" href="forgot_password.jsp">Quên mật khẩu</a>
                                     <a href="register.jsp">Đăng kí</a>
                                 </div>
                             </form>

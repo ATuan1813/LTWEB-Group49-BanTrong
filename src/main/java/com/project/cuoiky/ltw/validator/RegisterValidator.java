@@ -22,7 +22,7 @@ public class RegisterValidator {
         if (taiKhoan == null || taiKhoan.equalsIgnoreCase("")) {
             taiKhoan_err = "Vui lòng nhập địa chỉ Email!";
         } else {
-            NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(taiKhoan.trim());
+            NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(taiKhoan);
             if (nguoiDung != null) {
                 taiKhoan_err = "Địa chỉ Email đã tồn tại!";
             }
