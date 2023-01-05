@@ -20,64 +20,75 @@ public class UploadFileService {
     HandleInput handleInput = new HandleInput();
     HinhAnhDao hinhAnhDao = new HinhAnhDao();
 
-    public Map<Integer,Integer> uploadImg(HttpServletRequest request , int IdSP) throws IOException {
-        String file_name = null;
-        boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
-        if (!isMultipartContent) {
-            return null;
-        }
+    public Map<Integer,Integer> uploadImg(List< FileItem > fields , int IdSP) throws IOException {
+
+//        boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
+//        if (!isMultipartContent) {
+//            return null;
+//        }
 
         Map<Integer,Integer> idimgs =  new HashMap<Integer,Integer>();
 
-        FileItemFactory factory = new DiskFileItemFactory();
-        ServletFileUpload upload = new ServletFileUpload(factory);
+//        FileItemFactory factory = new DiskFileItemFactory();
+//        ServletFileUpload upload = new ServletFileUpload(factory);
         try {
-            List< FileItem > fields = upload.parseRequest(request);
+//            List< FileItem > fields = upload.parseRequest(request);
+            System.out.println("size fields : " + fields.size());
+
             Iterator<FileItem> it = fields.iterator(); // lấy tất cả ảnh
             if (!it.hasNext()) {
                 return null;
             }
             ArrayList<Integer> MavitriHas = new ArrayList<>();
             ArrayList<String> urlHSa = new ArrayList<>();
+            System.out.println("co it : " + it.hasNext());
+            int index = 1;
             while (it.hasNext()) {
                 FileItem fileItem = it.next();
                 boolean isFormField = fileItem.isFormField();
                 if (isFormField) {
-                    if (file_name == null) {
-                        if (fileItem.getFieldName().equals("file_name")) {
-                            file_name = fileItem.getString();
-                        }
-                    }
+                    System.out.println(index + " - From field img : " + fileItem.getFieldName());
+                    index++;
                 } else {
                     if (fileItem.getSize() > 0) {
+                        System.out.println("Ma vi tri image > 0: " + handleInput.getnumberInString(fileItem.getFieldName()));
                         MavitriHas.add(handleInput.getnumberInString(fileItem.getFieldName()));
+
                         urlHSa.add("F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" + fileItem.getName());
-                        fileItem.write(new File("F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" + fileItem.getName()));
+//                        fileItem.write(new File("F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" + fileItem.getName()));
                     }
+                    System.out.println("Ma vi tri image : " + handleInput.getnumberInString(fileItem.getFieldName()));
+
                 }
+            }
+
+            for (int i = 0; i < MavitriHas.size(); i++) {
+                System.out.println("in test " + MavitriHas.get(i));
+                System.out.println("in test " + urlHSa.get(i));
             }
 
             // save imgs and return idimgs
             for (int i = 0; i < MavitriHas.size(); i++){
                 if(MavitriHas.get(i)%1000 >= 0){
                     HinhAnh hinhAnh = new HinhAnh(MavitriHas.get(i), IdSP, urlHSa.get(i));
-                    hinhAnhDao.SaveHA2(hinhAnh,IdSP);
+                    System.out.println("Ma vi tri just img " + MavitriHas.get(i));
+                    int idimg = hinhAnhDao.SaveHA2(hinhAnh,IdSP);
+                    System.out.println("Save img có id là " + idimg);
+
                 }else {
                     // save img has color
                     HinhAnh hinhAnh = new HinhAnh(MavitriHas.get(i), IdSP, urlHSa.get(i));
+                    System.out.println("Ma vi tri img and color : " + MavitriHas.get(i));
+
                     int idimg = hinhAnhDao.SaveHA2(hinhAnh,IdSP);
                     idimgs.put(MavitriHas.get(i), idimg);
+                    System.out.println("Save img có id là " + idimg);
                 }
             }
             return idimgs;
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-//            out.println("<script type='text/javascript'>");
-//            out.println("window.location.href='index.jsp?filename="+file_name+"'");
-//            out.println("</script>");
-//            out.close();
         }
         return idimgs;
     }

@@ -37,6 +37,10 @@
         #soLuong{
             background-color: #50657b;
         }
+        .img-pre__img{
+            max-width: 360px !important;
+            max-height: 200px !important;
+        }
     </style>
 </head>
 
@@ -61,7 +65,7 @@
                                 </div>
                                 <div class="row tm-edit-product-row">
                                     <div class="col-xl-6 col-lg-6 col-md-12">
-                                        <form action="" class="tm-edit-product-form" enctype="multipart/form-data">
+                                        <form action="/shopbantrong_war/admin-product-add" method="post" class="tm-edit-product-form" enctype="multipart/form-data">
                                             <div class="form-group mb-3">
                                                 <label>Tên Sản Phẩm
                                                 </label>
@@ -79,7 +83,7 @@
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Bộ Sản Phẩm</label>
-                                                    <select class="custom-select tm-select-accounts" id="category">
+                                                    <select class="custom-select tm-select-accounts" name="category" id="category">
 
                                                         <%ArrayList<PhanLoaiCap1> phanLoaiCap1s =  (ArrayList<PhanLoaiCap1>)request.getAttribute("listCa1");
 
@@ -92,7 +96,7 @@
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label >Loại Sản Phẩm</label>
-                                                    <select class="custom-select tm-select-accounts" id="category100">
+                                                    <select class="custom-select tm-select-accounts" name="category100" id="category100">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
 
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s) {
@@ -105,7 +109,7 @@
 
                                                     </select>
                                                     <select style="display: none;"
-                                                            class="custom-select tm-select-accounts" id="category200">
+                                                            class="custom-select tm-select-accounts" name="category200" id="category200">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s2 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
 
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s2) {
@@ -117,7 +121,7 @@
                                                         <%}}%>
                                                     </select>
                                                     <select style="display: none;"
-                                                            class="custom-select tm-select-accounts" id="category300">
+                                                            class="custom-select tm-select-accounts" name="category300" id="category300">
                                                         <%ArrayList<PhanLoaiCap2> phanLoaiCap2s3 =  (ArrayList<PhanLoaiCap2>)request.getAttribute("listCa2");
 
                                                             for (PhanLoaiCap2 plc2 : phanLoaiCap2s3) {
@@ -189,33 +193,43 @@
                                                     <label>Sale
                                                     </label>
                                                     <input name="sale" type="text"
-                                                           class="form-control validate" required />
+                                                           class="form-control validate" />
                                                 </div>
+
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Giá Vốn
                                                     </label>
                                                     <input id="inputGiaVon" name="inputGiaVon"
-                                                           pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
-                                                           data-type="currency" placeholder="1.000.000 vnd"
+                                                           value=""
+                                                           data-type="currency" oninput="GiaVon()" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
-                                                    <input id="giavon" name="giavon" style="display: block">
+                                                    <input id="giavon" name="giavon" style="display: none">
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Giá Bán
                                                     </label>
                                                     <input id="inputGiaBan" name="inputGiaBan"
-                                                           pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
-                                                           data-type="currency" placeholder="1.000.000 vnd"
+                                                           value=""
+                                                           data-type="currency" oninput="GiaBan()" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
-                                                    <input id="giaban" name="giaban" style="display: block">
+                                                    <input id="giaban" name="giaban" style="display: none">
                                                 </div>
+
+                                            </div>
+                                            <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Vật Liệu
                                                     </label>
                                                     <input id="vatlieu" name="vatlieu" type="text"
                                                            class="form-control validate" required />
+                                                </div>
+                                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                    <label>Kích Thước
+                                                    </label>
+                                                    <input name="kichthuoc" type="text"
+                                                           class="form-control validate" />
                                                 </div>
                                             </div>
 
@@ -223,17 +237,17 @@
                                     <!-- img upload -->
                                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                                         <div class="upload-img" id="imgColor1000">
-                                            <div class="tm-product-img-dummy mx-auto" id="img-pre">
+                                            <div class="tm-product-img-dummy mx-auto" id="img-pre1000">
                                                 <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                                             onclick="document.getElementById('inputFile').click();"></i> -->
-                                                <img id="nameImg" src="" alt="" class="img-pre__img">
-                                                <span class="img-pre-text">Khung Hình Chính</span>
+                                                <img id="nameImg1000" src="" alt="" class="img-pre__img">
+                                                <span id="text-pre1000" class="img-pre-text">Khung Hình Chính</span>
                                             </div>
                                             <div class="custom-file mt-3 mb-3">
                                                 <input id="imgFile1000" name="imgFile1000" type="file" style="display:none;" />
                                                 <input type="button" class="btn btn-primary btn-block mx-auto"
                                                        value="Tải Hình Ảnh"
-                                                       onclick="document.getElementById('inputFile').click();" />
+                                                       onclick="loadImg('1000')" />
                                             </div>
                                         </div>
                                         <input type="button" class="btn-ms btn-img-add" onclick="addImgs()"
@@ -246,6 +260,9 @@
                                         <button type="submit" class="btn btn-primary btn-block text-uppercase">
                                             Thêm Sản Phẩm
                                         </button>
+                                    </div>
+                                    <div class="col-12">
+
                                     </div>
                                     </form>
                                 </div>
@@ -356,17 +373,17 @@
         last.insertAdjacentHTML(
             'afterend',
             ` <div  class="upload-img" id="imgColor${idCategoryColor}">
-                    <div class="tm-product-img-dummy mx-auto" id="img-pre">
+                    <div class="tm-product-img-dummy mx-auto" id="img-pre${idCategoryColor}">
                         <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
-                                    onclick="document.getElementById('inputFile').click();"></i> -->
-                        <img id="nameImg" src="" alt="" class="img-pre__img">
-                        <span class="img-pre-text">Hình Ảnh CHo Màu ${textCategoryColor}</span>
+                                    onclick="loadImg('imgFile${idCategoryColor}')"></i> -->
+                        <img id="nameImg${idCategoryColor}" src="" alt="" class="img-pre__img">
+                        <span id="text-pre${idCategoryColor}" class="img-pre-text">Hình Ảnh CHo Màu ${textCategoryColor}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
                         <input id="imgFile${idCategoryColor}" name="imgFile${idCategoryColor}" type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
-                            onclick="document.getElementById('inputFile').click();" />
+                            onclick="loadImg('${idCategoryColor}')" />
                             <input type="button" onclick="removeImg(this,${idCategoryColor})" class="btn-ms btn-ms-remove" value="Xóa">
                     </div>
                 </div>`
@@ -381,17 +398,17 @@
         last.insertAdjacentHTML(
             'afterend',
             ` <div  class="upload-img" id="imgColor${idImg}">
-                    <div class="tm-product-img-dummy mx-auto" id="img-pre">
+                    <div class="tm-product-img-dummy mx-auto" id="img-pre${idImg}">
                         <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
-                                    onclick="document.getElementById('inputFile').click();"></i> -->
-                        <img id="nameImg"  src="" alt="" class="img-pre__img">
-                        <span class="img-pre-text">Khung Hình Phụ ${idImg-1000}</span>
+                                    onclick="loadImg('${idImg}')"></i> -->
+                        <img id="nameImg${idImg}"  src="" alt="" class="img-pre__img">
+                        <span id="text-pre${idImg}" class="img-pre-text">Khung Hình Phụ ${idImg-1000}</span>
                     </div>
                     <div class="custom-file mt-3 mb-3">
                         <input id="imgFile${idImg}" name="imgFile${idImg}" type="file" style="display:none;" />
                         <input type="button" class="btn btn-primary btn-block mx-auto"
                             value="Tải Hình Ảnh"
-                            onclick="document.getElementById('inputFile').click();" />
+                            onclick="loadImg('${idImg}')" />
                             <input type="button" onclick="removeImg(this)" class="btn-ms btn-ms-remove" value="Xóa">
                     </div>
                 </div>`
@@ -443,8 +460,7 @@
     $("input[data-type='currency']").on({
         keyup: function () {
             formatCurrency($(this));
-            GiaBan(this);
-            GiaVon(this);
+
         },
         blur: function () {
             formatCurrency($(this), "blur");
@@ -490,14 +506,14 @@
         input[0].setSelectionRange(caret_pos, caret_pos);
 
     }
-    function GiaBan(input){
+    function GiaBan(){
         var str = document.getElementById("inputGiaBan").value;
         var num = str.match(/\d/g);
         num = num.join("");
         $("#giaban").val(num)
         console.log("giá bán " + parseInt(num)+2)
     }
-    function GiaVon(input){
+    function GiaVon(){
         var str = document.getElementById("inputGiaVon").value;
         var num = str.match(/\d/g);
         num = num.join("");
@@ -527,30 +543,37 @@
 
 <!-- style addProduct -->
 <script>
-    var nameImg1 = "";
-    const inputFile = document.getElementById("inputFile");
-    const previewContainer = document.getElementById("img-pre");
-    const previewImage = document.querySelector(".img-pre__img");
-    const previewText = document.querySelector(".img-pre-text");
 
-    inputFile.addEventListener("change", function () {
-        const file = this.files[0];
-        nameImg1 = file.name;
-        console.log(nameImg1);
-        console.log(file);
-        if (file) {
-            const reader = new FileReader();
-            previewText.style.display = "none";
-            previewImage.style.display = "block";
+    function loadImg(a){
+        document.getElementById("imgFile"+a).click()
+        var nameImg1 = "";
+        const inputFile = document.getElementById("imgFile"+a);
+        console.log(inputFile);
+        const previewContainer = document.getElementById("img-pre"+a);
+        const previewImage = document.getElementById("nameImg"+a);
+        const previewText = document.getElementById("text-pre"+a);
 
-            reader.addEventListener("load", function () {
-                console.log(this);
-                previewImage.setAttribute("src", this.result);
-            });
+        inputFile.addEventListener("change", function () {
+            const file = this.files[0];
+            nameImg1 = file.name;
+            console.log(nameImg1);
+            console.log(file);
+            if (file) {
+                const reader = new FileReader();
+                previewText.style.display = "none";
+                previewImage.style.display = "block";
 
-            reader.readAsDataURL(file);
-        }
-    })
+                reader.addEventListener("load", function () {
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            }
+        })
+    }
+
+
 </script>
 </body>
 

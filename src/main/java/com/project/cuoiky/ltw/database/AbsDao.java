@@ -18,9 +18,11 @@ public class AbsDao {
         return DriverManager.getConnection(strcnn,user,passwrod);
     }
     public void setParameter(PreparedStatement statement, Object... parameters) {
+        System.out.println("sum parameters : " +parameters.length);
         for(int i = 0; i < parameters.length; i++) {
             Object parameter = parameters[i];
             int index = i + 1;
+            System.out.print(index + " ");
 
             // kiểm tra kiểu để add
             if(parameter instanceof Long) {
@@ -47,6 +49,12 @@ public class AbsDao {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            }else if(parameter instanceof Double) {
+                try {
+                    statement.setDouble(index, (Double) parameter);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
             // xử lý trường hợp data bị null
@@ -58,8 +66,8 @@ public class AbsDao {
                     e.printStackTrace();
                 }
             }
-
         }
+        System.out.println();
     }
 
     // query để lấy 1 hoặc nhiều element
@@ -173,7 +181,6 @@ public class AbsDao {
                 generatedKey = rs.getInt(1);
             }
             connection.commit();
-            System.out.println("id of function insert: " + generatedKey);
             return generatedKey;
 
         }catch (Exception e) {
@@ -201,20 +208,20 @@ public class AbsDao {
     }
 
     // chức năng 5: thêm
-    public int insert(String sql, Object... parameter) {
+    public int insert(String sql, Object... parameters) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-
+        int generatedKey = 0;
         try {
             connection = getConnection();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            setParameter(statement, parameter);
-            statement.executeUpdate();
+            setParameter(statement, parameters);
 
+            System.out.println("added : " + statement.execute());
             ResultSet rs = statement.getGeneratedKeys();
-            int generatedKey = 0;
+
             if (rs.next()) {
                 generatedKey = rs.getInt(1);
             }
@@ -245,7 +252,7 @@ public class AbsDao {
                 e2.printStackTrace();
             }
         }
-        return 0;
+        return generatedKey;
     }
 
     // count all element

@@ -63,7 +63,7 @@ public class ColorLKSanPhamService {
                 int i =0;
                 i = mauSacDao.SaveMSandSP3(mauSacLKSanPham);
                 if (i != 0){
-                    System.out.println("Save Màu Sắc Thành Công");
+                    System.out.println("Save Màu Sắc Thành Công và Id là " + i);
                 }
             }
 

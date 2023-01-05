@@ -487,9 +487,13 @@ body {
   .tm-footer-link:focus {
 	color: #aacbea;
   }
+  /*img upload*/
   #nameImg{
-	max-width: 360px;
-	max-height: 200px;
+
+  }
+  .img-pre__img{
+	  max-width: 360px;
+	  max-height: 200px;
   }
 
 

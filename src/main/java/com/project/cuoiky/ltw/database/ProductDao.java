@@ -49,8 +49,21 @@ public class ProductDao extends AbsDao{
 
         return  results;
     }
+    public int saveSP2(SanPham sanPham) {
 
-    // Save color of product
+        // should use StringBuilder vì tránh lãng phí bộ nhớ
+        String sqlAddSp = "INSERT INTO SANPHAM (TenSP, MoTaSP, IdPLC2,Hang, ThongSoKyThuat, KichThuoc, VatLieu, KhuyenMai, SoLuongTrongKho," +
+                "SoLuongDaBan, GiaBan, GiaVon, TinhTrang) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        int idSP = insert(sqlAddSp,sanPham.getTenSP(),sanPham.getMotaSP(),sanPham.getIdPLC2(),sanPham.getHang(),sanPham.getThongSoKyThuat()
+                , sanPham.getKickThuoc(),sanPham.getVatLieu(), sanPham.getKhuyenMai(), sanPham.getSoLuongTrongKho()
+                , sanPham.getSoLuongDaBan(),sanPham.getGiaBan(), sanPham.getGiaVon(), sanPham.getTinhTrang());
+
+        System.out.println("Added SanPham has id : " +idSP);
+
+        return  idSP;
+    }
+
+
 
     // find by id
     public SanPham findOne(int id) {
