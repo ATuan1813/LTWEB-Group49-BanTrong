@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.project.cuoiky.ltw.model.SanPham" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -50,49 +53,18 @@
                                           </tr>
                                        </thead>
                                        <tbody>
+                                         <%ArrayList<SanPham> sanPhams = (ArrayList<SanPham>) request.getAttribute("sptb100");
+                                            Map<Integer, String> mapUrl = (Map<Integer, String>) request.getAttribute("mapUrl");
+                                            for (SanPham sanPham: sanPhams) {
+                                         %>
                                           <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1003</td> 
-                                             <td><img class="img-list-products" src="webapp/assets/img/product2/template1/template1.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
+                                             <td><%out.print(sanPham.getIdSP());%></td>
+                                             <td><img class="img-list-products" src="<%out.print(mapUrl.get(sanPham.getIdSP()));%>" alt=""></td>
+                                             <td><%out.print(sanPham.getTenSP());%></td>
+                                             <td><%out.print(sanPham.getTinhTrang());%></td>
                                           </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1005</td> 
-                                             <td><img class="img-list-products" src="http://localhost:8080/shopbantrong_war/assets/img/product2/template1/template2.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1006</td> 
-                                             <td><img class="img-list-products" src="durmshop/assets/img/product2/template1/template3.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1007</td> 
-                                             <td><img class="img-list-products" src="durmshop/assets/img/product2/template1/template4.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1008</td> 
-                                             <td><img class="img-list-products" src="durmshop/assets/img/product2/template1/template5.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TB1009</td> 
-                                             <td><img class="img-list-products" src="durmshop/assets/img/product2/template1/template6.png" alt=""></td>
-                                             <td>Pear Iron Man</td>
-                                             <td>Hết Hàng</td>
-                                          </tr>
-                                         
+                                         <%}%>
+
                                        </tbody>
                                     </table>
                                  </div>

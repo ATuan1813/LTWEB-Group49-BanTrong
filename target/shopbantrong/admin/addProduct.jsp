@@ -61,6 +61,8 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <h2 class="tm-block-title d-inline-block">Thêm Sản Phẩm</h2>
+                                        <p id="notify" style="color: chartreuse"><% String notify = request.getAttribute("notify") != null ? request.getAttribute("notify").toString() :"";
+                                            out.println(notify);%></p>
                                     </div>
                                 </div>
                                 <div class="row tm-edit-product-row">
@@ -71,6 +73,8 @@
                                                 </label>
                                                 <input id="TenSP" name="TenSP" type="text" class="form-control validate"
                                                        required />
+
+
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label >Mô Tả</label>

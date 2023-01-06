@@ -30,6 +30,10 @@ public class SanPhamService {
         return productDao.getAllSpPLC1(idplc1);
     }
 
+    public ArrayList<SanPham> getAllSpPLC1Top6(int idplc1, int top) {
+        return productDao.getAllSpPLC1Top6(idplc1, top);
+    }
+
     public ArrayList<SanPham> getAllSpPLC2(int idplc2) {
         return productDao.getAllSpPLC1(idplc2);
     }
@@ -72,13 +76,13 @@ public class SanPhamService {
             int IdPLC2 = 0;
             String Hang = null;
             String ThongSoKyThuat = null;
-            Double KickThuoc = null;
+            Long KickThuoc = null;
             String VatLieu = null;
-            Double KhuyenMai = null;
+            Long KhuyenMai = null;
             int SoLuongTrongKho = 0;
             int SoLuongDaBan = 0;
-            Double GiaBan = null;
-            Double GiaVon = null;
+            Long GiaBan = null;
+            Long GiaVon = null;
             String TinhTrang = null;
 
             System.out.println("field size sp: " + fields.size());
@@ -109,20 +113,20 @@ public class SanPhamService {
 
                     } else if (filename.equalsIgnoreCase("kichthuoc")) {
                         if (!fileValue.isEmpty()) {
-                            KickThuoc = Double.parseDouble(fileValue);
+                            KickThuoc = Long.parseLong(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("vatlieu")) {
                         VatLieu = fileValue;
                     } else if (filename.equalsIgnoreCase("sale")) {
                         if (!fileValue.isEmpty()) {
-                            KhuyenMai = Double.parseDouble(fileValue);
+                            KhuyenMai = Long.parseLong(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("soLuong")) {
                         SoLuongTrongKho = Integer.parseInt(fileValue);
                     } else if (filename.equalsIgnoreCase("giaban")) {
-                        GiaBan = Double.parseDouble(fileValue);
+                        GiaBan = Long.parseLong(fileValue);
                     } else if (filename.equalsIgnoreCase("giavon")) {
-                        GiaVon = Double.parseDouble(fileValue);
+                        GiaVon = Long.parseLong(fileValue);
                     } else if (filename.equalsIgnoreCase("categoryStatus")) {
                         TinhTrang = fileValue;
                     } else if (filename.equalsIgnoreCase("categoryBranch")) {

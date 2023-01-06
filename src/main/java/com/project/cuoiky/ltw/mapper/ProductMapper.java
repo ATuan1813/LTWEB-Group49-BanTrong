@@ -20,10 +20,10 @@ public class ProductMapper implements RowMapper{
         int IdPLC2 = resultSet.getInt("IdPLC2");
         int SoLuongTrongKho = resultSet.getInt("SoLuongTrongKho");
         int SoLuongDaBan = resultSet.getInt("SoLuongDaBan");
-        double GiaBan = resultSet.getDouble("GiaBan");
-        double GiaVon = resultSet.getDouble("GiaVon");
-        double KichThuoc = resultSet.getDouble("KichThuoc");
-        double KhuyenMai = resultSet.getDouble("KhuyenMai");
+        Long GiaBan = resultSet.getLong("GiaBan");
+        Long GiaVon = resultSet.getLong("GiaVon");
+        Long KichThuoc = resultSet.getLong("KichThuoc");
+        Long KhuyenMai = resultSet.getLong("KhuyenMai");
 
         SanPham sp = new SanPham(tensp,MoTaSP,IdPLC2,Hang,ThongSoKyThuat,KichThuoc,VatLieu,KhuyenMai,SoLuongTrongKho,SoLuongDaBan,GiaBan,GiaVon,TinhTrang);
 
@@ -44,10 +44,10 @@ public class ProductMapper implements RowMapper{
         int IdPLC2 = resultSet.getInt("IdPLC2");
         int SoLuongTrongKho = resultSet.getInt("SoLuongTrongKho");
         int SoLuongDaBan = resultSet.getInt("SoLuongDaBan");
-        double GiaBan = resultSet.getDouble("GiaBan");
-        double GiaVon = resultSet.getDouble("GiaVon");
-        double KichThuoc = resultSet.getDouble("KichThuoc");
-        double KhuyenMai = resultSet.getDouble("KhuyenMai");
+        Long GiaBan = resultSet.getLong("GiaBan");
+        Long GiaVon = resultSet.getLong("GiaVon");
+        Long KichThuoc = resultSet.getLong("KichThuoc");
+        Long KhuyenMai = resultSet.getLong("KhuyenMai");
 
         SanPham sp = new SanPham(IdSP,tensp,MoTaSP,IdPLC2,Hang,ThongSoKyThuat,KichThuoc,VatLieu,KhuyenMai,SoLuongTrongKho,SoLuongDaBan,GiaBan,GiaVon,TinhTrang);
 

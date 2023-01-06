@@ -101,4 +101,13 @@ public class ProductDao extends AbsDao{
         return sanPhams;
     }
 
+    public ArrayList<SanPham> getAllSpPLC1Top6(int idplc1, int top){
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT TOP 6 * FROM SANPHAM sp Where sp.IdPLC2 IN (SELECT IdPLC2 FROM PHANLOAICAP2 c2 WHERE c2.IdPLC1 = ?)";
+        sanPhams = queryHasId(sql, new ProductMapper(), idplc1);
+
+        return sanPhams;
+    }
+
 }

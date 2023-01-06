@@ -1,3 +1,7 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.project.cuoiky.ltw.model.SanPham" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -5,6 +9,14 @@
    <head>
       <%-- head --%>
       <%@ include file="/common/admin/head.jsp" %>
+      <style>
+         .table-td{
+            min-width: 100px !important;
+         }
+         .table-td1{
+            min-width: 200px !important;
+         }
+      </style>
    </head>
    <body class="inner_page tables_page">
       <div class="full_container">
@@ -48,123 +60,42 @@
                                              <th>Hãng</th>
                                              <th>Loại Trống</th>
                                              <th>Thông Số Kỹ Thuật</th>
-                                             <th>Số Lượng</th>
+                                             <th>Số Lượng Trong Kho</th>
+                                             <th>Số Lượng Đã Bán</th>
                                              <th>Vật Liệu</th>
-                                             <th>Màu Sắc</th>
                                              <th>Giá Bán</th>
+                                             <th>Giá Vốn</th>
                                              <th>Tình Trạng</th>
                                              <th>Tùy Chọn</th>
                                           </tr>
                                        </thead>
                                        <tbody>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template1.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template2.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template3.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template4.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template5.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
-                                          <tr >
-                                             <td class="table-td">TB1003</td>
-                                             <td class="table-td"><img class="img-list-products-large" src="/durmshop/assets/img/product2/template1/template6.png" alt=""></td>
-                                             <td class="table-td">Pearl President Series Phenolic 3-piece Limited Edition Shell Pack </td>
-                                             <td class="table-td">Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín</td>
-                                             <td class="table-td">Pearl</td>
-                                             <td class="table-td">Sell pack</td>
-                                             <td class="table-td">22″x14″ Bass Drum
-                                                ,13″x9″ Tom
-                                                ,16″x16″ Floor Tom
-                                                </td>
-                                             <td class="table-td">35</td>
-                                             <td class="table-td">Nhôm</td>
-                                             <td class="table-td">Trắng</td>
-                                             <td class="table-td">15.000.000 vnd</td>
-                                             <td class="table-td">Còn hàng</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="editProduct.jsp">Edit</a></button><button class="btn btn-danger">Remove</button></td>
-                                          </tr>
+                                          <%ArrayList<SanPham> sanPhams = (ArrayList<SanPham>) request.getAttribute("sptb");
+                                             Map<Integer, String> mapHaAndSps = (Map<Integer, String>) request.getAttribute("mapHaAndSps");
+                                             Map<Integer, Integer> mapCaAndSps = (Map<Integer, Integer>) request.getAttribute("mapCaAndSps");
+
+                                             for (SanPham sanPham: sanPhams) {
+                                          %>
+                                             <tr>
+                                                <td class="table-td"><%out.print(sanPham.getIdSP());%></td>
+                                                <td class="table-td"><img class="img-list-products-large" src="<%out.print(mapHaAndSps.get(sanPham.getIdSP()));%>" alt=""></td>
+                                                <td class="table-td"><%out.print(sanPham.getTenSP());%></td>
+                                                <td class="table-td table-td1"><%out.print(sanPham.getMotaSP());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getHang());%></td>
+                                                <td class="table-td"><%out.print(mapCaAndSps.get(sanPham.getIdSP()));%></td>
+                                                <td class="table-td"><%out.print(sanPham.getThongSoKyThuat());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getSoLuongTrongKho());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getSoLuongDaBan());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getVatLieu());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getGiaBan());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getGiaVon());%></td>
+                                                <td class="table-td"><%out.print(sanPham.getTinhTrang());%></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-product-update?=<%out.print(sanPham.getIdSP());%>">Edit</a></button><button class="btn btn-danger">Remove</button></td>
+
+                                             </tr>
+
+                                          <%}%>
+
                                        </tbody>
                                     </table>
                                  </div>

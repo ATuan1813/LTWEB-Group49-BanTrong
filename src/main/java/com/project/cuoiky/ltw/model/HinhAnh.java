@@ -12,6 +12,29 @@ public class HinhAnh {
         UrlHA = urlHA;
     }
 
+    public HinhAnh(int idHA, int maViTriHA, int idSP, String urlHA) {
+        IdHA = idHA;
+        MaViTriHA = maViTriHA;
+        IdSP = idSP;
+        UrlHA = urlHA;
+    }
+
+    public void setIdHA(int idHA) {
+        IdHA = idHA;
+    }
+
+    public void setMaViTriHA(int maViTriHA) {
+        MaViTriHA = maViTriHA;
+    }
+
+    public void setIdSP(int idSP) {
+        IdSP = idSP;
+    }
+
+    public void setUrlHA(String urlHA) {
+        UrlHA = urlHA;
+    }
+
     public int getIdHA() {
         return IdHA;
     }

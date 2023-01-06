@@ -25,6 +25,15 @@ public class MauSacLKSanPhamMapper implements RowMapper<MauSacLKSanPham>{
 
     @Override
     public MauSacLKSanPham mapRowID(ResultSet resultSet) throws SQLException {
-        return null;
+        int IdMSSP = resultSet.getInt("IdMSSP");
+        int MaViTriMS = resultSet.getInt("MaViTriMS");
+        int IdSP = resultSet.getInt("IdSP");
+        int IdMS = resultSet.getInt("IdMS");
+        int IdHA = resultSet.getInt("IdHA");
+        int SoLuongTrongKhoMS = resultSet.getInt("SoLuongTrongKhoMS");
+        int SoLuongDaBanMS = resultSet.getInt("SoLuongDaBanMS");
+
+        MauSacLKSanPham mauSacLKSanPham = new MauSacLKSanPham(IdMSSP,MaViTriMS,IdSP,IdMS,IdHA,SoLuongTrongKhoMS,SoLuongDaBanMS);
+        return mauSacLKSanPham;
     }
 }

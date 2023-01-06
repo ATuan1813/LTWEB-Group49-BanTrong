@@ -34,4 +34,14 @@ public class HinhAnhDao extends AbsDao{
 
         return  idha;
     }
+
+    public ArrayList<HinhAnh> getListHAMain(int MaViTri){
+
+        ArrayList<HinhAnh> HinhAnhs = new ArrayList<HinhAnh>();
+        String sql= "SELECT * FROM HinhAnh ha Where ha.MaViTriHA = ?";
+
+        HinhAnhs = queryHasId(sql, new HinhAnhMapper(), MaViTri);
+
+        return HinhAnhs;
+    }
 }

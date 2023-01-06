@@ -21,6 +21,13 @@ public class HinhAnhMapper implements RowMapper<HinhAnh>{
 
     @Override
     public HinhAnh mapRowID(ResultSet resultSet) throws SQLException {
-        return null;
+        int IdHA = resultSet.getInt("IdHA");
+        int MaViTriHA = resultSet.getInt("MaViTriHA");
+        int IdSP = resultSet.getInt("IdSP");
+        String UrlHA = resultSet.getString("UrlHA");
+
+        HinhAnh hinhAnh = new HinhAnh(IdHA,MaViTriHA,IdSP,UrlHA);
+
+        return hinhAnh;
     }
 }

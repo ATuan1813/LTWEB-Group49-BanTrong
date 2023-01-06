@@ -7,16 +7,16 @@ public class SanPham {
     private int IdPLC2;
     private String Hang;
     private String ThongSoKyThuat;
-    private Double KickThuoc;
+    private Long KickThuoc;
     private String VatLieu;
-    private Double KhuyenMai;
+    private Long KhuyenMai;
     private int SoLuongTrongKho;
     private int SoLuongDaBan;
-    private Double GiaBan;
-    private Double GiaVon;
+    private Long GiaBan;
+    private Long GiaVon;
     private String TinhTrang;
 
-    public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, Double giaVon, String tinhTrang) {
+    public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Long kickThuoc, String vatLieu, Long khuyenMai, int soLuongTrongKho, int soLuongDaBan, Long giaBan, Long giaVon, String tinhTrang) {
         TenSP = tenSP;
         MotaSP = motaSP;
         IdPLC2 = idPLC2;
@@ -32,7 +32,7 @@ public class SanPham {
         TinhTrang = tinhTrang;
     }
 
-    public SanPham(int idSP, String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, Double giaVon, String tinhTrang) {
+    public SanPham(int idSP, String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Long kickThuoc, String vatLieu, Long khuyenMai, int soLuongTrongKho, int soLuongDaBan, Long giaBan, Long giaVon, String tinhTrang) {
         IdSP = idSP;
         TenSP = tenSP;
         MotaSP = motaSP;
@@ -77,7 +77,7 @@ public class SanPham {
         return ThongSoKyThuat;
     }
 
-    public Double getKickThuoc() {
+    public Long getKickThuoc() {
         return KickThuoc;
     }
 
@@ -85,7 +85,7 @@ public class SanPham {
         return VatLieu;
     }
 
-    public Double getKhuyenMai() {
+    public Long getKhuyenMai() {
         return KhuyenMai;
     }
 
@@ -97,11 +97,11 @@ public class SanPham {
         return SoLuongDaBan;
     }
 
-    public Double getGiaBan() {
+    public Long getGiaBan() {
         return GiaBan;
     }
 
-    public Double getGiaVon() {
+    public Long getGiaVon() {
         return GiaVon;
     }
 
@@ -129,7 +129,7 @@ public class SanPham {
         ThongSoKyThuat = thongSoKyThuat;
     }
 
-    public void setKickThuoc(Double kickThuoc) {
+    public void setKickThuoc(Long kickThuoc) {
         KickThuoc = kickThuoc;
     }
 
@@ -137,7 +137,7 @@ public class SanPham {
         VatLieu = vatLieu;
     }
 
-    public void setKhuyenMai(Double khuyenMai) {
+    public void setKhuyenMai(Long khuyenMai) {
         KhuyenMai = khuyenMai;
     }
 
@@ -149,11 +149,11 @@ public class SanPham {
         SoLuongDaBan = soLuongDaBan;
     }
 
-    public void setGiaBan(Double giaBan) {
+    public void setGiaBan(Long giaBan) {
         GiaBan = giaBan;
     }
 
-    public void setGiaVon(Double giaVon) {
+    public void setGiaVon(Long giaVon) {
         GiaVon = giaVon;
     }
 

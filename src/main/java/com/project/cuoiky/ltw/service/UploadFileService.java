@@ -50,7 +50,7 @@ public class UploadFileService {
 
                         File file = new File(path);
                         if(file.exists()){
-                            urlHSa.add(path);
+                            urlHSa.add("/assets/img/sanpham/" + fileItem.getFieldName());
                         }else {
                             urlHSa.add(path);
                             fileItem.write(new File(path));
@@ -90,6 +90,12 @@ public class UploadFileService {
             e.printStackTrace();
         }
         return idimgs;
+    }
+
+    // load hình ảnh
+    public ArrayList<HinhAnh> hinhAnhMains(){
+        ArrayList<HinhAnh> hinhAnhs = hinhAnhDao.getListHAMain(1000);
+        return  hinhAnhs;
     }
 
 }
