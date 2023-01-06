@@ -32,6 +32,23 @@ public class SanPham {
         TinhTrang = tinhTrang;
     }
 
+    public SanPham(int idSP, String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Double kickThuoc, String vatLieu, Double khuyenMai, int soLuongTrongKho, int soLuongDaBan, Double giaBan, Double giaVon, String tinhTrang) {
+        IdSP = idSP;
+        TenSP = tenSP;
+        MotaSP = motaSP;
+        IdPLC2 = idPLC2;
+        Hang = hang;
+        ThongSoKyThuat = thongSoKyThuat;
+        KickThuoc = kickThuoc;
+        VatLieu = vatLieu;
+        KhuyenMai = khuyenMai;
+        SoLuongTrongKho = soLuongTrongKho;
+        SoLuongDaBan = soLuongDaBan;
+        GiaBan = giaBan;
+        GiaVon = giaVon;
+        TinhTrang = tinhTrang;
+    }
+
     public SanPham() {
 
     }
@@ -86,6 +103,62 @@ public class SanPham {
 
     public Double getGiaVon() {
         return GiaVon;
+    }
+
+    public void setIdSP(int idSP) {
+        IdSP = idSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        TenSP = tenSP;
+    }
+
+    public void setMotaSP(String motaSP) {
+        MotaSP = motaSP;
+    }
+
+    public void setIdPLC2(int idPLC2) {
+        IdPLC2 = idPLC2;
+    }
+
+    public void setHang(String hang) {
+        Hang = hang;
+    }
+
+    public void setThongSoKyThuat(String thongSoKyThuat) {
+        ThongSoKyThuat = thongSoKyThuat;
+    }
+
+    public void setKickThuoc(Double kickThuoc) {
+        KickThuoc = kickThuoc;
+    }
+
+    public void setVatLieu(String vatLieu) {
+        VatLieu = vatLieu;
+    }
+
+    public void setKhuyenMai(Double khuyenMai) {
+        KhuyenMai = khuyenMai;
+    }
+
+    public void setSoLuongTrongKho(int soLuongTrongKho) {
+        SoLuongTrongKho = soLuongTrongKho;
+    }
+
+    public void setSoLuongDaBan(int soLuongDaBan) {
+        SoLuongDaBan = soLuongDaBan;
+    }
+
+    public void setGiaBan(Double giaBan) {
+        GiaBan = giaBan;
+    }
+
+    public void setGiaVon(Double giaVon) {
+        GiaVon = giaVon;
+    }
+
+    public void setTinhTrang(String tinhTrang) {
+        TinhTrang = tinhTrang;
     }
 
     public String getTinhTrang() {

@@ -13,7 +13,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +24,24 @@ public class SanPhamService {
     ProductDao productDao = new ProductDao();
     ColorLKSanPhamService colorLKSanPhamService = new ColorLKSanPhamService();
     UploadFileService uploadFileService = new UploadFileService();
+
+    //Query sản phẩm
+    public ArrayList<SanPham> getAllSpPLC1(int idplc1) {
+        return productDao.getAllSpPLC1(idplc1);
+    }
+
+    public ArrayList<SanPham> getAllSpPLC2(int idplc2) {
+        return productDao.getAllSpPLC1(idplc2);
+    }
+
+    public SanPham getOneSp(int IdSp) {
+        return productDao.findOne(IdSp);
+    }
+
+    public ArrayList<SanPham> getAllSp() {
+        return productDao.getAllSp();
+    }
+
 
     //thêm sản phẩm
     public void themSanPham(SanPham sanPham, ArrayList<HinhAnh> listHA, ArrayList<MauSacLKSanPham> listMS) {
@@ -74,7 +91,7 @@ public class SanPhamService {
                 String fileValue = fileItem.getString();
 
                 if (isFormField) {
-                    if(filename.equalsIgnoreCase("TenSP")){
+                    if (filename.equalsIgnoreCase("TenSP")) {
                         TenSP = fileValue;
                     } else if (filename.equalsIgnoreCase("MoTaSP")) {
                         MotaSP = "Một bộ trống cổ điển như bản gốc của Pearl “series President” Là nguyên bản có thật từ lịch sử 75 năm của Pearl, President Series đã đi tiên phong trong những lợi ích độc đáo của lớp vỏ Phenolic có áp suất kín. Dự án vật liệu rắn nhiều lớp, mỏng độc đáo này với âm vang lớn, xuyên thấu, rất được các nhà sưu tập và người chơi thèm muốn.";
@@ -87,17 +104,17 @@ public class SanPhamService {
                     } else if (filename.equalsIgnoreCase("category")) {
                         plc1 = Integer.parseInt(fileValue);
 
-                    } else if (filename.equalsIgnoreCase("category"+plc1)) {
+                    } else if (filename.equalsIgnoreCase("category" + plc1)) {
                         IdPLC2 = Integer.parseInt(fileValue);
 
                     } else if (filename.equalsIgnoreCase("kichthuoc")) {
-                        if(!fileValue.isEmpty()){
+                        if (!fileValue.isEmpty()) {
                             KickThuoc = Double.parseDouble(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("vatlieu")) {
                         VatLieu = fileValue;
                     } else if (filename.equalsIgnoreCase("sale")) {
-                        if (!fileValue.isEmpty()){
+                        if (!fileValue.isEmpty()) {
                             KhuyenMai = Double.parseDouble(fileValue);
                         }
                     } else if (filename.equalsIgnoreCase("soLuong")) {
@@ -115,14 +132,14 @@ public class SanPhamService {
             }
 
             //insert into database
-            SanPham sanPham = new SanPham(TenSP,MotaSP,IdPLC2,Hang, ThongSoKyThuat, KickThuoc, VatLieu, KhuyenMai, SoLuongTrongKho
-            , SoLuongDaBan, GiaBan, GiaVon, TinhTrang);
+            SanPham sanPham = new SanPham(TenSP, MotaSP, IdPLC2, Hang, ThongSoKyThuat, KickThuoc, VatLieu, KhuyenMai, SoLuongTrongKho
+                    , SoLuongDaBan, GiaBan, GiaVon, TinhTrang);
 
             int IdSP = productDao.saveSP2(sanPham);
             System.out.println("idSP : " + IdSP);
 
-            Map<Integer,Integer> imgColors = uploadFileService.uploadImg(fields,IdSP);
-            colorLKSanPhamService.saveColorLKSanPham(imgColors,IdSP,fields);
+            Map<Integer, Integer> imgColors = uploadFileService.uploadImg(fields, IdSP);
+            colorLKSanPhamService.saveColorLKSanPham(imgColors, IdSP, fields);
 
             System.out.println("====================================");
 

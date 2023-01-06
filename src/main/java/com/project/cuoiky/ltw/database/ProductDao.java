@@ -69,10 +69,36 @@ public class ProductDao extends AbsDao{
     public SanPham findOne(int id) {
 
         String sql = "SELECT * FROM NEWS WHERE ID = ?";
-        List<SanPham> news2 = query(sql, new ProductMapper(), id);
+        List<SanPham> news2 = queryHasId(sql, new ProductMapper(), id);
         System.out.println("find id of findOneNew :" + news2.get(0).getIdSP());
         return news2.isEmpty() ? null : news2.get(0);
 
+    }
+
+    public ArrayList<SanPham> getAllSp(){
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM SANPHAM";
+        sanPhams = queryHasId(sql, new ProductMapper());
+
+        return sanPhams;
+    }
+
+    public ArrayList<SanPham> getAllSpPLC1(int idplc1){
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM SANPHAM sp Where sp.IdPLC2 IN (SELECT IdPLC2 FROM PHANLOAICAP2 c2 WHERE c2.IdPLC1 = ?)";
+        sanPhams = queryHasId(sql, new ProductMapper(), idplc1);
+
+        return sanPhams;
+    }
+    public ArrayList<SanPham> getAllSpPLC2(int idplc2){
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM SANPHAM sp Where sp.IdPLC2 = ?)";
+        sanPhams = queryHasId(sql, new ProductMapper(), idplc2);
+
+        return sanPhams;
     }
 
 }
