@@ -30,7 +30,7 @@
                             <ul>
                                 <li><a href="index.html">Trang Chủ</a></li>
                                 <li><i class="fa fa-angle-right"></i></li>
-                                <li>Liên Lạc</li>
+                                <li>Tài Khoản</li>
                             </ul>
                         </div>
                     </div>
@@ -43,31 +43,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="contact_message">
-                            <h3>Liên lạc với chúng tôi</h3>
-                            <form id="contact-form" method="POST" action="assets/mail.php">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <input name="name" placeholder="Họ và tên *" type="text">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <input name="email" placeholder="Email *" type="email">
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <input name="phone" placeholder="Số điện thoại *" type="text">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="contact_textarea">
-                                            <textarea placeholder="Lời nhắn *" name="message" class="form-control2"></textarea>
-                                        </div>
-                                        <button type="submit"> Gửi </button>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="form-messege">
-                                    </div>
-                                </div>
-                            </form>
+                            <div class="contact_message contact_info">
+                                <h3><strong>Quên Mật Khẩu Thành Công</strong></h3>
+                                <p><strong>Vui lòng kiểm tra hộp thư đến hoặc thư mục Spam!</strong></p>
+                                <ul>
+                                    <li><a href="/login">Đăng Nhập Tại Đây</a></li>
+                                    <li><a href="/register">Đăng Ký Tài Khoản Mới</a></li>
+                                    <li><a href="/forgot-password">Quên Mật Khẩu</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -86,17 +70,6 @@
             </div>
 
             <!--contact area end-->
-
-            <!--contact map start-->
-            <div class="contact_map">
-                <div class="row">
-                    <div class="col-12">
-                        <iframe src="https://www.google.com/maps/embed?pb" width="500" height="450" style="border:0" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-            </div>
-            <!--contact map end-->
-
 
         </div>
         <!--pos page inner end-->

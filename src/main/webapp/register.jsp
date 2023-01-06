@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ANHTUAN
-  Date: 12/11/2022
-  Time: 11:30 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -14,6 +7,29 @@
 </head>
 <body>
 <!-- Add your site or application content here -->
+
+<%
+    String taiKhoan = "";
+    String taiKhoan_err = "";
+    String matKhau_err = "";
+    String xacNhanMatKhau_err = "";
+
+    if (request.getAttribute("taiKhoan") != null) {
+        taiKhoan = request.getAttribute("taiKhoan").toString();
+    }
+
+    if (request.getAttribute("taiKhoan_err") != null) {
+        taiKhoan_err = request.getAttribute("taiKhoan_err").toString();
+    }
+
+    if (request.getAttribute("matKhau_err") != null) {
+        matKhau_err = request.getAttribute("matKhau_err").toString();
+    }
+
+    if (request.getAttribute("xacNhanMatKhau_err") != null) {
+        xacNhanMatKhau_err = request.getAttribute("xacNhanMatKhau_err").toString();
+    }
+%>
 
 <!--pos page start-->
 <div class="pos_page">
@@ -44,29 +60,48 @@
 
             <!-- customer login start -->
             <div class="customer_login">
-                <div class="row" >
+                <div class="row">
                     <!--login area start-->
                     <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
                         <div class="account_form">
                             <h2>Đăng kí</h2>
-                            <form action="#">
+                            <form action="register" method="post">
                                 <p>
-                                    <label>Số điện thoại hoặt email <span>*</span></label>
-                                    <input type="text">
+                                    <label for="taiKhoan">Địa chỉ email <span>*</span></label>
+                                    <input type="text" id="taiKhoan" name="taiKhoan" value="<%=taiKhoan%>" >
+                                    <%
+                                        if (taiKhoan_err != "") {
+                                    %>
+                                    <p class="text-danger"><%=taiKhoan_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <p>
-                                    <label>Mật khẩu <span>*</span></label>
-                                    <input type="password">
+                                    <label for="matKhau">Mật khẩu <span>*</span></label>
+                                    <input type="password" id="matKhau" name="matKhau">
+                                    <%
+                                        if (matKhau_err != "") {
+                                    %>
+                                    <p class="text-danger"><%=matKhau_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <p>
-                                    <label>Xác Nhận Mật khẩu <span>*</span></label>
-                                    <input type="password">
+                                    <label for="xacNhanMatKhau">Xác Nhận Mật khẩu <span>*</span></label>
+                                    <input type="password" id="xacNhanMatKhau" name="xacNhanMatKhau">
+                                    <%
+                                        if (xacNhanMatKhau_err != "") {
+                                    %>
+                                    <p class="text-danger"><%=xacNhanMatKhau_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng kí</button>
-
-                                    <a href="login.html">Đăng nhập</a><br>
-
+                                    <a href="/login">Đăng nhập</a><br>
                                 </div>
                             </form>
                         </div>
