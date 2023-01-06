@@ -1,9 +1,6 @@
 package com.project.cuoiky.ltw.controller;
 
-import com.project.cuoiky.ltw.model.NguoiDung;
 import com.project.cuoiky.ltw.service.NguoiDungService;
-import com.project.cuoiky.ltw.utils.FormatUtils;
-import com.project.cuoiky.ltw.utils.MD5;
 import com.project.cuoiky.ltw.validator.RegisterValidator;
 
 import javax.servlet.ServletException;
@@ -16,8 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "registerController", value = "/register")
 public class RegisterController extends HttpServlet {
 
-    NguoiDungService nguoiDungService = new NguoiDungService();
-    RegisterValidator registerValidator = new RegisterValidator();
+    private NguoiDungService nguoiDungService = new NguoiDungService();
+    private RegisterValidator registerValidator = new RegisterValidator();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,12 +29,20 @@ public class RegisterController extends HttpServlet {
             String taiKhoan = request.getParameter("taiKhoan");
             String matKhau = request.getParameter("matKhau");
 
-            // luu du lieu
-            nguoiDungService.register(taiKhoan, matKhau);
+            String url = request.getScheme() + "://" +   // "http" + "://
+                    request.getServerName() +       // "myhost"
+                    ":" +                           // ":"
+                    request.getServerPort()     // "8080"
+                    + "/login";
 
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            // luu du lieu
+            nguoiDungService.register(url, taiKhoan, matKhau);
+
+            // chuyen trang dang chu
+            request.getRequestDispatcher("register_success.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
     }
+
 }

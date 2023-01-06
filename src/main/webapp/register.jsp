@@ -69,41 +69,39 @@
                                 <p>
                                     <label for="taiKhoan">Địa chỉ email <span>*</span></label>
                                     <input type="text" id="taiKhoan" name="taiKhoan" value="<%=taiKhoan%>" >
-                                        <%
+                                    <%
                                         if (taiKhoan_err != "") {
                                     %>
-                                <p class="text-danger"><%=taiKhoan_err%></p>
-                                <%
-                                    }
-                                %>
+                                    <p class="text-danger"><%=taiKhoan_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <p>
                                     <label for="matKhau">Mật khẩu <span>*</span></label>
                                     <input type="password" id="matKhau" name="matKhau">
-                                        <%
+                                    <%
                                         if (matKhau_err != "") {
                                     %>
-                                <p class="text-danger"><%=matKhau_err%></p>
-                                <%
-                                    }
-                                %>
+                                    <p class="text-danger"><%=matKhau_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <p>
                                     <label for="xacNhanMatKhau">Xác Nhận Mật khẩu <span>*</span></label>
                                     <input type="password" id="xacNhanMatKhau" name="xacNhanMatKhau">
-                                        <%
+                                    <%
                                         if (xacNhanMatKhau_err != "") {
                                     %>
-                                <p class="text-danger"><%=xacNhanMatKhau_err%></p>
-                                <%
-                                    }
-                                %>
+                                    <p class="text-danger"><%=xacNhanMatKhau_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng kí</button>
-
-                                    <a href="login.jsp">Đăng nhập</a><br>
-
+                                    <a href="/login">Đăng nhập</a><br>
                                 </div>
                             </form>
                         </div>

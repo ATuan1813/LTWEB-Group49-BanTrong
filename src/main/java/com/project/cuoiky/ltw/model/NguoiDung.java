@@ -1,63 +1,67 @@
 package com.project.cuoiky.ltw.model;
 
 public class NguoiDung {
-    private int idNguoiDung;
-    private String taiKhoan;
-    private String matKhau;
-    private String tenNguoiDung;
+
+    private int IdNguoiDung;
+    private String TaiKhoan;
+    private String MatKhau;
+    private String TenNguoiDung;
     private int quyen;
     private int sdt;
-    private String email;
-    private String diaChi;
+    private String Email;
+    private String DiaChi;
     private String avartar;
     private int tinhtrang;
+    private String nguonGoc;
 
     public NguoiDung() {
     }
 
-    public NguoiDung(int idNguoiDung, String taiKhoan, String matKhau, String tenNguoiDung, int quyen, int sdt, String email, String diaChi, String avartar, int tinhtrang) {
-        this.idNguoiDung = idNguoiDung;
-        this.taiKhoan = taiKhoan;
-        this.matKhau = matKhau;
-        this.tenNguoiDung = tenNguoiDung;
+    public NguoiDung(int idNguoiDung, String taiKhoan, String matKhau, String tenNguoiDung, int quyen,
+                     int sdt, String email, String diaChi, String avartar, int tinhtrang, String nguonGoc) {
+        IdNguoiDung = idNguoiDung;
+        TaiKhoan = taiKhoan;
+        MatKhau = matKhau;
+        TenNguoiDung = tenNguoiDung;
         this.quyen = quyen;
         this.sdt = sdt;
-        this.email = email;
-        this.diaChi = diaChi;
+        Email = email;
+        DiaChi = diaChi;
         this.avartar = avartar;
         this.tinhtrang = tinhtrang;
+        this.nguonGoc = nguonGoc;
     }
 
     public int getIdNguoiDung() {
-        return idNguoiDung;
+        return IdNguoiDung;
     }
 
     public void setIdNguoiDung(int idNguoiDung) {
-        this.idNguoiDung = idNguoiDung;
+        IdNguoiDung = idNguoiDung;
     }
 
     public String getTaiKhoan() {
-        return taiKhoan;
+        return TaiKhoan;
     }
 
     public void setTaiKhoan(String taiKhoan) {
-        this.taiKhoan = taiKhoan;
+        TaiKhoan = taiKhoan;
     }
 
     public String getMatKhau() {
-        return matKhau;
+        return MatKhau;
     }
 
     public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
+        MatKhau = matKhau;
     }
 
     public String getTenNguoiDung() {
-        return tenNguoiDung;
+        return TenNguoiDung;
     }
 
     public void setTenNguoiDung(String tenNguoiDung) {
-        this.tenNguoiDung = tenNguoiDung;
+        TenNguoiDung = tenNguoiDung;
     }
 
     public int getQuyen() {
@@ -77,19 +81,19 @@ public class NguoiDung {
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Email = email;
     }
 
     public String getDiaChi() {
-        return diaChi;
+        return DiaChi;
     }
 
     public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+        DiaChi = diaChi;
     }
 
     public String getAvartar() {
@@ -106,5 +110,13 @@ public class NguoiDung {
 
     public void setTinhtrang(int tinhtrang) {
         this.tinhtrang = tinhtrang;
+    }
+
+    public String getNguonGoc() {
+        return nguonGoc;
+    }
+
+    public void setNguonGoc(String nguonGoc) {
+        this.nguonGoc = nguonGoc;
     }
 }

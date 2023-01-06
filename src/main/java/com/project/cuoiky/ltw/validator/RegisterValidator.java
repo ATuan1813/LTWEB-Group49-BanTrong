@@ -2,6 +2,7 @@ package com.project.cuoiky.ltw.validator;
 
 import com.project.cuoiky.ltw.model.NguoiDung;
 import com.project.cuoiky.ltw.service.NguoiDungService;
+import com.project.cuoiky.ltw.utils.FormatUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,9 +23,13 @@ public class RegisterValidator {
         if (taiKhoan == null || taiKhoan.equalsIgnoreCase("")) {
             taiKhoan_err = "Vui lòng nhập địa chỉ Email!";
         } else {
-            NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(taiKhoan);
-            if (nguoiDung != null) {
-                taiKhoan_err = "Địa chỉ Email đã tồn tại!";
+            if (!FormatUtils.validEmail(taiKhoan)) {
+                taiKhoan_err = "Địa chỉ Email sai định dạng!";
+            } else {
+                NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(taiKhoan);
+                if (nguoiDung != null) {
+                    taiKhoan_err = "Địa chỉ Email đã tồn tại!";
+                }
             }
         }
 

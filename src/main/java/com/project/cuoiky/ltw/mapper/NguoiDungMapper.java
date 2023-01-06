@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class NguoiDungMapper implements RowMapper<NguoiDung> {
+
     @Override
     public NguoiDung mapRow(ResultSet resultSet) throws SQLException {
         int idNguoiDung = resultSet.getInt("idNguoiDung");
@@ -18,8 +19,10 @@ public class NguoiDungMapper implements RowMapper<NguoiDung> {
         String diaChi = resultSet.getString("diaChi");
         String avartar = resultSet.getString("avartar");
         int tinhTrang = resultSet.getInt("tinhTrang");
+        String nguonGoc = resultSet.getString("nguonGoc");
 
-        NguoiDung nguoiDung = new  NguoiDung(idNguoiDung, taiKhoan, matKhau, tenNguoiDung, quyen, sdt, email, diaChi, avartar, tinhTrang);
+        NguoiDung nguoiDung = new  NguoiDung(idNguoiDung, taiKhoan, matKhau, tenNguoiDung, quyen, sdt,
+                email, diaChi, avartar, tinhTrang, nguonGoc);
         return nguoiDung;
     }
 
@@ -27,4 +30,5 @@ public class NguoiDungMapper implements RowMapper<NguoiDung> {
     public NguoiDung mapRowID(ResultSet resultSet) throws SQLException {
         return null;
     }
+
 }

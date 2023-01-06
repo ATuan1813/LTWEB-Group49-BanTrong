@@ -12,7 +12,7 @@ public class AbsDao {
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         String strcnn = "jdbc:mysql://localhost:3306/shopbantrong";
         String user = "root";
-        String passwrod = "tRu0n927@4!";
+        String passwrod = "1234";
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         return DriverManager.getConnection(strcnn,user,passwrod);

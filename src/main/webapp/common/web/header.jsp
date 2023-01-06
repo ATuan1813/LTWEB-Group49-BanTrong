@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.project.cuoiky.ltw.model.NguoiDung" %><%--
   Created by IntelliJ IDEA.
   User: ANHTUAN
   Date: 12/12/2022
@@ -38,9 +38,22 @@
                         <li><a href="my-account.jsp" title="">Tài khoản của tôi</a></li>
                         <li><a href="cart.jsp" title="">Giỏ hàng</a></li>
                         <%
-                            if(session.getAttribute("nguoiDung") == null) {
+                            if (session.getAttribute("userLogin") == null) {
                         %>
-                        <li><a href="login.jsp" title="">Đăng nhập</a></li>
+                        <li><a href="/login" title="">Đăng nhập</a></li>
+                        <%
+                            } else {
+                        %>
+                        <li><a href="/profile" title="">Xin chào <%=session.getAttribute("userLogin")%><a/></li>
+                        <li><a></a></li>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if (session.getAttribute("userLogin") != null) {
+                        %>
+                        <li><a href="/logout" title="">Đăng xuất</a></li>
                         <%
                             }
                         %>
