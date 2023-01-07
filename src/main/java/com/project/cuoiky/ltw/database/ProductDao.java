@@ -2,7 +2,6 @@ package com.project.cuoiky.ltw.database;
 
 import com.project.cuoiky.ltw.mapper.ProductMapper;
 import com.project.cuoiky.ltw.model.HinhAnh;
-import com.project.cuoiky.ltw.model.MauSac;
 import com.project.cuoiky.ltw.model.MauSacLKSanPham;
 import com.project.cuoiky.ltw.model.SanPham;
 
@@ -66,13 +65,29 @@ public class ProductDao extends AbsDao{
 
 
     // find by id
-    public SanPham findOne(int id) {
+    public SanPham findOne(int idsp) {
 
-        String sql = "SELECT * FROM NEWS WHERE ID = ?";
-        List<SanPham> news2 = queryHasId(sql, new ProductMapper(), id);
-        System.out.println("find id of findOneNew :" + news2.get(0).getIdSP());
-        return news2.isEmpty() ? null : news2.get(0);
+        String sql = "SELECT * FROM SANPHAM WHERE IdSP = ?";
+        List<SanPham> sp = queryHasId(sql, new ProductMapper(), idsp);
+        System.out.println("find id of findOneSp :" + sp.get(0).getIdSP());
+        return sp.isEmpty() ? null : sp.get(0);
 
+    }
+
+    //update san phẩm
+    public int updateSp(SanPham sanPham, int idSp){
+
+        sanPham.setIdSP(idSp);
+
+        String sql = "UPDATE SANPHAM SET TenSP = ?, MoTaSP = ?, IdPLC2 = ?, Hang = ?, ThongSoKyThuat = ?, KichThuoc = ?," +
+                "VatLieu = ?, KhuyenMai = ?, SoLuongTrongKho = ?, GiaBan = ?, GiaVon = ?, TinhTrang = ? WHERE IdSP = ?";
+
+        int i = update(sql, sanPham.getTenSP(), sanPham.getMotaSP(), sanPham.getIdPLC2(), sanPham.getHang(), sanPham.getThongSoKyThuat()
+            , sanPham.getKickThuoc(), sanPham.getVatLieu(), sanPham.getKhuyenMai(), sanPham.getSoLuongTrongKho(), sanPham.getGiaBan()
+            , sanPham.getGiaVon(), sanPham.getTinhTrang(), idSp);
+
+
+        return i;
     }
 
     public ArrayList<SanPham> getAllSp(){

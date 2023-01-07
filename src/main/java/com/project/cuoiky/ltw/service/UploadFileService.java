@@ -50,9 +50,9 @@ public class UploadFileService {
 
                         File file = new File(path);
                         if(file.exists()){
-                            urlHSa.add("/assets/img/sanpham/" + fileItem.getFieldName());
+                            urlHSa.add("/assets/img/sanpham/" + fileItem.getName());
                         }else {
-                            urlHSa.add(path);
+                            urlHSa.add("/assets/img/sanpham/" + fileItem.getName());
                             fileItem.write(new File(path));
                         }
                     }
@@ -96,6 +96,60 @@ public class UploadFileService {
     public ArrayList<HinhAnh> hinhAnhMains(){
         ArrayList<HinhAnh> hinhAnhs = hinhAnhDao.getListHAMain(1000);
         return  hinhAnhs;
+    }
+
+    // update img
+    public int updateimg(List< FileItem > fields , int IdSP) throws IOException {
+
+        int key = 0;
+        try {
+            System.out.println("size fields : " + fields.size());
+            Iterator<FileItem> it = fields.iterator(); // lấy tất cả ảnh
+            if (!it.hasNext()) {
+                return 0;
+            }
+
+            int MavitriHas = 0;
+            String urlHSa = "";
+            int index = 1;
+
+            while (it.hasNext()) {
+                FileItem fileItem = it.next();
+                boolean isFormField = fileItem.isFormField();
+                if (isFormField) {
+//                    System.out.println(index + " - From field img : " + fileItem.getFieldName());
+                    index++;
+                } else {
+                    if (fileItem.getSize() > 0) {
+                        System.out.println("Ma vi tri image update: " + handleInput.getnumberInString(fileItem.getFieldName()));
+                        MavitriHas = handleInput.getnumberInString(fileItem.getFieldName());
+                        String path = "F:\\intelij\\Source-web\\shopbantrong1\\shopbantrong\\src\\main\\webapp\\assets\\img\\sanpham\\" +fileItem.getName();
+
+                        File file = new File(path);
+                        if(file.exists()){
+                            urlHSa = "/assets/img/sanpham/" + fileItem.getName();
+                        }else {
+                            urlHSa = "/assets/img/sanpham/" + fileItem.getName();
+                            fileItem.write(new File(path));
+                        }
+                    }
+                    System.out.println(index + " - File field image : " + handleInput.getnumberInString(fileItem.getFieldName()));
+                    index++;
+                }
+            }
+
+            // save imgs and return idimgs
+            HinhAnh hinhAnh = new HinhAnh(MavitriHas,IdSP,urlHSa);
+            key = hinhAnhDao.updateHA(hinhAnh,IdSP);
+
+            return  key;
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return key;
+
     }
 
 }

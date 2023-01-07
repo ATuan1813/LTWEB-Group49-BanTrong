@@ -1,13 +1,11 @@
 package com.project.cuoiky.ltw.database;
 
-import com.project.cuoiky.ltw.mapper.CategoryMSMapper;
 import com.project.cuoiky.ltw.mapper.HinhAnhMapper;
 import com.project.cuoiky.ltw.model.HinhAnh;
-import com.project.cuoiky.ltw.model.MauSac;
-import com.project.cuoiky.ltw.model.MauSacLKSanPham;
 import com.project.cuoiky.ltw.model.SanPham;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HinhAnhDao extends AbsDao{
     // get list hinh anh for update
@@ -31,6 +29,23 @@ public class HinhAnhDao extends AbsDao{
     public int  SaveHA2(HinhAnh hinhAnh,int idSP){
         String sql = "INSERT INTO HinhAnh(MaViTriHA,IdSP,UrlHA) VALUES(?,?,?)";
         int idha =  insert(sql,hinhAnh.getMaViTriHA(),idSP,hinhAnh.getUrlHA());
+
+        return  idha;
+    }
+
+    //find one hình ảnh
+    public HinhAnh findOneHA(int idSp){
+        String sql = "SELECT * FROM HINHANH WHERE IdSp = ?";
+        List<HinhAnh> sp = queryHasId(sql, new HinhAnhMapper(), idSp);
+        System.out.println("find id of findOneImg :" + sp.get(0).getIdHA());
+        return sp.isEmpty() ? null : sp.get(0);
+
+    }
+
+    //update hình ảnh
+    public int  updateHA(HinhAnh hinhAnh,int idSP){
+        String sql = "UPDATE HINHANH SET MaViTriHA = ?, UrlHA = ? WHERE IdSP = ?";
+        int idha =  update(sql,hinhAnh.getMaViTriHA(),hinhAnh.getUrlHA(),idSP);
 
         return  idha;
     }

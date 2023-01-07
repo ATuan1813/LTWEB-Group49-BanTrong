@@ -90,7 +90,7 @@
                                                 <td class="table-td"><%out.print(sanPham.getGiaBan());%></td>
                                                 <td class="table-td"><%out.print(sanPham.getGiaVon());%></td>
                                                 <td class="table-td"><%out.print(sanPham.getTinhTrang());%></td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-product-update?=<%out.print(sanPham.getIdSP());%>">Edit</a></button><button class="btn btn-danger">Remove</button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-product-update?idsp=<%out.print(sanPham.getIdSP());%>">Edit</a></button><button class="btn btn-danger">Remove</button></td>
 
                                              </tr>
 

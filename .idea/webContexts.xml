@@ -6,6 +6,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Admin-page/addProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/Admin-page" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Admin-page/pluto/index.html" value="file://$PROJECT_DIR$/src/main/webapp/Admin-page/pluto" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/addProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin/productTableView.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/common/taglib.jsp" value="file://$PROJECT_DIR$/src/main/webapp/common" />
       </map>
     </option>

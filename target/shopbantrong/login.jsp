@@ -15,9 +15,9 @@
 <body>
 <!-- Add your site or application content here -->
 <%
-
     String taiKhoan_err = "";
     String matKhau_err = "";
+    String taiKhoan = "";
 
     if (request.getAttribute("taiKhoan_err") != null) {
         taiKhoan_err = request.getAttribute("taiKhoan_err").toString();
@@ -25,6 +25,10 @@
 
     if (request.getAttribute("matKhau_err") != null) {
         matKhau_err = request.getAttribute("matKhau_err").toString();
+    }
+
+    if (request.getAttribute("taiKhoan") != null) {
+        taiKhoan = request.getAttribute("taiKhoan").toString();
     }
 %>
 <!--pos page start-->
@@ -66,38 +70,40 @@
                             <form action="login" method="post">
                                 <p>
                                     <label>Địa chỉ email <span>*</span></label>
-                                    <input type="text" name="taiKhoan">
-                                        <%
+                                    <input type="text" name="taiKhoan" value="<%=taiKhoan%>">
+                                    <%
                                         if (taiKhoan_err != "") {
                                     %>
-                                <p class="text-danger"><%=taiKhoan_err%>
-                                </p>
-                                <%
-                                    }
-                                %>
+                                    <p class="text-danger"><%=taiKhoan_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <p>
                                     <label>Mật khẩu <span>*</span></label>
                                     <input type="password" name="matKhau">
-                                        <%
+                                    <%
                                         if (matKhau_err != "") {
                                     %>
-                                <p class="text-danger"><%=matKhau_err%>
-                                </p>
-                                <%
-                                    }
-                                %>
+                                    <p class="text-danger"><%=matKhau_err%></p>
+                                    <%
+                                        }
+                                    %>
                                 </p>
                                 <div class="login_submit">
                                     <button type="submit">Đăng nhập</button>
-                                    <label for="remember">
-                                        <input id="remember" type="checkbox">
-                                        Nhớ mật khẩu của tôi
-                                    </label>
-
-                                    <a href="register.jsp">Đăng kí</a>
+                                    <a style="margin-left: 20px" href="/forgot-password">Quên mật khẩu</a>
+                                    <a href="/register">Đăng kí</a>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
+                        <div class="account_form">
+                            <div class="login_submit">
+                                <a style="background-color: red; color: white" href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/login-google&response_type=code&client_id=705419731184-hioklng0fjo0a93uo5rg6t5ieeuks689.apps.googleusercontent.com&approval_prompt=force">&emsp;Đăng nhập bằng Google&emsp;</a>
+                            </div>
                         </div>
                     </div>
                     <!--login area start-->

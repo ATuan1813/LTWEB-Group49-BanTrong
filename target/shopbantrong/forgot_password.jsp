@@ -62,7 +62,7 @@
                     <!--login area start-->
                     <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
                         <div class="account_form">
-                            <h2>Đăng nhập</h2>
+                            <h2>Quên mật khẩu</h2>
                             <form action="forgot-password" method="post">
                                 <p>
                                     <label>Địa chỉ email <span>*</span></label>

@@ -5,6 +5,7 @@ import com.project.cuoiky.ltw.model.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MauSacDao extends AbsDao{
    // get list color
@@ -54,6 +55,23 @@ public class MauSacDao extends AbsDao{
                 mauSacLKSanPham.getSoLuongDaBanMS());
 
         return  idms;
+    }
+
+    // update mausaclksanpham
+    public MauSacLKSanPham findOneClo(int idSp){
+        String sql = "SELECT * FROM MAUSACLKPhamSan WHERE IdSp = ?";
+        List<MauSacLKSanPham> sp = queryHasId(sql, new MauSacLKSanPhamMapper(), idSp);
+        System.out.println("find id of findOneColor :" + sp.get(0).getIdMSSP());
+        return sp.isEmpty() ? null : sp.get(0);
+
+    }
+
+    //update hình ảnh
+    public int  updateClo(MauSacLKSanPham mauSacLKSanPham,int idSP){
+        String sql = "UPDATE MAUSACLKPhamSan SET MaViTriMS = ?, IdMS = ?, SoLuongTrongKhoMS = ? WHERE IdSP = ?";
+        int idha =  update(sql,mauSacLKSanPham.getMaVitriMS(), mauSacLKSanPham.getIdMS() ,mauSacLKSanPham.getSoLuongTrongKhoMS(), idSP);
+
+        return  idha;
     }
 
 }

@@ -14,96 +14,60 @@
 </head>
 <body>
 <!-- Add your site or application content here -->
-<%
 
-    String taiKhoan_err = "";
-    String matKhau_err = "";
-
-    if (request.getAttribute("taiKhoan_err") != null) {
-        taiKhoan_err = request.getAttribute("taiKhoan_err").toString();
-    }
-
-    if (request.getAttribute("matKhau_err") != null) {
-        matKhau_err = request.getAttribute("matKhau_err").toString();
-    }
-%>
 <!--pos page start-->
 <div class="pos_page">
     <div class="container">
         <!--pos page inner-->
         <div class="pos_page_inner">
-            <!-- header -->
+            <%-- all library here--%>
             <%@ include file="/common/web/header.jsp" %>
-            <!-- header -->
-            <!--breadcrumbs area start-->
-
-            <!--breadcrumbs area end-->
-            <!--header end -->
             <!--breadcrumbs area start-->
             <div class="breadcrumbs_area">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb_content">
                             <ul>
-                                <li><a href="index.html">Trang chủ</a></li>
+                                <li><a href="index.html">Trang Chủ</a></li>
                                 <li><i class="fa fa-angle-right"></i></li>
-                                <li>Đăng nhập</li>
+                                <li>Tài Khoản</li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
             </div>
             <!--breadcrumbs area end-->
 
-            <!-- customer login start -->
-            <div class="customer_login">
+            <!--contact area start-->
+            <div class="contact_area">
                 <div class="row">
-                    <!--login area start-->
-                    <div class="col-lg-6 col-md-6" style="margin-left: 25%;">
-                        <div class="account_form">
-                            <h2>Đăng nhập</h2>
-                            <form action="login" method="post">
-                                <p>
-                                    <label>Địa chỉ email <span>*</span></label>
-                                    <input type="text" name="taiKhoan">
-                                        <%
-                                        if (taiKhoan_err != "") {
-                                    %>
-                                <p class="text-danger"><%=taiKhoan_err%>
-                                </p>
-                                <%
-                                    }
-                                %>
-                                </p>
-                                <p>
-                                    <label>Mật khẩu <span>*</span></label>
-                                    <input type="password" name="matKhau">
-                                        <%
-                                        if (matKhau_err != "") {
-                                    %>
-                                <p class="text-danger"><%=matKhau_err%>
-                                </p>
-                                <%
-                                    }
-                                %>
-                                </p>
-                                <div class="login_submit">
-                                    <button type="submit">Đăng nhập</button>
-                                    <label for="remember">
-                                        <input id="remember" type="checkbox">
-                                        Nhớ mật khẩu của tôi
-                                    </label>
-
-                                    <a href="register.jsp">Đăng kí</a>
-                                </div>
-                            </form>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="contact_message">
+                            <div class="contact_message contact_info">
+                                <h3><strong>Đăng Ký Tài Khoản Thành Công</strong></h3>
+                                <p><strong>Chúc mừng bạn đã đăng ký tài khoản thành công!</strong></p>
+                                <ul>
+                                    <li><a href="/login">Đăng Nhập Tại Đây</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <!--login area start-->
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="contact_message contact_info">
+                            <h3><strong>Giờ làm việc</strong></h3>
+                            <p><strong>Thứ hai – Thứ bảy</strong>:  08AM – 22PM</p>
+                            <ul>
+                                <li><i class="fa fa-fax"></i>  Địa chỉ : Cách mạng tháng 8, HCM</li>
+                                <li><i class="fa fa-envelope-o"></i> Email :  <a href="#">Drums@shop.com</a></li>
+                                <li><i class="fa fa-phone"></i> Điện thoại : 0(1234) 567 890</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- customer login end -->
+
+            <!--contact area end-->
 
         </div>
         <!--pos page inner end-->
