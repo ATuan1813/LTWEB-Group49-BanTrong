@@ -15,9 +15,14 @@ public class NguoiDungDao2 extends AbsDao {
                 nguoiDung.getEmail(), nguoiDung.getDiaChi(), nguoiDung.getAvartar(), nguoiDung.getTinhtrang());
     }
 
-    public int update(NguoiDung nguoiDung) {
-        String query = "UPDATE nguoidung SET matKhau = ? WHERE idNguoiDung = ?";
-        return insert(query, nguoiDung.getMatKhau(), nguoiDung.getIdNguoiDung());
+    public int updateUser(NguoiDung nguoiDung) {
+        String query = "UPDATE nguoidung SET matKhau = ?, TenNguoiDung = ?, sdt = ?, Email = ?, DiaChi = ?, tinhTrang = ? WHERE IDNGUOIDUNG = ?";
+        return update(query, nguoiDung.getMatKhau(), nguoiDung.getTenNguoiDung(), nguoiDung.getSdt()
+                , nguoiDung.getEmail(), nguoiDung.getDiaChi(), nguoiDung.getTinhtrang(), nguoiDung.getIdNguoiDung());
+    }
+    public int deleteUser(int idnd) {
+        String query = "DELETE FROM nguoidung WHERE IDNGUOIDUNG = ?";
+        return insert(query, idnd);
     }
 
     public ArrayList<NguoiDung> getListND(){
@@ -32,6 +37,16 @@ public class NguoiDungDao2 extends AbsDao {
         String sql = "SELECT * FROM NGUOIDUNG nd WHERE nd.Quyen = 1"; // 2 user, 1 admin
         nguoiDungs = queryHasId(sql, new NguoiDungMapper());
         return nguoiDungs;
+    }
+
+    // find one by id
+    public NguoiDung findonend(int idnd){
+        String sql = "Select * FROM NGUOIDUNG nd WHERE nd.IDNGUOIDUNG = ?";
+
+        ArrayList<NguoiDung> nguoiDungs = queryHasId(sql, new NguoiDungMapper(), idnd);
+
+        System.out.println("find tài khoản : " + nguoiDungs.get(0).getTaiKhoan());
+        return nguoiDungs.isEmpty() ? null : nguoiDungs.get(0);
     }
 
 }

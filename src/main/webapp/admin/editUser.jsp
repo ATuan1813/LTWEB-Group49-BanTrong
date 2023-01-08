@@ -1,3 +1,4 @@
+<%@ page import="com.project.cuoiky.ltw.model.NguoiDung" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -7,6 +8,19 @@
     <%@ include file="/common/admin/head.jsp" %>
     <%-- css just for product --%>
     <link rel="stylesheet" href="admin/css/ProductStyle/styleProduct.css">
+        <style>
+            .tm-bg-primary-dark{
+                height: 600px;
+            }
+            @media screen and (max-width: 1000px) {
+                .tm-bg-primary-dark{
+                    height: 1000px;
+                }
+            }
+            #username{
+                background-color: #50657b;
+            }
+        </style>
 </head>
 <body class="inner_page tables_page">
 <div class="full_container">
@@ -35,42 +49,48 @@
              </div> -->
             <div class="tm-bg-primary-dark tm-block-user tm-block tm-block-settings">
                 <h2 class="tm-block-title">Chỉnh Sửa Tài Khoản Cho Khách Hàng</h2>
-                <form action="" class="tm-signup-form row">
+                <p id="notify" style="color: chartreuse"><% String notify = request.getAttribute("notify") != null ? request.getAttribute("notify").toString() :"";
+                    out.println(notify);%></p>
+                <form action="/shopbantrong_war/admin-user-update" method="post" class="tm-signup-form row">
+                    <%NguoiDung nguoiDung = (NguoiDung) request.getAttribute("nguoiDung");%>
                     <div class="form-group col-lg-6">
                         <label >Tài Khoản</label>
-                        <input id="username" name="username" value="Sucana123" type="text" class="form-control validate">
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <label for="email">Địa Chỉ Email</label>
-                        <input id="email" name="email" value="Atuan@gmail.com" type="email"
-                               class="form-control validate">
+                        <input id="username" name="username" value="<%out.print(nguoiDung.getTaiKhoan());%>" readonly type="text" class="form-control validate">
+                        <input id="idnd" name="idnd" style="display: none" value="<%out.print(nguoiDung.getIdNguoiDung());%>">
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="password">Password</label>
-                        <input id="password" name="password" value="123456" type="password"
+                        <input id="password" name="password" value="<%out.print(nguoiDung.getMatKhau());%>" type="text"
                                class="form-control validate">
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="password2">Nhập Lại Password</label>
-                        <input id="password2" name="password2" value="123456" type="password"
+                        <label for="email">Địa Chỉ Email</label>
+                        <input id="email" name="email" value="<%out.print(nguoiDung.getEmail());%>" type="email"
                                class="form-control validate">
                     </div>
                     <div class="form-group col-lg-6">
                         <label >Họ Và Tên</label>
-                        <input id="fullname" name="fullname" value="Anh Tuan" type="text" class="form-control validate">
+                        <input id="fullname" name="fullname" value="<%out.print(nguoiDung.getTenNguoiDung());%>" type="text" class="form-control validate">
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="phone">Số Di Động</label>
-                        <input id="phone" name="phone" value="0978271157" type="tel" class="form-control validate">
+                        <input id="phone" name="phone" value="<%out.print(nguoiDung.getSdt());%>" type="tel" class="form-control validate">
                     </div>
                     <div class="form-group col-lg-6">
                         <label >Địa Chỉ</label>
-                        <input id="diachi" name="diachi" value="123 đường Hùng Vương, Q. Đống Đa, TP. Hà Nội " type="tel"
+                        <input id="diachi" name="diachi" value="<%out.print(nguoiDung.getDiaChi());%>" type="tel"
                                class="form-control validate">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label >Tình Trạng</label>
+                        <select name="tinhtrang" class="custom-select tm-select-accounts">
+                            <option value="1">Mở Tài Khoản</option>
+                            <option value="0">Khóa Tài Khoản</option>
+                        </select>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block text-uppercase">
-                            Cập nhật Tài Khoản
+                            Cập Nhật Tài Khoản
                         </button>
                     </div>
                 </form>

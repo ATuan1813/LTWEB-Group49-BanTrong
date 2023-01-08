@@ -56,12 +56,7 @@
                       </div>
                       <div class="form-group col-lg-6">
                           <label for="password">Password</label>
-                          <input id="password" name="password" value="123456" type="password"
-                                 class="form-control validate">
-                      </div>
-                      <div class="form-group col-lg-6">
-                          <label for="password2">Nhập Lại Password</label>
-                          <input id="password2" name="password2" value="123456" type="password"
+                          <input id="password" name="password" value="123456" type="text"
                                  class="form-control validate">
                       </div>
                       <div class="form-group col-lg-6">

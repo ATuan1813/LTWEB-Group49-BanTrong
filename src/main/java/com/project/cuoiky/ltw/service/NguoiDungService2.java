@@ -1,6 +1,7 @@
 package com.project.cuoiky.ltw.service;
 
 import com.project.cuoiky.ltw.database.NguoiDungDao2;
+import com.project.cuoiky.ltw.mapper.NguoiDungMapper;
 import com.project.cuoiky.ltw.model.NguoiDung;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,4 +60,42 @@ public class NguoiDungService2 {
             return "Thêm thất bại, tên Tài Khoản đã tồn tại";
         }
     }
+
+    // update user
+    public String updateUser(HttpServletRequest request) {
+        int idnd = 0;
+
+        int idndRe = Integer.parseInt(request.getParameter("idnd"));
+        String TAIKHOAN =  request.getParameter("username");
+        String MatKhau =  request.getParameter("password");
+        String TenNguoiDung = request.getParameter("fullname");
+        int sdt = Integer.parseInt(request.getParameter("phone"));
+        String Email = request.getParameter("email");
+        String diachi =  request.getParameter("diachi");
+        String avartar =  request.getParameter("");
+        int tinhtrang = Integer.parseInt(request.getParameter("tinhtrang"));
+
+        NguoiDung nguoiDung = new NguoiDung(idndRe,TAIKHOAN,MatKhau,TenNguoiDung,2,sdt,Email,diachi,avartar,tinhtrang);
+        idnd = nguoiDungDao2.updateUser(nguoiDung);
+
+        if (idnd > 0){
+            return "Đã cập nhật người dùng : " + TAIKHOAN;
+        }else {
+            return "Cập nhật thất bại, tên tài khoản bị trùng";
+        }
+    }
+
+    // get list user
+    public ArrayList<NguoiDung> getListUs(){
+        return nguoiDungDao2.getListND();
+    }
+    public NguoiDung findonend(int idnd){
+
+        return nguoiDungDao2.findonend(idnd);
+    }
+
+    public int deleteUser(int idnd){
+        return nguoiDungDao2.deleteUser(idnd);
+    }
+
 }
