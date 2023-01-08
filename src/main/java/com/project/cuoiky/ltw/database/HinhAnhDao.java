@@ -12,7 +12,7 @@ public class HinhAnhDao extends AbsDao{
     public ArrayList<HinhAnh> getListMS(SanPham sanPham){
 
         ArrayList<HinhAnh> HinhAnhs = new ArrayList<HinhAnh>();
-        String sql= "SELECT * FROM HinhAnh ha Where ha.IdSP = ?";
+        String sql= "SELECT * FROM hinhanh ha Where ha.IdSP = ?";
 
         HinhAnhs = query(sql, new HinhAnhMapper(),sanPham.getIdSP());
 

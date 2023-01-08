@@ -1,3 +1,7 @@
+<%@ page import="com.project.cuoiky.ltw.model.SanPham" %>
+<%@ page import="com.project.cuoiky.ltw.model.HinhAnh" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%--
   Created by IntelliJ IDEA.
   User: ANHTUAN
@@ -11,9 +15,25 @@
 <head>
     <%-- all library here--%>
     <%@ include file="/common/web/head.jsp" %>
+    <title>Sản Phẩm - Shop Drum</title>
 </head>
 <body>
 <!-- Add your site or application content here -->
+
+<%
+    SanPham sanPham = null;
+    ArrayList<HinhAnh> danhSachHinhAnh = null;
+
+    if (request.getAttribute("sanPham") != null) {
+        sanPham = (SanPham) request.getAttribute("sanPham");
+    }
+
+    if (request.getAttribute("danhSachHinhAnh") != null) {
+        danhSachHinhAnh = (ArrayList<HinhAnh>) request.getAttribute("danhSachHinhAnh");
+    }
+
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+%>
 
 <!--pos page start-->
 <div class="pos_page">
@@ -29,9 +49,11 @@
                     <div class="col-12">
                         <div class="breadcrumb_content">
                             <ul>
-                                <li><a href="index.html">home</a></li>
+                                <li><a href="/">Trang Chủ</a></li>
                                 <li><i class="fa fa-angle-right"></i></li>
-                                <li>single product</li>
+                                <li>Sản Phẩm</li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li><%=sanPham.getTenSP()%></li>
                             </ul>
 
                         </div>
@@ -40,48 +62,44 @@
             </div>
             <!--breadcrumbs area end-->
 
-
             <!--product wrapper start-->
             <div class="product_details">
                 <div class="row">
                     <div class="col-lg-5 col-md-6">
                         <div class="product_tab fix">
                             <div class="tab-content produc_tab_c">
-                                <div class="tab-pane fade show active" id="p_tab1" role="tabpanel">
+                                <%
+                                    if (danhSachHinhAnh != null) {
+                                        int i = 0;
+                                        for (HinhAnh hinhAnh: danhSachHinhAnh) {
+                                            i++;
+                                %>
+                                <div class="tab-pane fade show <%=i == 1 ? "active" : ""%>" id="p_tab<%=hinhAnh.getIdHA()%>" role="tabpanel">
                                     <div class="modal_img">
-                                        <a href="#"><img src="assets/img/trong-pearl-roadshow-525-standard-c31.jpg"
+                                        <a href="#"><img src="<%=hinhAnh.getUrlHA()%>"
                                                          alt=""></a>
                                         <div class="img_icone">
-                                            <img src="assets/img/trong-pearl-roadshow-525-standard-c31.jpg" alt="">
+                                            <img src="<%=hinhAnh.getUrlHA()%>" alt="">
                                         </div>
                                         <div class="view_img">
                                             <a class="large_view"
-                                               href="assets/img/trong-pearl-roadshow-525-standard-c31.jpg"><i
+                                               href="<%=hinhAnh.getUrlHA()%>"><i
                                                     class="fa fa-search-plus"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="p_tab2" role="tabpanel">
-                                    <div class="modal_img">
-                                        <a href="#"><img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                         alt=""></a>
-                                        <div class="img_icone">
-                                            <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg" alt="">
-                                        </div>
-                                        <div class="view_img">
-                                            <a class="large_view"
-                                               href="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"><i
-                                                    class="fa fa-search-plus"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <%
+                                        }
+                                    }
+                                %>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6">
                         <div class="product_d_right">
-                            <h1>Trống PEARL Roadshow RS525 standard</h1>
-                            <p>Mã SP : RS525SC/C91</p>
+                            <h1><%=sanPham.getTenSP()%></h1>
+                            <p>Mã Sản Phẩm: <%=sanPham.getIdSP()%></p>
                             <div class="product_ratting mb-10">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -93,15 +111,15 @@
                                 </ul>
                             </div>
                             <div class="product_desc">
-                                <p> Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                    Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                    Hệ thống Pearl Opti-Loc Mounting </br>
-                                    Giá lẻ không bao gồm hardware và cymbal</p>
+                                <p> <%=sanPham.getMotaSP()%> </p>
                             </div>
 
                             <div class="content_price mb-15">
-                                <span>Giá : 14,030,000đ</span>
-                                <!--                                                <span class="old-price">$130.00</span>-->
+                                <span>Giá Bán: <%=formatter.format(sanPham.getGiaBan())%> VND</span>
+
+                                <% if (sanPham.getKhuyenMai() != null) { %>
+                                <span>Khuyến Mãi: <%=sanPham.getKhuyenMai() != null ? sanPham.getKhuyenMai() + "%" : ""%></span>
+                                <% } %>
                             </div>
                             <div class="box_quantity mb-20">
                                 <form action="#">
@@ -111,14 +129,6 @@
                                 <button type="submit"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                                 <!--                                <a href="#" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>-->
                             </div>
-                            <!--                            <div class="product_d_size mb-20">-->
-                            <!--                                <label for="group_1">size</label>-->
-                            <!--                                <select name="size" id="group_1">-->
-                            <!--                                    <option value="1">S</option>-->
-                            <!--                                    <option value="2">M</option>-->
-                            <!--                                    <option value="3">L</option>-->
-                            <!--                                </select>-->
-                            <!--                            </div>-->
 
                             <div class="sidebar_widget color">
                                 <h2>Chọn màu</h2>
@@ -131,18 +141,8 @@
                             </div>
 
                             <div class="product_stock mb-20">
-                                <span>Còn 299 sản phẩm</span>
+                                <span>Còn <%=sanPham.getSoLuongTrongKho() - sanPham.getSoLuongDaBan()%> sản phẩm</span>
                             </div>
-                            <!--                            <div class="wishlist-share">-->
-                            <!--                                <h4>Share on:</h4>-->
-                            <!--                                <ul>-->
-                            <!--                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>-->
-                            <!--                                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>-->
-                            <!--                                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>-->
-                            <!--                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>-->
-                            <!--                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>-->
-                            <!--                                </ul>-->
-                            <!--                            </div>-->
 
                         </div>
                     </div>
@@ -166,393 +166,25 @@
                                         <a data-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"
                                            aria-selected="false">Thông số kỹ thuật</a>
                                     </li>
-                                    <!--                                    <li>-->
-                                    <!--                                        <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"-->
-                                    <!--                                           aria-selected="false">Reviews</a>-->
-                                    <!--                                    </li>-->
                                 </ul>
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="info" role="tabpanel">
                                     <div class="product_info_content">
-                                        <p>Pearl nổi tiếng với hơn 70 năm chế tác trống với hàng loạt sản phẩm được các
-                                            tay trống trên thế với yêu thích. Pearl DMP943XP/C với vỏ trống dày 5,4mm,
-                                            các tính năng cấp độ chuyên nghiệp và lớp sơn mài tuyệt đẹp, mang đến cho
-                                            bạn cảm hứng vô tận với mức giá phải chăng. </p>
+                                        <p> <%=sanPham.getMotaSP()%> </p>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane fade" id="sheet" role="tabpanel">
-                                    <div class="product_d_table">
-                                        <form action="#">
-                                            <table>
-                                                <tbody>
-                                                <tr>
-                                                    <td class="first_child">Kích thước trống Bass</td>
-                                                    <td>24x14</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="first_child">Kích thước trống Floor Tom</td>
-                                                    <td>16x16</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="first_child">Chất liệu vỏ</td>
-                                                    <td>Maple Wood</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="first_child">Kích thước trống Snare</td>
-                                                    <td>14"</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="first_child">Kích thước trống Tom</td>
-                                                    <td>13x9</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </form>
+                                    <div class="product_info_content">
+                                        <p> <%=sanPham.getThongSoKyThuat()%> </p>
                                     </div>
-                                    <!--                                    <div class="product_info_content">-->
-                                    <!--                                        <p>Fashion has been creating well-designed collections since 2010. The brand-->
-                                    <!--                                            offers feminine designs delivering stylish separates and statement dresses-->
-                                    <!--                                            which have since evolved into a full ready-to-wear collection in which every-->
-                                    <!--                                            item is a vital part of a woman's wardrobe. The result? Cool, easy, chic-->
-                                    <!--                                            looks with youthful elegance and unmistakable signature style. All the-->
-                                    <!--                                            beautiful pieces are made in Italy and manufactured with the greatest-->
-                                    <!--                                            attention. Now Fashion extends to a range of accessories including shoes,-->
-                                    <!--                                            hats, belts and more!</p>-->
-                                    <!--                                    </div>-->
                                 </div>
-                                <!--                                <div class="tab-pane fade" id="reviews" role="tabpanel">-->
-                                <!--                                    <div class="product_info_content">-->
-                                <!--                                        <p>Fashion has been creating well-designed collections since 2010. The brand-->
-                                <!--                                            offers feminine designs delivering stylish separates and statement dresses-->
-                                <!--                                            which have since evolved into a full ready-to-wear collection in which every-->
-                                <!--                                            item is a vital part of a woman's wardrobe. The result? Cool, easy, chic-->
-                                <!--                                            looks with youthful elegance and unmistakable signature style. All the-->
-                                <!--                                            beautiful pieces are made in Italy and manufactured with the greatest-->
-                                <!--                                            attention. Now Fashion extends to a range of accessories including shoes,-->
-                                <!--                                            hats, belts and more!</p>-->
-                                <!--                                    </div>-->
-                                <!--                                    <div class="product_info_inner">-->
-                                <!--                                        <div class="product_ratting mb-10">-->
-                                <!--                                            <ul>-->
-                                <!--                                                <li><a href="#"><i class="fa fa-star"></i></a></li>-->
-                                <!--                                                <li><a href="#"><i class="fa fa-star"></i></a></li>-->
-                                <!--                                                <li><a href="#"><i class="fa fa-star"></i></a></li>-->
-                                <!--                                                <li><a href="#"><i class="fa fa-star"></i></a></li>-->
-                                <!--                                                <li><a href="#"><i class="fa fa-star"></i></a></li>-->
-                                <!--                                            </ul>-->
-                                <!--                                            <strong>Posthemes</strong>-->
-                                <!--                                            <p>09/07/2018</p>-->
-                                <!--                                        </div>-->
-                                <!--                                        <div class="product_demo">-->
-                                <!--                                            <strong>demo</strong>-->
-                                <!--                                            <p>That's OK!</p>-->
-                                <!--                                        </div>-->
-                                <!--                                    </div>-->
-                                <!--                                    <div class="product_review_form">-->
-                                <!--                                        <form action="#">-->
-                                <!--                                            <h2>Add a review </h2>-->
-                                <!--                                            <p>Your email address will not be published. Required fields are marked </p>-->
-                                <!--                                            <div class="row">-->
-                                <!--                                                <div class="col-12">-->
-                                <!--                                                    <label for="review_comment">Your review </label>-->
-                                <!--                                                    <textarea name="comment" id="review_comment"></textarea>-->
-                                <!--                                                </div>-->
-                                <!--                                                <div class="col-lg-6 col-md-6">-->
-                                <!--                                                    <label for="author">Name</label>-->
-                                <!--                                                    <input id="author" type="text">-->
-
-                                <!--                                                </div>-->
-                                <!--                                                <div class="col-lg-6 col-md-6">-->
-                                <!--                                                    <label for="email">Email </label>-->
-                                <!--                                                    <input id="email" type="text">-->
-                                <!--                                                </div>-->
-                                <!--                                            </div>-->
-                                <!--                                            <button type="submit">Submit</button>-->
-                                <!--                                        </form>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--product info end-->
-
-
-            <!--new product area start-->
-            <!--            <div class="new_product_area product_page">-->
-            <!--                <div class="row">-->
-            <!--                    <div class="col-12">-->
-            <!--                        <div class="block_title">-->
-            <!--                            <h3> 11 other products category:</h3>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--                <div class="row">-->
-            <!--                    <div class="single_p_active owl-carousel">-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product1.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$50.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product2.jpg" alt=""></a>-->
-            <!--                                    <div class="hot_img">-->
-            <!--                                        <img src="assets\img\cart\span-hot.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$40.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Quisque ornare dui</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product3.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$60.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Sed non turpiss</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product4.jpg" alt=""></a>-->
-            <!--                                    <div class="hot_img">-->
-            <!--                                        <img src="assets\img\cart\span-hot.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$65.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Duis convallis</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product6.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$50.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--new product area start-->
-
-
-            <!--new product area start-->
-            <!--            <div class="new_product_area product_page">-->
-            <!--                <div class="row">-->
-            <!--                    <div class="col-12">-->
-            <!--                        <div class="block_title">-->
-            <!--                            <h3> Related Products</h3>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--                <div class="row">-->
-            <!--                    <div class="single_p_active owl-carousel">-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product6.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$50.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product5.jpg" alt=""></a>-->
-            <!--                                    <div class="hot_img">-->
-            <!--                                        <img src="assets\img\cart\span-hot.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$40.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Quisque ornare dui</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product4.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$60.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Sed non turpiss</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product3.jpg" alt=""></a>-->
-            <!--                                    <div class="hot_img">-->
-            <!--                                        <img src="assets\img\cart\span-hot.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$65.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Duis convallis</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="col-lg-3">-->
-            <!--                            <div class="single_product">-->
-            <!--                                <div class="product_thumb">-->
-            <!--                                    <a href="single-product.html"><img src="assets\img\product\product2.jpg" alt=""></a>-->
-            <!--                                    <div class="img_icone">-->
-            <!--                                        <img src="assets\img\cart\span-new.png" alt="">-->
-            <!--                                    </div>-->
-            <!--                                    <div class="product_action">-->
-            <!--                                        <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-            <!--                                    </div>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_content">-->
-            <!--                                    <span class="product_price">$50.00</span>-->
-            <!--                                    <h3 class="product_title"><a href="single-product.html">Curabitur sodales</a></h3>-->
-            <!--                                </div>-->
-            <!--                                <div class="product_info">-->
-            <!--                                    <ul>-->
-            <!--                                        <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>-->
-            <!--                                        <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View-->
-            <!--                                            Detail</a></li>-->
-            <!--                                    </ul>-->
-            <!--                                </div>-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--new product area start-->
 
         </div>
         <!--pos page inner end-->

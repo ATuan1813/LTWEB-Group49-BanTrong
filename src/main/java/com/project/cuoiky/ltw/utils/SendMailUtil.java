@@ -60,6 +60,7 @@ public class SendMailUtil {
         String button = hashMapContent.containsKey("BUTTON") ? hashMapContent.get("BUTTON") : "";
         String link = hashMapContent.containsKey("LINK") ? hashMapContent.get("LINK") : "";
 
+        // https://github.com/konsav/email-templates
         // https://github.com/konsav/email-templates/blob/master/promotional.html
         String templateMail = "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
                 "<head>\n" +

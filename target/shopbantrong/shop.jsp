@@ -1,4 +1,7 @@
-<%--
+<%@ page import="com.project.cuoiky.ltw.model.SanPham" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="com.project.cuoiky.ltw.model.MauSac" %><%--
   Created by IntelliJ IDEA.
   User: ANHTUAN
   Date: 12/11/2022
@@ -11,9 +14,18 @@
 <head>
     <%-- all library here--%>
     <%@ include file="/common/web/head.jsp" %>
+    <title>Cửa Hàng - Shop Drum</title>
 </head>
 <body>
 <!-- Add your site or application content here -->
+
+<%
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+
+    ArrayList<SanPham> sanPhams = (ArrayList<SanPham>) request.getAttribute("dsSanPham");
+    ArrayList<MauSac> dsMauSac = (ArrayList<MauSac>) request.getAttribute("dsMauSac");
+    ArrayList<SanPham> dsHang = (ArrayList<SanPham>) request.getAttribute("dsHang");
+%>
 
 <!--pos page start-->
 <div class="pos_page">
@@ -31,7 +43,7 @@
                             <ul>
                                 <li><a href="index.html">Trang chủ</a></li>
                                 <li><i class="fa fa-angle-right"></i></li>
-                                <li>Trống bộ</li>
+                                <li>Cửa Hàng</li>
                             </ul>
                         </div>
                     </div>
@@ -50,22 +62,16 @@
                             </div>
                             <div class="layere_categorie">
                                 <ul>
+                                    <%
+                                        for (SanPham hang : dsHang) {
+                                    %>
                                     <li>
-                                        <input id="brandA" type="checkbox">
-                                        <label for="brandA">Pearl</label>
+                                        <input id="<%=hang.getHang()%>" type="checkbox">
+                                        <label for="<%=hang.getHang()%>"><%=hang.getHang()%></label>
                                     </li>
-                                    <li>
-                                        <input id="brandB" type="checkbox">
-                                        <label for="brandB">Pearl</label>
-                                    </li>
-                                    <li>
-                                        <input id="brandC" type="checkbox">
-                                        <label for="brandC">Pearl</label>
-                                    </li>
-                                    <li>
-                                        <input id="brandD" type="checkbox">
-                                        <label for="brandD">Pearl</label>
-                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                         </div>
@@ -74,20 +80,18 @@
                         <!--color area start-->
                         <div class="sidebar_widget color">
                             <h2>Màu sắc</h2>
-                            <div class="widget_color">
+                            <div class="layere_categorie">
                                 <ul>
-                                    <li><a href="#">Black</a></li>
-
-                                    <li><a href="#">Orange</a></li>
-
-                                    <li><a href="#">Blue</a></li>
-
-                                    <li><a href="#">Yellow</a></li>
-
-                                    <li><a href="#">pink</a></li>
-
-                                    <li><a href="#">green</a></li>
-
+                                    <%
+                                        for (MauSac mauSac : dsMauSac) {
+                                    %>
+                                    <li>
+                                        <input style="accent-color: <%=mauSac.getMaMau()%>;" type="checkbox" />
+                                        <a href="#" style="margin-left: 25px;"><%=mauSac.getTenMauSac()%></a>
+                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                         </div>
@@ -116,59 +120,6 @@
                         </div>
                         <!--newsletter block end-->
 
-                        <!--special product start-->
-                        <div class="sidebar_widget special">
-                            <div class="block_title">
-                                <h3>Sản phẩm đặc biệt</h3>
-                            </div>
-                            <div class="special_product_inner mb-20">
-                                <div class="special_p_thumb">
-                                    <a href="single-product.html"><img
-                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg" alt=""></a>
-                                </div>
-                                <div class="small_p_desc">
-                                    <div class="product_ratting">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <h3><a href="single-product.html">PEARL ROADSHOW RS525 STANDARD</a></h3>
-                                    <div class="special_product_proce">
-                                        <span class="old_price">14,030,000đ</span>
-                                        <span class="new_price">10,999,000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="special_product_inner mb-20">
-                                <div class="special_p_thumb">
-                                    <a href="single-product.html"><img
-                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg" alt=""></a>
-                                </div>
-                                <div class="small_p_desc">
-                                    <div class="product_ratting">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <h3><a href="single-product.html">PEARL ROADSHOW RS525 STANDARD</a></h3>
-                                    <div class="special_product_proce">
-                                        <span class="old_price">14,030,000đ</span>
-                                        <span class="new_price">10,999,000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--special product end-->
-
-
                     </div>
                     <div class="col-lg-9 col-md-12">
                         <!--banner slider start-->
@@ -194,16 +145,16 @@
                             </div>
 
                             <div class="select_option">
-                                <form action="#">
-                                    <label>Sắp xếp</label>
-                                    <select name="orderby" id="short">
-                                        <option selected="" value="0">Sắp xếp</option>
-                                        <option value="1">Giá: thấp - cao</option>
-                                        <option value="2">Giá: cao - thấp</option>
-                                        <option value="3">Tên: A-Z</option>
-                                        <option value="4">Tên: Z-A</option>
-                                    </select>
-                                </form>
+<%--                                <form action="#">--%>
+<%--                                    <label>Sắp xếp</label>--%>
+<%--                                    <select name="orderby" id="short">--%>
+<%--                                        <option selected="" value="0">Sắp xếp</option>--%>
+<%--                                        <option value="1">Giá: thấp - cao</option>--%>
+<%--                                        <option value="2">Giá: cao - thấp</option>--%>
+<%--                                        <option value="3">Tên: A-Z</option>--%>
+<%--                                        <option value="4">Tên: Z-A</option>--%>
+<%--                                    </select>--%>
+<%--                                </form>--%>
                             </div>
                         </div>
                         <!--shop toolbar end-->
@@ -213,21 +164,27 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="large" role="tabpanel">
                                     <div class="row">
+
+                                        <%
+                                            for (SanPham sanPham: sanPhams) {
+                                        %>
+
                                         <div class="col-lg-4 col-md-6">
                                             <div class="single_product">
                                                 <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
+                                                    <a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"><img
+                                                            src="<%=sanPham.getHinhAnh()%>"
                                                             alt=""></a>
                                                     <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
+                                                        <img src="<%=sanPham.getHinhAnh()%>"
                                                              alt="">
                                                     </div>
                                                 </div>
                                                 <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
+                                                    <h3 class="product_title">
+                                                        <a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"><%=sanPham.getTenSP()%></a>
+                                                    </h3>
+                                                    <span class="product_price"> <%=formatter.format(sanPham.getGiaBan())%> VND </span>
                                                 </div>
                                                 <div class="product_info">
                                                     <ul>
@@ -239,251 +196,48 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-6">
-                                            <div class="single_product">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="product_content">
-                                                    <h3 class="product_title"><a href="single-product.html">PEARL
-                                                        ROADSHOW RS525 STANDARD</a></h3>
-                                                    <span class="product_price">14,030,000đ</span>
-                                                </div>
-                                                <div class="product_info">
-                                                    <ul>
-                                                        <li><a href="#" title="Thêm vào giỏ hàng">Thêm vào giỏ hàng</a>
-                                                        </li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                               title="Xem thêm">Xem thêm</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                        <%
+                                            }
+                                        %>
+
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="list" role="tabpanel">
+
+                                    <%
+                                        for (SanPham sanPham: sanPhams) {
+                                    %>
+
                                     <div class="product_list_item mb-35">
                                         <div class="row align-items-center">
                                             <div class="col-lg-4 col-md-6 col-sm-6">
                                                 <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
+                                                    <a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"><img
+                                                            src="<%=sanPham.getHinhAnh()%>"
                                                             alt=""></a>
                                                     <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
+                                                        <img src="<%=sanPham.getHinhAnh()%>" alt="">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-md-6 col-sm-6">
                                                 <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
+<%--                                                    <div class="product_ratting">--%>
+<%--                                                        <ul>--%>
+<%--                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>--%>
+<%--                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>--%>
+<%--                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>--%>
+<%--                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>--%>
+<%--                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>--%>
+<%--                                                        </ul>--%>
+<%--                                                    </div>--%>
                                                     <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
+                                                        <h3><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"><%=sanPham.getTenSP()%></a></h3>
                                                     </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
+                                                    <p class="design"><%=sanPham.getMotaSP()%></p>
                                                     <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
+                                                        <span> <%=formatter.format(sanPham.getGiaBan())%> VND </span>
                                                     </div>
                                                     <div class="add_links">
                                                         <ul>
@@ -500,407 +254,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_list_item mb-35">
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                                <div class="product_thumb">
-                                                    <a href="single-product.html"><img
-                                                            src="assets/img/pearl-dacade-maple-dmp943xp-c2281.jpg"
-                                                            alt=""></a>
-                                                    <div class="img_icone">
-                                                        <img src="assets\img\cart\span-new.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8 col-md-6 col-sm-6">
-                                                <div class="list_product_content">
-                                                    <div class="product_ratting">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="list_title">
-                                                        <h3><a href="single-product.html">PEARL ROADSHOW RS525
-                                                            STANDARD</a></h3>
-                                                    </div>
-                                                    <p class="design">Mua hàng trả góp 0%, Bảo hành chính hãng </br>
-                                                        Thiết kế ấn tượng, đẹp mắt, thoải mái cho người chơi </br>
-                                                        Hệ thống Pearl Opti-Loc Mounting </br>
-                                                        Giá lẻ không bao gồm hardware và cymbal</p>
-                                                    <div class="content_price mt-3">
-                                                        <span>14,030,000đ</span>
-                                                        <span class="old-price fade">$130.00</span>
-                                                    </div>
-                                                    <div class="add_links">
-                                                        <ul>
-                                                            <li><a href="#" title="Thêm vào giỏ"><i
-                                                                    class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                                   title="Xem chi tiết"><i class="fa fa-eye"
-                                                                                           aria-hidden="true"></i></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                    <%
+                                        }
+                                    %>
 
                             </div>
                         </div>
@@ -911,10 +268,29 @@
                             <div class="page_number">
                                 <span>Trang: </span>
                                 <ul>
-                                    <li>«</li>
-                                    <li class="current_number">1</li>
-                                    <li><a href="#">2</a></li>
-                                    <li>»</li>
+<%--                                    <li>«</li>--%>
+                                    <%
+                                        String currentNumber = null;
+                                        int tongSoLuongSanPham = 0;
+
+                                        if (request.getAttribute("currentNumber") != null) {
+                                            currentNumber = (String) request.getAttribute("currentNumber");
+                                        }
+
+                                        if (request.getAttribute("tongSoLuongSanPham") != null) {
+                                            tongSoLuongSanPham = (Integer) request.getAttribute("tongSoLuongSanPham");
+                                        }
+
+                                        int soTrang = tongSoLuongSanPham / 9;
+                                        if (tongSoLuongSanPham % 9 > 0) {
+                                            soTrang = soTrang + 1;
+                                        }
+
+                                        for (int i = 0; i < soTrang; i++) {
+                                    %>
+                                    <li <%=String.valueOf(i).equalsIgnoreCase(currentNumber) ? "class='current_number'" : ""%>><a href="/shop?currentNumber=<%=i%>"><%=(i + 1)%></a></li>
+                                    <% } %>
+<%--                                    <li>»</li>--%>
                                 </ul>
                             </div>
                         </div>

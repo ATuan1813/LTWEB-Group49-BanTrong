@@ -62,16 +62,12 @@ public class ProductDao extends AbsDao{
         return  idSP;
     }
 
-
-
     // find by id
     public SanPham findOne(int idsp) {
-
-        String sql = "SELECT * FROM SANPHAM WHERE IdSP = ?";
-        List<SanPham> sp = queryHasId(sql, new ProductMapper(), idsp);
-        System.out.println("find id of findOneSp :" + sp.get(0).getIdSP());
-        return sp.isEmpty() ? null : sp.get(0);
-
+        String sql = "SELECT * FROM sanpham WHERE IDSP = ?";
+        List<SanPham> news2 = queryHasId(sql, new ProductMapper(), idsp);
+        System.out.println("find id of findOneNew :" + news2.get(0).getIdSP());
+        return news2.isEmpty() ? null : news2.get(0);
     }
 
     //update san phẩm
@@ -121,6 +117,62 @@ public class ProductDao extends AbsDao{
 
         String sql = "SELECT TOP 6 * FROM SANPHAM sp Where sp.IdPLC2 IN (SELECT IdPLC2 FROM PHANLOAICAP2 c2 WHERE c2.IdPLC1 = ?)";
         sanPhams = queryHasId(sql, new ProductMapper(), idplc1);
+
+        return sanPhams;
+    }
+
+    public ArrayList<SanPham> getAllSanPhamTheoTinhTrang(String tinhTrang) {
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM sanpham sp WHERE tinhTrang LIKE ? LIMIT 5";
+        sanPhams = queryHasId(sql, new ProductMapper(), tinhTrang);
+
+        return sanPhams;
+    }
+
+    public ArrayList<SanPham> getAllSanPhamKhuyenMai() {
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM sanpham sp ORDER BY KhuyenMai DESC LIMIT 5";
+        sanPhams = queryHasId(sql, new ProductMapper());
+
+        return sanPhams;
+    }
+
+    // San pham theo phan trang
+    public ArrayList<SanPham> getAllSanPhamTheoPhanTrang(String firstRecord) {
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM sanpham sp ORDER BY TenSP ASC LIMIT " + firstRecord + ", 9";
+        sanPhams = queryHasId(sql, new ProductMapper());
+
+        return sanPhams;
+    }
+
+    // tinh tong so luong san pham
+    public int getCountTheoPhanTrang() {
+        String sql = "SELECT count(sp.idSP) FROM sanpham sp ORDER BY TenSP ASC";
+        int total = count(sql);
+
+        return total;
+    }
+
+    // lay san pham dua theo hang
+    public ArrayList<SanPham> getAllSanPhamTheoHang(String idsHang, String firstRecord) {
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT * FROM sanpham sp WHERE sp.Hang IN (" + idsHang + ") ORDER BY TenSP ASC LIMIT " + firstRecord + ", 9";
+        sanPhams = queryHasId(sql, new ProductMapper());
+
+        return sanPhams;
+    }
+
+    // lay danh sach tat ca cac hang
+    public ArrayList<SanPham> getAllHang() {
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+
+        String sql = "SELECT sp.* FROM sanpham sp GROUP BY hang";
+        sanPhams = queryHasId(sql, new ProductMapper());
 
         return sanPhams;
     }
