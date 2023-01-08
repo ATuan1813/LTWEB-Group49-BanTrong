@@ -52,7 +52,7 @@
                                              </div>
                                              <div class="right">
                                                 <div class="profile_contacts">
-                                                   <img class="img-responsive" src="images/layout_img/msg2.png" alt="#" />
+                                                   <img class="img-responsive" src="http://localhost:8080/shopbantrong_war//admin/images/layout_img/user_img.jpg" alt="#" />
                                                 </div>
                                              </div>
                                              <div class="bottom_list">
@@ -70,7 +70,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i> View Profile
+                                                   <i class="fa fa-user"> </i> <a href="/shopbantrong_war/admin-profile">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>
@@ -93,7 +93,7 @@
                                              </div>
                                              <div class="right">
                                                 <div class="profile_contacts">
-                                                   <img class="img-responsive" src="images/layout_img/msg2.png" alt="#" />
+                                                   <img class="img-responsive" src="http://localhost:8080/shopbantrong_war//admin/images/layout_img/msg2.png" alt="#" />
                                                 </div>
                                              </div>
                                              <div class="bottom_list">
@@ -111,7 +111,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i> View Profile
+                                                   <i class="fa fa-user"> </i><a href="/shopbantrong_war/admin-profile">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>
@@ -133,7 +133,7 @@
                                              </div>
                                              <div class="right">
                                                 <div class="profile_contacts">
-                                                   <img class="img-responsive" src="images/layout_img/msg2.png" alt="#" />
+                                                   <img class="img-responsive" src="http://localhost:8080/shopbantrong_war//admin/images/layout_img/msg5.png" alt="#" />
                                                 </div>
                                              </div>
                                              <div class="bottom_list">
@@ -151,7 +151,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i> View Profile
+                                                   <i class="fa fa-user"> </i>  <a href="/shopbantrong_war/admin-profile">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>

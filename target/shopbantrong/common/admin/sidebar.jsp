@@ -41,15 +41,15 @@
             </li> -->
             <li>
                 <div class="a-dropdown">
-                    <a href="admin/ViewAllinvoices.jsp" id="a-link"><i class="fa fa-diamond orange_color"></i> <span>Đơn Hàng</span></a>
+                    <a href="/shopbantrong_war/admin-invoice-tables" id="a-link"><i class="fa fa-diamond orange_color"></i> <span>Đơn Hàng</span></a>
                     <a href="#manage2" data-toggle="collapse" aria-expanded="false" style="padding:15px 10px" class="dropdown-toggle "></a>
                 </div>
 
                 <ul class="collapse list-unstyled" id="manage2">
-                    <li><a href="admin/invoiceTable.jsp">> <span>Đơn Hàng Hôm Nay</span></a></li>
-                    <li><a href="admin/invoiceTable.jsp">> <span>Đơn Hàng Tuần Này</span></a></li>
-                    <li><a href="admin/invoiceTable.jsp">> <span>Đơn Hàng Tháng Này</span></a></li>
-                    <li><a href="admin/invoiceTable.jsp">> <span>Tất Cả</span></a></li>
+                    <li><a href="/shopbantrong_war/admin-invoice-tables">> <span>Đơn Hàng Hôm Nay</span></a></li>
+                    <li><a href="/shopbantrong_war/admin-invoice-tables">> <span>Đơn Hàng Tuần Này</span></a></li>
+                    <li><a href="/shopbantrong_war/admin-invoice-tables">> <span>Đơn Hàng Tháng Này</span></a></li>
+                    <li><a href="/shopbantrong_war/admin-invoice-tables">> <span>Tất Cả</span></a></li>
                 </ul>
             </li>
             <li>

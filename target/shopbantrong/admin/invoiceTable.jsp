@@ -56,7 +56,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -66,7 +66,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -76,7 +76,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -86,7 +86,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -96,7 +96,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -106,7 +106,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -116,7 +116,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -126,7 +126,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                              <tr>
                                                 <td>DH2022</td>
@@ -136,7 +136,7 @@
                                                 <td>245 đường lê thánh tông, phường 8, Quận 2, Thành phố Hồ Chí Minh</td>
                                                 <td>300</td>
                                                 <td>12.200.000 vnđ</td>
-                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                                <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                              </tr>
                                             
                                           </tbody>
