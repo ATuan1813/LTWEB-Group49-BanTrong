@@ -66,12 +66,12 @@
             </li>
             <li>
                 <div class="a-dropdown">
-                    <a href="admin/listUser.jsp" id="a-link"><i class="fa fa-user red_color"></i> <span>Quản Lý Khách Hàng</span></a>
+                    <a href="/shopbantrong_war/admin-user-view" id="a-link"><i class="fa fa-user red_color"></i> <span>Quản Lý Khách Hàng</span></a>
                 </div>
             </li>
             <li>
                 <div class="a-dropdown">
-                    <a href="admin/tables.jsp" id="a-link"><i class="fa fa-user yellow_color"></i> <span>Tài Khoản Admin</span></a>
+                    <a href="/shopbantrong_war/admin-view" id="a-link"><i class="fa fa-user yellow_color"></i> <span>Tài Khoản Admin</span></a>
                 </div>
             </li>
             <li>

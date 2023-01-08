@@ -125,4 +125,14 @@ public class ProductDao extends AbsDao{
         return sanPhams;
     }
 
+    // xóa sp
+    public int removeSp(int idsp){
+        int idimg = 0;
+        String sql = "DELETE FROM SANPHAM WHERE IdSP = ?";
+
+        idimg = update(sql, idsp);
+        System.out.println("đã xóa san pham có id : " + idimg);
+        return idimg;
+    }
+
 }

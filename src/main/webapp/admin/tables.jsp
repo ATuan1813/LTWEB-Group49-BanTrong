@@ -25,7 +25,7 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <a href="tables.jsp"><h2>Quản Lý Sản Phẩm</h2></a>
+                              <a href="/shopbantrong_war/admin-product-tables"><h2>Quản Lý Sản Phẩm</h2></a>
                            </div>
                         </div>
                      </div>

@@ -15,6 +15,7 @@ public class NguoiDung {
     private String nguonGoc;
 
     public NguoiDung() {
+
     }
 
     public NguoiDung(int idNguoiDung, String taiKhoan, String matKhau, String tenNguoiDung, int quyen,
@@ -30,6 +31,31 @@ public class NguoiDung {
         this.avartar = avartar;
         this.tinhtrang = tinhtrang;
         this.nguonGoc = nguonGoc;
+    }
+
+    public NguoiDung(int idNguoiDung, String taiKhoan, String matKhau, String tenNguoiDung, int quyen, int sdt, String email, String diaChi, String avartar, int tinhtrang) {
+        IdNguoiDung = idNguoiDung;
+        TaiKhoan = taiKhoan;
+        MatKhau = matKhau;
+        TenNguoiDung = tenNguoiDung;
+        this.quyen = quyen;
+        this.sdt = sdt;
+        Email = email;
+        DiaChi = diaChi;
+        this.avartar = avartar;
+        this.tinhtrang = tinhtrang;
+    }
+
+    public NguoiDung(String taiKhoan, String matKhau, String tenNguoiDung, int quyen, int sdt, String email, String diaChi, String avartar, int tinhtrang) {
+        TaiKhoan = taiKhoan;
+        MatKhau = matKhau;
+        TenNguoiDung = tenNguoiDung;
+        this.quyen = quyen;
+        this.sdt = sdt;
+        Email = email;
+        DiaChi = diaChi;
+        this.avartar = avartar;
+        this.tinhtrang = tinhtrang;
     }
 
     public int getIdNguoiDung() {

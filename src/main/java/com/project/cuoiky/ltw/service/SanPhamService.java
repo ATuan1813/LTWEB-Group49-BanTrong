@@ -1,6 +1,7 @@
 package com.project.cuoiky.ltw.service;
 
 import com.project.cuoiky.ltw.controller.HandleInput;
+import com.project.cuoiky.ltw.database.HinhAnhDao;
 import com.project.cuoiky.ltw.database.MauSacDao;
 import com.project.cuoiky.ltw.database.ProductDao;
 import com.project.cuoiky.ltw.model.HinhAnh;
@@ -24,6 +25,7 @@ public class SanPhamService {
     ProductDao productDao = new ProductDao();
     ColorLKSanPhamService colorLKSanPhamService = new ColorLKSanPhamService();
     UploadFileService uploadFileService = new UploadFileService();
+    HinhAnhDao hinhAnhDao = new HinhAnhDao();
 
     //Query sản phẩm
     public ArrayList<SanPham> getAllSpPLC1(int idplc1) {
@@ -253,5 +255,14 @@ public class SanPhamService {
             e.printStackTrace();
         }
     return idsp;
+    }
+
+    // XÓA SẢN PHẨM
+    public void removeSp(int idsp){
+        hinhAnhDao.removeImg(idsp);
+        mauSacDao.removeColorSp(idsp);
+        productDao.removeSp(idsp);
+
+        System.out.println("đã xóa xong");
     }
 }

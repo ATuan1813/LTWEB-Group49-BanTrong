@@ -33,7 +33,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Bảng Thông Tin Khách Hàng</h2>
-                                    <a href="addUser.jsp"><h4>Thêm Tài Khoản</h4></a>
+                                    <a href="/shopbantrong_war/admin-user-add"><h4>Thêm Tài Khoản</h4></a>
                                  </div>
                               </div>
                               <div class="table_section scrollbar padding_infor_info">

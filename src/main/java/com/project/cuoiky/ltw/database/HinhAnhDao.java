@@ -59,4 +59,15 @@ public class HinhAnhDao extends AbsDao{
 
         return HinhAnhs;
     }
+
+    // xóa 1 hình ảnh dựa trên id sản phẩm
+    public int removeImg(int idsp){
+        int idimg = 0;
+        String sql = "DELETE FROM HINHANH WHERE IdSP = ?";
+
+        idimg = update(sql, idsp);
+        System.out.println("đã xóa img có id : " + idimg);
+
+        return idimg;
+    }
 }

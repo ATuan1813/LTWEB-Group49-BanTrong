@@ -74,4 +74,14 @@ public class MauSacDao extends AbsDao{
         return  idha;
     }
 
+    // remove mausaclkphamsan
+    public int removeColorSp(int idsp){
+        int idimg = 0;
+        String sql = "DELETE FROM MAUSACLKPHAMSAN WHERE IdSP = ?";
+
+        idimg = update(sql, idsp);
+        System.out.println("đã xóa colorSP có id : " + idimg);
+        return idimg;
+    }
+
 }
