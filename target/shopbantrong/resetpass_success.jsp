@@ -44,10 +44,12 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="contact_message">
                             <div class="contact_message contact_info">
-                                <h3><strong>Đăng Ký Tài Khoản Thành Công</strong></h3>
-                                <p><strong>Chúc mừng bạn đã đăng ký tài khoản thành công!</strong></p>
+                                <h3><strong>Khôi Phục Mật Khẩu Thành Công</strong></h3>
+                                <p><strong>Mật khẩu mới đã được gửi về Email của bạn, vui lòng kiểm tra hộp thư đến hoặc thư mục Spam!</strong></p>
                                 <ul>
                                     <li><a href="/login">Đăng Nhập Tại Đây</a></li>
+                                    <li><a href="/register">Đăng Ký Tài Khoản Mới</a></li>
+                                    <li><a href="/forgot-password">Quên Mật Khẩu</a></li>
                                 </ul>
                             </div>
                         </div>

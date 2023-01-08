@@ -10,7 +10,7 @@ public class MauSacDao extends AbsDao{
    // get list color
    public ArrayList<MauSac> getListMS(){
        ArrayList<MauSac> MauSacs = new ArrayList<MauSac>();
-       String sql= "SELECT * FROM MauSac";
+       String sql= "SELECT * FROM mausac";
 
        MauSacs = queryHasId(sql, new CategoryMSMapper());
        return MauSacs;

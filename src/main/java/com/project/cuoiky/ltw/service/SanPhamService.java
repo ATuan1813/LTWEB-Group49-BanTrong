@@ -1,6 +1,7 @@
 package com.project.cuoiky.ltw.service;
 
 import com.project.cuoiky.ltw.controller.HandleInput;
+import com.project.cuoiky.ltw.database.HinhAnhDao;
 import com.project.cuoiky.ltw.database.MauSacDao;
 import com.project.cuoiky.ltw.database.ProductDao;
 import com.project.cuoiky.ltw.model.HinhAnh;
@@ -20,6 +21,7 @@ import java.util.Map;
 
 public class SanPhamService {
     MauSacDao mauSacDao = new MauSacDao();
+    HinhAnhDao hinhAnhDao = new HinhAnhDao();
     HandleInput handleInput = new HandleInput();
     ProductDao productDao = new ProductDao();
     ColorLKSanPhamService colorLKSanPhamService = new ColorLKSanPhamService();
@@ -152,4 +154,42 @@ public class SanPhamService {
         }
 
     }
+
+    public ArrayList<SanPham> getAllSanPhamMoi() {
+        ArrayList<SanPham> sanPhamArrayList = productDao.getAllSanPhamTheoTinhTrang("sanphammoi");
+        return getHinhAnh(sanPhamArrayList);
+    }
+
+    public ArrayList<SanPham> getAllSanPhamHot() {
+        ArrayList<SanPham> sanPhamArrayList = productDao.getAllSanPhamTheoTinhTrang("hanghot");
+        return getHinhAnh(sanPhamArrayList);
+    }
+
+    public ArrayList<SanPham> getAllSanPhamKhuyenMai() {
+        ArrayList<SanPham> sanPhamArrayList = productDao.getAllSanPhamKhuyenMai();
+        return getHinhAnh(sanPhamArrayList);
+    }
+
+    public ArrayList<SanPham> getAllSanPhamTheoPhanTrang(String firstRecord) {
+        ArrayList<SanPham> sanPhamArrayList = productDao.getAllSanPhamTheoPhanTrang(firstRecord);
+        return getHinhAnh(sanPhamArrayList);
+    }
+
+    public ArrayList<SanPham> getAllSanPhamTheoHang(String idsHang, String firstRecord) {
+        ArrayList<SanPham> sanPhamArrayList = productDao.getAllSanPhamTheoHang(idsHang, firstRecord);
+        return getHinhAnh(sanPhamArrayList);
+    }
+
+    private ArrayList<SanPham> getHinhAnh(ArrayList<SanPham> sanPhamArrayList) {
+        if (sanPhamArrayList != null) {
+            for (SanPham sanPham : sanPhamArrayList) {
+                ArrayList<HinhAnh> anhArrayList = hinhAnhDao.getListMS(sanPham);
+                if (anhArrayList != null && anhArrayList.size() > 0) {
+                    sanPham.setHinhAnh(anhArrayList.get(0).getUrlHA());
+                }
+            }
+        }
+        return sanPhamArrayList;
+    }
+
 }

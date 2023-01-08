@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.project.cuoiky.ltw.model.NguoiDung" %><%--
   Created by IntelliJ IDEA.
   User: ANHTUAN
   Date: 12/12/2022
@@ -38,9 +38,22 @@
                         <li><a href="my-account.jsp" title="">Tài khoản của tôi</a></li>
                         <li><a href="cart.jsp" title="">Giỏ hàng</a></li>
                         <%
-                            if(session.getAttribute("nguoiDung") == null) {
+                            if (session.getAttribute("userLogin") == null) {
                         %>
-                        <li><a href="login.jsp" title="">Đăng nhập</a></li>
+                        <li><a href="/login" title="">Đăng nhập</a></li>
+                        <%
+                            } else {
+                        %>
+                        <li><a href="/profile" title="">Xin chào <%=session.getAttribute("userLogin")%><a/></li>
+                        <li><a></a></li>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            if (session.getAttribute("userLogin") != null) {
+                        %>
+                        <li><a href="/logout" title="">Đăng xuất</a></li>
                         <%
                             }
                         %>
@@ -57,7 +70,7 @@
             <!--logo start-->
             <div class="col-lg-3 col-md-3">
                 <div class="logo">
-                    <a href="index.jsp"><img src="assets/img/logo/logoShop.jpg" alt=""></a>
+                    <a href="/"><img src="assets/img/logo/logoShop.jpg" alt=""></a>
                 </div>
             </div>
             <!--logo end-->
@@ -127,16 +140,8 @@
                     <div class="main_menu d-none d-lg-block">
                         <nav>
                             <ul>
-                                <li class="active"><a href="index.jsp">Trang chủ</a>
-                                    <!-- <div class="mega_menu jewelry">
-                                        <div class="mega_items jewelry">
-                                            <ul>
-                                                <li><a href="index.jsp">Home 1</a></li>
-                                                <li><a href="index-2.jsp">Home 2</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>  -->
-                                </li>
+                                <li class="active"><a href="/">Trang chủ</a></li>
+                                <li><a href="/shop">Cửa Hàng</a></li>
                                 <li><a href="shop.jsp">BỘ TRỐNG</a>
                                     <div class="mega_menu drum-category" >
                                         <div class="mega_top fix">

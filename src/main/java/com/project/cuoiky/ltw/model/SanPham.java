@@ -15,6 +15,7 @@ public class SanPham {
     private Long GiaBan;
     private Long GiaVon;
     private String TinhTrang;
+    private String hinhAnh;
 
     public SanPham(String tenSP, String motaSP, int idPLC2, String hang, String thongSoKyThuat, Long kickThuoc, String vatLieu, Long khuyenMai, int soLuongTrongKho, int soLuongDaBan, Long giaBan, Long giaVon, String tinhTrang) {
         TenSP = tenSP;
@@ -163,5 +164,13 @@ public class SanPham {
 
     public String getTinhTrang() {
         return TinhTrang;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
     }
 }

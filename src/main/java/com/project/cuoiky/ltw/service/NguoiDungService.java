@@ -33,8 +33,10 @@ public class NguoiDungService {
             nd.setQuyen(1);
             nd.setTinhtrang(1);
 
+            // luu xuong database
             result = nguoiDungDao.register(nd);
 
+            // gui email thong bao
             if (result > 0) {
                 HashMap<String, String> hashMapContent = new HashMap<>();
                 hashMapContent.put("TITLE", "Đăng Ký Tài Khoản");

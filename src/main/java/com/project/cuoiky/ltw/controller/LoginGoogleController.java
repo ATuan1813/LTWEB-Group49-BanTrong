@@ -19,35 +19,39 @@ public class LoginGoogleController extends HttpServlet {
     private NguoiDungService nguoiDungService = new NguoiDungService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String code = request.getParameter("code");
-        if (code == null || code.isEmpty()) {
-            RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-            dis.forward(request, response);
-        } else {
-            String accessToken = GoogleService.getToken(code);
-            GooglePojo googlePojo = GoogleService.getUserInfo(accessToken);
+        try {
+            String code = request.getParameter("code");
+            if (code == null || code.isEmpty()) {
+                RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+                dis.forward(request, response);
+            } else {
+                String accessToken = GoogleService.getToken(code);
+                GooglePojo googlePojo = GoogleService.getUserInfo(accessToken);
 
-            NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(googlePojo.getEmail());
-            if (nguoiDung == null) {
-                nguoiDung = new NguoiDung();
-                nguoiDung.setTaiKhoan(googlePojo.getEmail());
-                nguoiDung.setMatKhau(null);
-                nguoiDung.setEmail(googlePojo.getEmail());
-                nguoiDung.setQuyen(1);
-                nguoiDung.setTinhtrang(1);
-                nguoiDung.setTenNguoiDung(googlePojo.getName());
-                nguoiDung.setNguonGoc("GOOGLE");
-                nguoiDung.setAvartar(googlePojo.getPicture());
+                NguoiDung nguoiDung = nguoiDungService.findTaiKhoan(googlePojo.getEmail());
+                if (nguoiDung == null) {
+                    nguoiDung = new NguoiDung();
+                    nguoiDung.setTaiKhoan(googlePojo.getEmail());
+                    nguoiDung.setMatKhau(null);
+                    nguoiDung.setEmail(googlePojo.getEmail());
+                    nguoiDung.setQuyen(1);
+                    nguoiDung.setTinhtrang(1);
+                    nguoiDung.setTenNguoiDung(googlePojo.getName());
+                    nguoiDung.setNguonGoc("GOOGLE");
+                    nguoiDung.setAvartar(googlePojo.getPicture());
 
-                nguoiDungService.registerWithSocial(nguoiDung);
+                    nguoiDungService.registerWithSocial(nguoiDung);
 
-                HttpSession session = request.getSession();
-                session.setAttribute("nguoiDung", nguoiDung);
-                session.setAttribute("userLogin", googlePojo.getEmail());
+                    HttpSession session = request.getSession();
+                    session.setAttribute("nguoiDung", nguoiDung);
+                    session.setAttribute("userLogin", googlePojo.getEmail());
+                }
+
+                RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+                dis.forward(request, response);
             }
-
-            RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-            dis.forward(request, response);
+        } catch (Exception ex) {
+            response.sendRedirect("/login.jsp");
         }
     }
 

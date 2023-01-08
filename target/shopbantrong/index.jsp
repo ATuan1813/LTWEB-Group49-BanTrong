@@ -1,3 +1,6 @@
+<%@ page import="com.project.cuoiky.ltw.model.SanPham" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp" %>
 
@@ -6,9 +9,14 @@
 <head>
     <%-- all library here--%>
     <%@ include file="/common/web/head.jsp" %>
+    <title>Trang Chủ - Shop Drum</title>
 </head>
 <body>
 <!-- Add your site or application content here -->
+
+<%
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
+%>
 
 <!--pos page start-->
 <div class="pos_page">
@@ -117,76 +125,6 @@
                         </div>
                         <!--categorie menu end-->
 
-                        <!--wishlist block start-->
-                        <!-- <div class="sidebar_widget wishlist mb-35">
-                            <div class="block_title">
-                                <h3><a href="#">Wishlist</a></h3>
-                            </div>
-                            <div class="cart_item">
-                               <div class="cart_img">
-                                   <a href="#"><img src="assets\img\cart\cart.jpg" alt=""></a>
-                               </div>
-                                <div class="cart_info">
-                                    <a href="#">lorem ipsum dolor</a>
-                                    <span class="cart_price">$115.00</span>
-                                    <span class="quantity">Qty: 1</span>
-                                </div>
-                                <div class="cart_remove">
-                                    <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                </div>
-                            </div>
-                            <div class="cart_item">
-                               <div class="cart_img">
-                                   <a href="#"><img src="assets\img\cart\cart2.jpg" alt=""></a>
-                               </div>
-                                <div class="cart_info">
-                                    <a href="#">Quisque ornare dui</a>
-                                    <span class="cart_price">$105.00</span>
-                                    <span class="quantity">Qty: 1</span>
-                                </div>
-                                <div class="cart_remove">
-                                    <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                </div>
-                            </div>
-                            <div class="block_content">
-                                <p>2  products</p>
-                                <a href="#">» My wishlists</a>
-                            </div>
-                        </div> -->
-                        <!--wishlist block end-->
-
-                        <!--popular tags area-->
-                        <!-- <div class="sidebar_widget tags mb-35">
-                            <div class="block_title">
-                                <h3>popular tags</h3>
-                            </div>
-                            <div class="block_tags">
-                                <a href="#">ipod</a>
-                                <a href="#">sam sung</a>
-                                <a href="#">apple</a>
-                                <a href="#">iphone 5s</a>
-                                <a href="#">superdrive</a>
-                                <a href="#">shuffle</a>
-                                <a href="#">nano</a>
-                                <a href="#">iphone 4s</a>
-                                <a href="#">canon</a>
-                            </div>
-                        </div> -->
-                        <!--popular tags end-->
-
-                        <!--newsletter block start-->
-                        <!-- <div class="sidebar_widget newsletter mb-35">
-                            <div class="block_title">
-                                <h3>newsletter</h3>
-                            </div>
-                            <form action="#">
-                                <p>Sign up for your newsletter</p>
-                                <input placeholder="Your email address" type="text">
-                                <button type="submit">Subscribe</button>
-                            </form>
-                        </div> -->
-                        <!--newsletter block end-->
-
                         <!--sidebar banner-->
                         <div class="sidebar_widget bottom ">
                             <div class="banner_img">
@@ -194,7 +132,6 @@
                             </div>
                         </div>
                         <!--sidebar banner end-->
-
 
                     </div>
                     <div class="col-lg-9 col-md-12">
@@ -243,13 +180,19 @@
                             </div>
                             <div class="row">
                                 <div class="product_active owl-carousel">
+
+                                    <%
+                                        ArrayList<SanPham> sanPhams = (ArrayList<SanPham>) request.getAttribute("danhSachSanPhamMoi");
+                                        for (SanPham sanPham: sanPhams) {
+                                    %>
+
                                     <div class="col-lg-3">
                                         <div class="single_product">
                                             <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template1.png" alt=""></a>
+                                                <a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"><img
+                                                        src="<%=sanPham.getHinhAnh()%>" alt=""></a>
                                                 <div class="img_icone">
-                                                    <img src="assets\img\cart\span-new.png" alt="">
+                                                    <img src="<%=sanPham.getHinhAnh()%>" alt="">
                                                 </div>
                                                 <div class="product_action">
                                                     <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
@@ -257,128 +200,13 @@
                                                 </div>
                                             </div>
                                             <div class="product_content">
-                                                <span class="product_price">50.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Pearl President
-                                                    Series Phenolic 3-piece Limited Edition Shell Pack in Pearl White
-                                                    Oyster </a></h3>
+                                                <span class="product_price"> <%=formatter.format(sanPham.getGiaBan())%> VND</span>
+                                                <h3 class="product_title"><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"> <%=sanPham.getTenSP()%> </a></h3>
                                             </div>
                                             <div class="product_info">
                                                 <ul>
                                                     <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template2.png" alt=""></a>
-                                                <div class="img_icone">
-                                                    <img src="assets\img\cart\span-new.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">500.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Pearl Session
-                                                    Studio Select 22″ 4 Piece Shell Pack - Gloss Barnwood</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template3.png" alt=""></a>
-                                                <div class="img_icone">
-                                                    <img src="assets\img\cart\span-new.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">500.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">British Drum Co.
-                                                    22″ Legend 4 Piece Rock Fusion Shell Pack - Buckingham Scarlett</a>
-                                                </h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template4.png" alt=""></a>
-                                                <div class="img_icone">
-                                                    <img src="assets\img\cart\span-new.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">500.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">British Drum Co.
-                                                    24″ Legend Club 3 Piece Shell Pack - Kensington Knight</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template5.png" alt=""></a>
-                                                <div class="img_icone">
-                                                    <img src="assets\img\cart\span-new.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">500.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">British Drum Co.
-                                                    Lounge Series 22″ Club 3 Piece Shell Pack – Iron Bridge</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
+                                                    <li><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>" data-toggle="modal"
                                                            data-target="#modal_box" title="Quick view">Xem chi tiết</a>
                                                     </li>
                                                 </ul>
@@ -386,6 +214,9 @@
                                         </div>
                                     </div>
 
+                                    <%
+                                        }
+                                    %>
 
                                 </div>
                             </div>
@@ -395,17 +226,23 @@
                         <!--featured product start-->
                         <div class="featured_product">
                             <div class="block_title">
-                                <h3>Sản phẩm hot và bán chạy</h3>
+                                <h3>Sản phẩm hot</h3>
                             </div>
                             <div class="row">
                                 <div class="product_active owl-carousel">
+
+                                    <%
+                                        ArrayList<SanPham> sanPhamBanChay = (ArrayList<SanPham>) request.getAttribute("danhSachSanPhamBanChay");
+                                        for (SanPham sanPham: sanPhamBanChay) {
+                                    %>
+
                                     <div class="col-lg-3">
                                         <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template6.png" alt=""></a>
+                                                        src="<%=sanPham.getHinhAnh()%>" alt=""></a>
                                                 <div class="hot_img">
-                                                    <img src="assets\img\cart\span-hot.png" alt="">
+                                                    <img src="<%=sanPham.getHinhAnh()%>" alt="">
                                                 </div>
                                                 <div class="product_action">
                                                     <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
@@ -413,134 +250,24 @@
                                                 </div>
                                             </div>
                                             <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">British Drum Co.
-                                                    22 ″ Legend 4 Piece Rock Fusion Shell Pack - Buckingham Scarlett</a>
+                                                <span class="product_price"> <%=formatter.format(sanPham.getGiaBan())%> VND </span>
+                                                <h3 class="product_title"><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"> <%=sanPham.getTenSP()%> </a>
                                                 </h3>
                                             </div>
                                             <div class="product_info">
                                                 <ul>
                                                     <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
+                                                    <li><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>" data-toggle="modal"
                                                            data-target="#modal_box" title="Quick view">Xem chi tiết</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template7.png" alt=""></a>
-                                                <div class="hot_img">
-                                                    <img src="assets\img\cart\span-hot.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Pearl e / Merge
-                                                    Hybrid Plus Electronic Drum Kit với Bonus Cymbal Pad và Arm</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template8.png" alt=""></a>
-                                                <div class="hot_img">
-                                                    <img src="assets\img\cart\span-hot.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">PEARL E/MERGE
-                                                    TRADITIONAL ELECTRONIC DRUM KIT WITH BONUS CYMBAL PAD AND ARM</a>
-                                                </h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template9.png" alt=""></a>
-                                                <div class="hot_img">
-                                                    <img src="assets\img\cart\span-hot.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Ludwig Accent CS
-                                                    5pc Drum Set w/ Hardware & Cymbals – Red</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template10.png" alt=""></a>
-                                                <div class="hot_img">
-                                                    <img src="assets\img\cart\span-hot.png" alt="">
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">PDP Centerstage
-                                                    20" Complete Drum Kit w/ Cymbals</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <%
+                                        }
+                                    %>
 
                                 </div>
                             </div>
@@ -553,14 +280,20 @@
                             </div>
                             <div class="row">
                                 <div class="product_active owl-carousel">
+
+                                    <%
+                                        ArrayList<SanPham> sanPhamKhuyenMai = (ArrayList<SanPham>) request.getAttribute("danhSachSanPhamKhuyenMai");
+                                        for (SanPham sanPham: sanPhamKhuyenMai) {
+                                    %>
+
                                     <div class="col-lg-3">
                                         <div class="single_product">
                                             <div class="product_thumb">
                                                 <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template11.png" alt=""></a>
+                                                        src="<%=sanPham.getHinhAnh()%>" alt=""></a>
                                                 <div class="hot_img img_icone-sale">
-                                                    <img src="assets/img/cart/span-sale.png" alt="">
-                                                    <span class="number-sale">30</span>
+                                                    <img src="<%=sanPham.getHinhAnh()%>" alt="">
+                                                    <span class="number-sale"> <%=sanPham.getKhuyenMai()%></span>
                                                 </div>
                                                 <div class="product_action">
                                                     <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
@@ -568,162 +301,28 @@
                                                 </div>
                                             </div>
                                             <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Bộ trống điện tử
-                                                    Carlsbro Compact Commander CSD130</a></h3>
+                                                <span class="product_price"> <%=formatter.format(sanPham.getGiaBan())%> VND </span>
+                                                <h3 class="product_title"><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>"> <%=sanPham.getTenSP()%> </a></h3>
                                             </div>
                                             <div class="product_info">
                                                 <ul>
                                                     <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
+                                                    <li><a href="/single-product?idSanPham=<%=sanPham.getIdSP()%>" data-toggle="modal"
                                                            data-target="#modal_box" title="Quick view">Xem chi tiết</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template12.png" alt=""></a>
-                                                <div class="hot_img img_icone-sale">
-                                                    <img src="assets/img/cart/span-sale.png" alt="">
-                                                    <span class="number-sale">30</span>
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Bộ trống chỉ huy
-                                                    điện tử nhỏ gọn Carlsbro CSD120</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                           title="Quick view">Xem chi tiết</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template13.png" alt=""></a>
-                                                <div class="hot_img img_icone-sale">
-                                                    <img src="assets/img/cart/span-sale.png" alt="">
-                                                    <span class="number-sale">30</span>
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">PEARL E/MERGE
-                                                    TRADITIONAL ELECTRONIC DRUM KIT WITH BONUS CYMBAL PAD AND ARM</a>
-                                                </h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                           title="Quick view">Xem chi tiết</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template14.png" alt=""></a>
-                                                <div class="hot_img img_icone-sale">
-                                                    <img src="assets/img/cart/span-sale.png" alt="">
-                                                    <span class="number-sale">30</span>
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">Ludwig Accent CS
-                                                    5pc Drum Set w/ Hardware & Cymbals – Red</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="single-product.html" data-toggle="modal"
-                                                           data-target="#modal_box" title="Quick view">Xem chi tiết</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single_product">
-                                            <div class="product_thumb">
-                                                <a href="single-product.html"><img
-                                                        src="assets/img/product2/template1/template15.png" alt=""></a>
-                                                <div class="hot_img img_icone-sale">
-                                                    <img src="assets/img/cart/span-sale.png" alt="">
-                                                    <span class="number-sale">30</span>
-                                                </div>
-                                                <div class="product_action">
-                                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ
-                                                        hàng</a>
-                                                </div>
-                                            </div>
-                                            <div class="product_content">
-                                                <span class="product_price">39.000.000 vnd</span>
-                                                <h3 class="product_title"><a href="single-product.html">PDP Centerstage
-                                                    20" Complete Drum Kit w/ Cymbals</a></h3>
-                                            </div>
-                                            <div class="product_info">
-                                                <ul>
-                                                    <li><a href="#" title=" Add to Wishlist ">Thanh Toán</a></li>
-                                                    <li><a href="#" data-toggle="modal" data-target="#modal_box"
-                                                           title="Quick view">Xem chi tiết</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    <%
+                                        }
+                                    %>
 
                                 </div>
                             </div>
                         </div>
                         <!--featured product end-->
-
-                        <!--banner area start-->
-                        <!-- <div class="banner_area mb-60">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="single_banner">
-                                        <a href="#"><img src="assets\img\banner\banner7.jpg" alt=""></a>
-                                        <div class="banner_title">
-                                            <p>Up to <span> 40%</span> off</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="single_banner">
-                                        <a href="#"><img src="assets\img\banner\banner8.jpg" alt=""></a>
-                                        <div class="banner_title title_2">
-                                            <p>sale off <span> 30%</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>      -->
-                        <!--banner area end-->
 
                         <!--brand logo strat-->
                         <div class="brand_logo mb-60">
