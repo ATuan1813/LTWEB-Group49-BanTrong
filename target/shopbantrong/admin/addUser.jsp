@@ -10,7 +10,7 @@
 
        <style>
            .tm-bg-primary-dark{
-               height: 650px;
+               height: 600px;
            }
            @media screen and (max-width: 1000px) {
                .tm-bg-primary-dark{
@@ -47,7 +47,9 @@
                 </div> -->
                <div class="tm-bg-primary-dark tm-block-user tm-block tm-block-settings">
                   <h2 class="tm-block-title">Thêm Tài Khoản Cho Khách Hàng</h2>
-                  <form action="" class="tm-signup-form row">
+                   <p id="notify" style="color: chartreuse"><% String notify = request.getAttribute("notify") != null ? request.getAttribute("notify").toString() :"";
+                       out.println(notify);%></p>
+                  <form action="/shopbantrong_war/admin-user-add" method="post" class="tm-signup-form row">
                       <div class="form-group col-lg-6">
                           <label >Tài Khoản</label>
                           <input id="username" name="username" value="Sucana123" type="text" class="form-control validate">
@@ -61,13 +63,6 @@
                           <label for="password2">Nhập Lại Password</label>
                           <input id="password2" name="password2" value="123456" type="password"
                                  class="form-control validate">
-                      </div>
-                      <div class="form-group col-lg-6">
-                          <label >Quyền</label>
-                          <select name="quyen" class="custom-select tm-select-accounts">
-                              <option value="1">Admin</option>
-                              <option value="2">Người Dùng</option>
-                          </select>
                       </div>
                       <div class="form-group col-lg-6">
                           <label for="email">Địa Chỉ Email</label>
@@ -90,8 +85,8 @@
                       <div class="form-group col-lg-6">
                           <label >Tình Trạng</label>
                           <select name="tinhtrang" class="custom-select tm-select-accounts">
-                              <option value="0">Khóa Tài Khoản</option>
                               <option value="1">Mở Tài Khoản</option>
+                              <option value="0">Khóa Tài Khoản</option>
                           </select>
                       </div>
                     <div class="col-12">

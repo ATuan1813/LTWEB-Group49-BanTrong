@@ -4,6 +4,7 @@ import com.project.cuoiky.ltw.database.NguoiDungDao2;
 import com.project.cuoiky.ltw.model.NguoiDung;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class NguoiDungService2 {
@@ -15,14 +16,14 @@ public class NguoiDungService2 {
         String TAIKHOAN =  request.getParameter("username");
         String MatKhau =  request.getParameter("password");
         String TenNguoiDung = request.getParameter("fullname");
-        int Quyen = Integer.parseInt(request.getParameter("quyen"));
+//        int Quyen = Integer.parseInt(request.getParameter("quyen"));
         int sdt = Integer.parseInt(request.getParameter("phone"));
         String Email = request.getParameter("email");
         String diachi =  request.getParameter("diachi");
-        String avartar =  request.getParameter("tinhtrang");
-        int tinhtrang = Integer.parseInt(request.getParameter(""));
+        String avartar =  request.getParameter("");
+        int tinhtrang = Integer.parseInt(request.getParameter("tinhtrang"));
 
-        NguoiDung nguoiDung = new NguoiDung(TAIKHOAN,MatKhau,TenNguoiDung,Quyen,sdt,Email,diachi,avartar,tinhtrang);
+        NguoiDung nguoiDung = new NguoiDung(TAIKHOAN,MatKhau,TenNguoiDung,2,sdt,Email,diachi,avartar,tinhtrang);
         idnd = nguoiDungDao2.adduser(nguoiDung);
 
         return idnd;
@@ -34,14 +35,26 @@ public class NguoiDungService2 {
         ArrayList<NguoiDung> nguoiDungs = nguoiDungDao2.getListND();
         String usernameND = request.getParameter("username");
 
-        for (NguoiDung nguoiDung : nguoiDungs) {
-            if (usernameND.equals(nguoiDung.getTenNguoiDung())){
-                idnd = adduser(request);
+        if (!nguoiDungs.isEmpty()){
+            for (int i = 0; i < nguoiDungs.size(); i++) {
+                if (!usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i < nguoiDungs.size() - 1){
+                    System.out.println("username1 " + usernameND);
+                    System.out.println("username2 " + nguoiDungs.get(i).getTaiKhoan());
+                    continue;
+                }else if (usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i < nguoiDungs.size() - 1){
+                    idnd = 0;
+                    break;
+                }else if (!usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i == nguoiDungs.size() - 1){
+                    idnd = adduser(request);
+                }
+
             }
+        }else {
+            idnd = adduser(request);
         }
 
         if (idnd > 0){
-            return "Đã thêm người dùng với id : " +idnd;
+            return "Đã thêm người dùng : " + usernameND;
         }else {
             return "Thêm thất bại, tên Tài Khoản đã tồn tại";
         }

@@ -22,14 +22,14 @@ public class NguoiDungDao2 extends AbsDao {
 
     public ArrayList<NguoiDung> getListND(){
         ArrayList<NguoiDung> nguoiDungs = new ArrayList<>();
-        String sql = "SELECT * FROM NGUOIDUNG nd WHERE nd.Quyen = 1"; // 1 user, 2 admin
+        String sql = "SELECT * FROM NGUOIDUNG nd WHERE nd.Quyen = '2'"; // 2 user, 1 admin
         nguoiDungs = queryHasId(sql, new NguoiDungMapper());
         return nguoiDungs;
     }
 
     public ArrayList<NguoiDung> getListAdmin(){
         ArrayList<NguoiDung> nguoiDungs = new ArrayList<>();
-        String sql = "SELECT * FROM NGUOIDUNG nd WHERE nd.Quyen = 2"; // 1 user, 2 admin
+        String sql = "SELECT * FROM NGUOIDUNG nd WHERE nd.Quyen = 1"; // 2 user, 1 admin
         nguoiDungs = queryHasId(sql, new NguoiDungMapper());
         return nguoiDungs;
     }
