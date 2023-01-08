@@ -37,7 +37,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trống Bộ</h2>
-                                    <a href="/shopbantrong_war/admin-product-table-view"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-product-table-view?pl=1"><h4>Xem Thêm</h4></a>
 
                                  </div>
                               </div>
@@ -77,7 +77,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trống Lẻ</h2>
-                                    <a href="productTableView.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-product-table-view?pl=2"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -92,48 +92,17 @@
                                           </tr>
                                        </thead>
                                        <tbody>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3113</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum1.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3114</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum2.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3116</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum3.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3117</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum6.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3118</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum5.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>TL3115</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/oddDrums/oddDrum6.jpg" alt=""></td>
-                                             <td>Tom Like 03</td>
-                                             <td>Còn Hàng</td>
-                                          </tr>
+                                       <%ArrayList<SanPham> sanPhamtls = (ArrayList<SanPham>) request.getAttribute("sptb200");
+                                          Map<Integer, String> mapUrlTL = (Map<Integer, String>) request.getAttribute("mapUrlTL");
+                                          for (SanPham sanPham: sanPhamtls) {
+                                       %>
+                                       <tr>
+                                          <td><%out.print(sanPham.getIdSP());%></td>
+                                          <td><img class="img-list-products" src="<%out.print(mapUrlTL.get(sanPham.getIdSP()));%>" alt=""></td>
+                                          <td><%out.print(sanPham.getTenSP());%></td>
+                                          <td><%out.print(sanPham.getTinhTrang());%></td>
+                                       </tr>
+                                       <%}%>
                                        </tbody>
                                     </table>
                                  </div>
@@ -146,7 +115,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Phụ Kiện</h2>
-                                    <a href="#"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-product-table-view?pl=3"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -161,50 +130,17 @@
                                           </tr>
                                        </thead>
                                        <tbody>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6003</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory1.jpg" alt=""></td>
-                                             <td>Ghế Dyland</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6004</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory1.jpg" alt=""></td>
-                                             <td>Ghế Dyland</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6005</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory2.jpg" alt=""></td>
-                                             <td>Ghế Dyland</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6006</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory3.jpg" alt=""></td>
-                                             <td>Bàn Đạp Trống</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6007</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory4.jpg" alt=""></td>
-                                             <td>Bàn Đạp Trống</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                          <tr>
-                                             <!-- TBộ - loại trống - hãng - sp -->
-                                             <td>PK6008</td> 
-                                             <td><img class="img-list-products" src="/durmshop/Admin-page/pluto/images/myImg/accessory/accessory8.jpg" alt=""></td>
-                                             <td>Bộ Khung</td>
-                                             <td>Hàng Hot</td>
-                                          </tr>
-                                         
-                                         
+                                       <%ArrayList<SanPham> sanPhampks = (ArrayList<SanPham>) request.getAttribute("sptb300");
+                                          Map<Integer, String> mapUrlPK = (Map<Integer, String>) request.getAttribute("mapUrlPK");
+                                          for (SanPham sanPham: sanPhampks) {
+                                       %>
+                                       <tr>
+                                          <td><%out.print(sanPham.getIdSP());%></td>
+                                          <td><img class="img-list-products" src="<%out.print(mapUrlPK.get(sanPham.getIdSP()));%>" alt=""></td>
+                                          <td><%out.print(sanPham.getTenSP());%></td>
+                                          <td><%out.print(sanPham.getTinhTrang());%></td>
+                                       </tr>
+                                       <%}%>
                                        </tbody>
                                     </table>
                                  </div>

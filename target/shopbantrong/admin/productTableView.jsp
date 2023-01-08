@@ -45,7 +45,8 @@
                             <div class="white_shd full margin_bottom_30">
                                 <div class="full graph_head">
                                     <div class="heading1 heading-table margin_0">
-                                        <h2>Trống Bộ</h2>
+                                        <h2><% String notify = request.getAttribute("notify") != null ? request.getAttribute("notify").toString() :"";
+                                            out.println(notify);%></h2>
                                         <a href="/shopbantrong_war/admin-product-add"><h4>Thêm Sản Phẩm</h4></a>
                                     </div>
                                 </div>

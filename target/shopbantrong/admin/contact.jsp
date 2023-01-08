@@ -22,7 +22,7 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <h2>Contacts</h2>
+                              <h2>Admins</h2>
                            </div>
                         </div>
                      </div>
@@ -32,7 +32,7 @@
                            <div class="white_shd full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2>Contacts</h2>
+                                    <h2>Admins</h2>
                                  </div>
                               </div>
                               <div class="full price_table padding_infor_info">
@@ -70,7 +70,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i> <a href="/shopbantrong_war/admin-profile">View Profile</a>
+                                                   <i class="fa fa-user"> </i> <a href="/shopbantrong_war/admin-edit">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>
@@ -111,7 +111,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i><a href="/shopbantrong_war/admin-profile">View Profile</a>
+                                                   <i class="fa fa-user"> </i><a href="/shopbantrong_war/admin-edit">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>
@@ -151,7 +151,7 @@
                                                    </i> <i class="fa fa-comments-o"></i> 
                                                    </button>
                                                    <button type="button" class="btn btn-primary btn-xs">
-                                                   <i class="fa fa-user"> </i>  <a href="/shopbantrong_war/admin-profile">View Profile</a>
+                                                   <i class="fa fa-user"> </i>  <a href="/shopbantrong_war/admin-edit">View Profile</a>
                                                    </button>
                                                 </div>
                                              </div>

@@ -50,7 +50,7 @@
                                  <div> 
                                     <!-- <i class="fa fa-product-hunt blue1_color" aria-hidden="true"></i> -->
                                     <!-- <i class="fa fa-clock-o blue1_color"></i> -->
-                                    <a class="icon-products" href="#"><img class="icon-product" src="images/myImg/product.png" alt=""></a>
+                                    <a class="icon-products" href="#"><img class="icon-product" src="http://localhost:8080/shopbantrong_war/admin/images/myImg/product.png" alt=""></a>
                                  </div>
                               </div>
                               <div class="counter_no">
@@ -66,7 +66,7 @@
                               <div class="couter_icon">
                                  <div> 
                                     <!-- <i class="fa fa-cloud-download green_color"></i> -->
-                                    <a class="icon-products" href="#"><img class="icon-product" src="images/myImg/package.png" alt=""></a>
+                                    <a class="icon-products" href="#"><img class="icon-product" src="http://localhost:8080/shopbantrong_war/admin/images/myImg/package.png" alt=""></a>
 
                                  </div>
                               </div>

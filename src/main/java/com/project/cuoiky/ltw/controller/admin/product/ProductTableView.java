@@ -23,7 +23,23 @@ public class ProductTableView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ArrayList<SanPham> sptb100 = sanPhamService.getAllSpPLC1(100);
+        ArrayList<SanPham> sanPhams = new ArrayList<SanPham>();
+        int pl = Integer.parseInt(request.getParameter("pl"));
+
+        String notify = "";
+
+        if (pl == 1){
+            sanPhams = sanPhamService.getAllSpPLC1(100);
+            notify = "Trống Bộ";
+        } else if (pl == 2) {
+            sanPhams = sanPhamService.getAllSpPLC1(200);
+            notify = "Trống Lẻ";
+        }else if (pl == 3) {
+            sanPhams = sanPhamService.getAllSpPLC1(300);
+            notify = "Phụ Kiện";
+        }
+
+        ArrayList<SanPham> sptb100 = sanPhams;
         ArrayList<PhanLoaiCap2> phanLoaiCap2s = categoryDao.getListPLC2();
         ArrayList<HinhAnh> haMains = uploadFileService.hinhAnhMains();
 
@@ -53,6 +69,7 @@ public class ProductTableView extends HttpServlet {
         request.setAttribute("sptb", sptb100);
         request.setAttribute("mapHaAndSps", mapHaAndSps);
         request.setAttribute("mapCaAndSps", mapCaAndSps);
+        request.setAttribute("notify",notify);
         request.getRequestDispatcher("/admin/productTableView.jsp").forward(request,response);
     }
 

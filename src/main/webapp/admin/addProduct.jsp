@@ -197,7 +197,7 @@
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Sale
                                                     </label>
-                                                    <input name="sale" type="text"
+                                                    <input name="sale" type="number"
                                                            class="form-control validate" />
                                                 </div>
 
@@ -233,7 +233,7 @@
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Kích Thước
                                                     </label>
-                                                    <input name="kichthuoc" type="text"
+                                                    <input name="kichthuoc" type="number"
                                                            class="form-control validate" />
                                                 </div>
                                             </div>
