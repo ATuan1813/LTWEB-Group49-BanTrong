@@ -26,7 +26,6 @@ public class SanPhamService {
     ProductDao productDao = new ProductDao();
     ColorLKSanPhamService colorLKSanPhamService = new ColorLKSanPhamService();
     UploadFileService uploadFileService = new UploadFileService();
-    HinhAnhDao hinhAnhDao = new HinhAnhDao();
 
     //Query sản phẩm
     public ArrayList<SanPham> getAllSpPLC1(int idplc1) {
