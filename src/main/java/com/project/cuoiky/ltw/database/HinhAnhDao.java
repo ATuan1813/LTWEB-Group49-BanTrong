@@ -1,13 +1,11 @@
 package com.project.cuoiky.ltw.database;
 
-import com.project.cuoiky.ltw.mapper.CategoryMSMapper;
 import com.project.cuoiky.ltw.mapper.HinhAnhMapper;
 import com.project.cuoiky.ltw.model.HinhAnh;
-import com.project.cuoiky.ltw.model.MauSac;
-import com.project.cuoiky.ltw.model.MauSacLKSanPham;
 import com.project.cuoiky.ltw.model.SanPham;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HinhAnhDao extends AbsDao{
     // get list hinh anh for update
@@ -35,6 +33,23 @@ public class HinhAnhDao extends AbsDao{
         return  idha;
     }
 
+    //find one hình ảnh
+    public HinhAnh findOneHA(int idSp){
+        String sql = "SELECT * FROM HINHANH WHERE IdSp = ?";
+        List<HinhAnh> sp = queryHasId(sql, new HinhAnhMapper(), idSp);
+        System.out.println("find id of findOneImg :" + sp.get(0).getIdHA());
+        return sp.isEmpty() ? null : sp.get(0);
+
+    }
+
+    //update hình ảnh
+    public int  updateHA(HinhAnh hinhAnh,int idSP){
+        String sql = "UPDATE HINHANH SET MaViTriHA = ?, UrlHA = ? WHERE IdSP = ?";
+        int idha =  update(sql,hinhAnh.getMaViTriHA(),hinhAnh.getUrlHA(),idSP);
+
+        return  idha;
+    }
+
     public ArrayList<HinhAnh> getListHAMain(int MaViTri){
 
         ArrayList<HinhAnh> HinhAnhs = new ArrayList<HinhAnh>();
@@ -43,5 +58,16 @@ public class HinhAnhDao extends AbsDao{
         HinhAnhs = queryHasId(sql, new HinhAnhMapper(), MaViTri);
 
         return HinhAnhs;
+    }
+
+    // xóa 1 hình ảnh dựa trên id sản phẩm
+    public int removeImg(int idsp){
+        int idimg = 0;
+        String sql = "DELETE FROM HINHANH WHERE IdSP = ?";
+
+        idimg = update(sql, idsp);
+        System.out.println("đã xóa img có id : " + idimg);
+
+        return idimg;
     }
 }

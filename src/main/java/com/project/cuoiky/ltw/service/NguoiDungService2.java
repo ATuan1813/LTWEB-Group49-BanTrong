@@ -1,0 +1,101 @@
+package com.project.cuoiky.ltw.service;
+
+import com.project.cuoiky.ltw.database.NguoiDungDao2;
+import com.project.cuoiky.ltw.mapper.NguoiDungMapper;
+import com.project.cuoiky.ltw.model.NguoiDung;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+public class NguoiDungService2 {
+    NguoiDungDao2 nguoiDungDao2 = new NguoiDungDao2();
+
+    // add user
+    public int adduser(HttpServletRequest request) {
+        int idnd = 0;
+        String TAIKHOAN =  request.getParameter("username");
+        String MatKhau =  request.getParameter("password");
+        String TenNguoiDung = request.getParameter("fullname");
+//        int Quyen = Integer.parseInt(request.getParameter("quyen"));
+        int sdt = Integer.parseInt(request.getParameter("phone"));
+        String Email = request.getParameter("email");
+        String diachi =  request.getParameter("diachi");
+        String avartar =  request.getParameter("");
+        int tinhtrang = Integer.parseInt(request.getParameter("tinhtrang"));
+
+        NguoiDung nguoiDung = new NguoiDung(TAIKHOAN,MatKhau,TenNguoiDung,2,sdt,Email,diachi,avartar,tinhtrang);
+        idnd = nguoiDungDao2.adduser(nguoiDung);
+
+        return idnd;
+
+    }
+
+    public String checkAndUser(HttpServletRequest request){
+        int idnd = 0;
+        ArrayList<NguoiDung> nguoiDungs = nguoiDungDao2.getListND();
+        String usernameND = request.getParameter("username");
+
+        if (!nguoiDungs.isEmpty()){
+            for (int i = 0; i < nguoiDungs.size(); i++) {
+                if (!usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i < nguoiDungs.size() - 1){
+                    System.out.println("username1 " + usernameND);
+                    System.out.println("username2 " + nguoiDungs.get(i).getTaiKhoan());
+                    continue;
+                }else if (usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i < nguoiDungs.size() - 1){
+                    idnd = 0;
+                    break;
+                }else if (!usernameND.equalsIgnoreCase(nguoiDungs.get(i).getTaiKhoan()) && i == nguoiDungs.size() - 1){
+                    idnd = adduser(request);
+                }
+
+            }
+        }else {
+            idnd = adduser(request);
+        }
+
+        if (idnd > 0){
+            return "Đã thêm người dùng : " + usernameND;
+        }else {
+            return "Thêm thất bại, tên Tài Khoản đã tồn tại";
+        }
+    }
+
+    // update user
+    public String updateUser(HttpServletRequest request) {
+        int idnd = 0;
+
+        int idndRe = Integer.parseInt(request.getParameter("idnd"));
+        String TAIKHOAN =  request.getParameter("username");
+        String MatKhau =  request.getParameter("password");
+        String TenNguoiDung = request.getParameter("fullname");
+        int sdt = Integer.parseInt(request.getParameter("phone"));
+        String Email = request.getParameter("email");
+        String diachi =  request.getParameter("diachi");
+        String avartar =  request.getParameter("");
+        int tinhtrang = Integer.parseInt(request.getParameter("tinhtrang"));
+
+        NguoiDung nguoiDung = new NguoiDung(idndRe,TAIKHOAN,MatKhau,TenNguoiDung,2,sdt,Email,diachi,avartar,tinhtrang);
+        idnd = nguoiDungDao2.updateUser(nguoiDung);
+
+        if (idnd > 0){
+            return "Đã cập nhật người dùng : " + TAIKHOAN;
+        }else {
+            return "Cập nhật thất bại, tên tài khoản bị trùng";
+        }
+    }
+
+    // get list user
+    public ArrayList<NguoiDung> getListUs(){
+        return nguoiDungDao2.getListND();
+    }
+    public NguoiDung findonend(int idnd){
+
+        return nguoiDungDao2.findonend(idnd);
+    }
+
+    public int deleteUser(int idnd){
+        return nguoiDungDao2.deleteUser(idnd);
+    }
+
+}

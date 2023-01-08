@@ -21,7 +21,7 @@
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
-                              <a href="tables.jsp"><h2>Quản Lý Đơn Hàng</h2></a>
+                              <a href="/shopbantrong_war/admin-invoice-tables"><h2>Quản Lý Đơn Hàng</h2></a>
                            </div>
                         </div>
                      </div>
@@ -33,7 +33,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Hôm Nay</h2>
-                                    <a href="invoiceTable.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-invoice-table"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -55,7 +55,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -63,7 +63,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -71,7 +71,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -79,7 +79,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -87,7 +87,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
@@ -100,7 +100,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trong Tuần</h2>
-                                    <a href="invoiceTable.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-invoice-table"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -122,7 +122,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -130,7 +130,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -138,7 +138,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -146,7 +146,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -154,7 +154,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                        </tbody>
                                     </table>
@@ -167,7 +167,7 @@
                               <div class="full graph_head">
                                  <div class="heading1 heading-table margin_0">
                                     <h2>Trong Tháng</h2>
-                                    <a href="invoiceTable.jsp"><h4>Xem Thêm</h4></a>
+                                    <a href="/shopbantrong_war/admin-invoice-table"><h4>Xem Thêm</h4></a>
                                  </div>
                               </div>
                               <div class="table_section padding_infor_info">
@@ -189,7 +189,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -197,7 +197,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -205,7 +205,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -213,7 +213,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                           <tr>
                                              <!-- TBộ - loại trống - hãng - sp -->
@@ -221,7 +221,7 @@
                                              <td>10-12-2022</td> 
                                              <td>linh213</td>
                                              <td>20.000.000 vnd</td>
-                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="invoice.jsp">Link</a></button></td>
+                                             <td class="table-td button-td"><button class="btn btn-primary"><a href="/shopbantrong_war/admin-invoice-detail">Link</a></button></td>
                                           </tr>
                                        </tbody>
                                     </table>

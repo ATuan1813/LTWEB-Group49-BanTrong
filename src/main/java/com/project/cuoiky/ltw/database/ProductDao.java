@@ -2,7 +2,6 @@ package com.project.cuoiky.ltw.database;
 
 import com.project.cuoiky.ltw.mapper.ProductMapper;
 import com.project.cuoiky.ltw.model.HinhAnh;
-import com.project.cuoiky.ltw.model.MauSac;
 import com.project.cuoiky.ltw.model.MauSacLKSanPham;
 import com.project.cuoiky.ltw.model.SanPham;
 
@@ -63,16 +62,28 @@ public class ProductDao extends AbsDao{
         return  idSP;
     }
 
-
-
     // find by id
-    public SanPham findOne(int id) {
-
+    public SanPham findOne(int idsp) {
         String sql = "SELECT * FROM sanpham WHERE IDSP = ?";
-        List<SanPham> news2 = queryHasId(sql, new ProductMapper(), id);
+        List<SanPham> news2 = queryHasId(sql, new ProductMapper(), idsp);
         System.out.println("find id of findOneNew :" + news2.get(0).getIdSP());
         return news2.isEmpty() ? null : news2.get(0);
+    }
 
+    //update san phẩm
+    public int updateSp(SanPham sanPham, int idSp){
+
+        sanPham.setIdSP(idSp);
+
+        String sql = "UPDATE SANPHAM SET TenSP = ?, MoTaSP = ?, IdPLC2 = ?, Hang = ?, ThongSoKyThuat = ?, KichThuoc = ?," +
+                "VatLieu = ?, KhuyenMai = ?, SoLuongTrongKho = ?, GiaBan = ?, GiaVon = ?, TinhTrang = ? WHERE IdSP = ?";
+
+        int i = update(sql, sanPham.getTenSP(), sanPham.getMotaSP(), sanPham.getIdPLC2(), sanPham.getHang(), sanPham.getThongSoKyThuat()
+            , sanPham.getKickThuoc(), sanPham.getVatLieu(), sanPham.getKhuyenMai(), sanPham.getSoLuongTrongKho(), sanPham.getGiaBan()
+            , sanPham.getGiaVon(), sanPham.getTinhTrang(), idSp);
+
+
+        return i;
     }
 
     public ArrayList<SanPham> getAllSp(){
@@ -138,6 +149,7 @@ public class ProductDao extends AbsDao{
         return sanPhams;
     }
 
+    // tinh tong so luong san pham
     public int getCountTheoPhanTrang() {
         String sql = "SELECT count(sp.idSP) FROM sanpham sp ORDER BY TenSP ASC";
         int total = count(sql);
@@ -145,6 +157,7 @@ public class ProductDao extends AbsDao{
         return total;
     }
 
+    // lay san pham dua theo hang
     public ArrayList<SanPham> getAllSanPhamTheoHang(String idsHang, String firstRecord) {
         ArrayList<SanPham> sanPhams = new ArrayList<>();
 
@@ -154,6 +167,7 @@ public class ProductDao extends AbsDao{
         return sanPhams;
     }
 
+    // lay danh sach tat ca cac hang
     public ArrayList<SanPham> getAllHang() {
         ArrayList<SanPham> sanPhams = new ArrayList<>();
 
@@ -161,6 +175,16 @@ public class ProductDao extends AbsDao{
         sanPhams = queryHasId(sql, new ProductMapper());
 
         return sanPhams;
+    }
+
+    // xóa sp
+    public int removeSp(int idsp){
+        int idimg = 0;
+        String sql = "DELETE FROM SANPHAM WHERE IdSP = ?";
+
+        idimg = update(sql, idsp);
+        System.out.println("đã xóa san pham có id : " + idimg);
+        return idimg;
     }
 
 }

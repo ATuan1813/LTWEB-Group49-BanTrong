@@ -1,7 +1,5 @@
-<%@ page import="com.project.cuoiky.ltw.model.PhanLoaiCap1" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.project.cuoiky.ltw.model.PhanLoaiCap2" %>
-<%@ page import="com.project.cuoiky.ltw.model.MauSac" %>
+<%@ page import="com.project.cuoiky.ltw.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -67,22 +65,25 @@
                                 </div>
                                 <div class="row tm-edit-product-row">
                                     <div class="col-xl-6 col-lg-6 col-md-12">
-                                        <form action="/shopbantrong_war/admin-product-add" method="post" class="tm-edit-product-form" enctype="multipart/form-data">
+                                        <%  HinhAnh hinhAnh = (HinhAnh) request.getAttribute("ha");
+                                            SanPham sanPham = (SanPham) request.getAttribute("sp");
+                                            MauSacLKSanPham mauSacLKSanPham = (MauSacLKSanPham) request.getAttribute("ms");
+                                        %>
+                                        <form action="/shopbantrong_war/admin-product-update" method="post" class="tm-edit-product-form" enctype="multipart/form-data">
                                             <div class="form-group mb-3">
                                                 <label>Tên Sản Phẩm
                                                 </label>
-                                                <input id="TenSP" name="TenSP" type="text" class="form-control validate"
+                                                <input id="TenSP" name="TenSP" value="<%out.print(sanPham.getTenSP());%>" type="text" class="form-control validate"
                                                        required />
-
-
+                                                <input id="idsp" name="idsp" value="<%out.print(sanPham.getIdSP());%>" style="display: none">
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label >Mô Tả</label>
-                                                <textarea name="MoTaSP" class="form-control validate" rows="4" required></textarea>
+                                                <textarea name="MoTaSP" class="form-control validate" rows="4" required><%out.print(sanPham.getMotaSP());%></textarea>
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label >Thông Số Kỹ Thuật</label>
-                                                <textarea name="ThongSoKyThuat" class="form-control validate" rows="4" required></textarea>
+                                                <textarea name="ThongSoKyThuat" class="form-control validate" rows="4" required><%out.print(sanPham.getThongSoKyThuat());%></textarea>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -153,7 +154,7 @@
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6" id="color">
                                                     <label >Số Lượng MS</label>
                                                     <input oninput="sumSoLuong()" id="soLuongMS1000" name="soLuongMS1000"
-                                                           class="form-control" min="0" max="10000" value="0" type="number"
+                                                           class="form-control" min="0" max="10000" value="<%out.print(mauSacLKSanPham.getSoLuongTrongKhoMS());%>" type="number"
                                                            required />
                                                 </div>
                                             </div>
@@ -192,12 +193,12 @@
                                                     <label>Số Lượng Sản Phẩm
                                                     </label>
                                                     <input id="soLuong" name="soLuong" readonly="readonly"
-                                                           class="form-control" min="0" max="10000" value="0" type="number" required />
+                                                           class="form-control" min="0" max="10000" value="<%out.print(sanPham.getSoLuongTrongKho());%>" type="number" required />
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Sale
                                                     </label>
-                                                    <input name="sale" type="text"
+                                                    <input name="sale" type="text" value="<%out.print(sanPham.getKhuyenMai());%>"
                                                            class="form-control validate" />
                                                 </div>
 
@@ -207,19 +208,19 @@
                                                     <label>Giá Vốn
                                                     </label>
                                                     <input id="inputGiaVon" name="inputGiaVon"
-                                                           value=""
+                                                           value="<%out.print(sanPham.getGiaVon());%>"
                                                            data-type="currency" oninput="GiaVon()" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
-                                                    <input id="giavon" name="giavon" style="display: none">
+                                                    <input id="giavon" name="giavon" style="display: none" value="<%out.print(sanPham.getGiaVon());%>">
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Giá Bán
                                                     </label>
                                                     <input id="inputGiaBan" name="inputGiaBan"
-                                                           value=""
+                                                           value="<%out.print(sanPham.getGiaBan());%>"
                                                            data-type="currency" oninput="GiaBan()" placeholder="1.000.000 vnd"
                                                            class="form-control validate" data-large-mode="true" />
-                                                    <input id="giaban" name="giaban" style="display: none">
+                                                    <input id="giaban" name="giaban" style="display: none" value="<%out.print(sanPham.getGiaBan());%>">
                                                 </div>
 
                                             </div>
@@ -227,13 +228,13 @@
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Vật Liệu
                                                     </label>
-                                                    <input id="vatlieu" name="vatlieu" type="text"
+                                                    <input id="vatlieu" name="vatlieu" type="text" value="<%out.print(sanPham.getVatLieu());%>"
                                                            class="form-control validate" required />
                                                 </div>
                                                 <div class="form-group mb-3 col-xs-12 col-sm-6">
                                                     <label>Kích Thước
                                                     </label>
-                                                    <input name="kichthuoc" type="text"
+                                                    <input name="kichthuoc" type="text" value="<%out.print(sanPham.getKickThuoc());%>"
                                                            class="form-control validate" />
                                                 </div>
                                             </div>
@@ -245,8 +246,8 @@
                                             <div class="tm-product-img-dummy mx-auto" id="img-pre1000">
                                                 <!-- <i class="fas fa-cloud-upload-alt tm-upload-icon"
                                                             onclick="document.getElementById('inputFile').click();"></i> -->
-                                                <img id="nameImg1000" src="" alt="" class="img-pre__img">
-                                                <span id="text-pre1000" class="img-pre-text">Khung Hình Chính</span>
+                                                <img id="nameImg1000" src="<%out.print("http://localhost:8080/shopbantrong_war/"+hinhAnh.getUrlHA());%>" alt="" class="img-pre__img">
+                                                <span id="text-pre1000" class="img-pre-text"></span>
                                             </div>
                                             <div class="custom-file mt-3 mb-3">
                                                 <input id="imgFile1000" name="imgFile1000" type="file" style="display:none;" />
@@ -263,7 +264,7 @@
                                     <!-- button submit -->
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary btn-block text-uppercase">
-                                            Thêm Sản Phẩm
+                                            Cập Nhật Sản Phẩm
                                         </button>
                                     </div>
                                     <div class="col-12">
